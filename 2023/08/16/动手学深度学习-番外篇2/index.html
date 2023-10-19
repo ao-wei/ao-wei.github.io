@@ -69,7 +69,7 @@
     <!--- Inject Part-->
     
     <script id="hexo-configurations">
-    window.config = {"hostname":"ao-wei.github.io","root":"/","language":"zh-CN"};
+    window.config = {"hostname":"ao-wei.github.io","root":"/","language":"zh-CN","path":"search.xml"};
     window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/Day.jpg","dark":"/images/Night.jpg"},"title":"敖炜","subtitle":{"text":["操千曲而后晓声，观千剑而后识器"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/ao-wei","instagram":null,"zhihu":null,"twitter":null,"email":"aowei0821@gmail.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.5.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Tags":{"path":"/tags","icon":"fa-regular fa-tag"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"说说":"/shuoshuo","Github":"https://github.com/ao-wei","Blog":"https://ao-wei.github.io"}},"Links":{"icon":"fa-regular fa-link","submenus":{"友情链接":"/links/","Link2":"/link2","Link3":"/link3"}},"相册":{"icon":"fa-solid fa-image","path":"/masonry/"}},"search":{"enable":true,"preload":true},"tags":{"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"}},"categories":{"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"}}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2023/5/20 11:45:14"};
     window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
     window.data = {"masonry":true};
@@ -84,7 +84,119 @@
     
     
     
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -537,6 +649,14 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.3k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>5 分钟</span>
+        </span>
     
     
         <span class="article-pv article-meta-item">
@@ -554,17 +674,17 @@
 
 
         <div class="article-content markdown-body">
-            <h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><p>Pandas是非常受欢迎的数据分析库，跟着<a class="link"   target="_blank" rel="noopener" href="https://www.kaggle.com/code/residentmario/creating-reading-and-writing" >Kaggle <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上的教程简单学一下</p>
+            <h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><p>Pandas是非常受欢迎的数据分析库，跟着<a class="link" target="_blank" rel="noopener" href="https://www.kaggle.com/code/residentmario/creating-reading-and-writing">Kaggle <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上的教程简单学一下</p>
 <span id="more"></span>
 
 <h2 id="Creating-Reading-and-Writing"><a href="#Creating-Reading-and-Writing" class="headerlink" title="Creating, Reading and Writing"></a>Creating, Reading and Writing</h2><h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><p>创建</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pd.DataFrame(&#123;<span class="string">&#x27;Bob&#x27;</span>: [<span class="string">&#x27;I liked it.&#x27;</span>, <span class="string">&#x27;It was awful.&#x27;</span>], </span><br><span class="line">              <span class="string">&#x27;Sue&#x27;</span>: [<span class="string">&#x27;Pretty good.&#x27;</span>, <span class="string">&#x27;Bland.&#x27;</span>]&#125;,</span><br><span class="line">             index=[<span class="string">&#x27;Product A&#x27;</span>, <span class="string">&#x27;Product B&#x27;</span>])</span><br><span class="line"></span><br><span class="line">fruit_sales = pd.DataFrame([[<span class="number">35</span>, <span class="number">21</span>], [<span class="number">41</span>, <span class="number">34</span>]], columns=[<span class="string">&#x27;Apples&#x27;</span>, <span class="string">&#x27;Bananas&#x27;</span>],</span><br><span class="line">                index=[<span class="string">&#x27;2017 Sales&#x27;</span>, <span class="string">&#x27;2018 Sales&#x27;</span>])</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pd.DataFrame({<span class="string">'Bob'</span>: [<span class="string">'I liked it.'</span>, <span class="string">'It was awful.'</span>], </span><br><span class="line">              <span class="string">'Sue'</span>: [<span class="string">'Pretty good.'</span>, <span class="string">'Bland.'</span>]},</span><br><span class="line">             index=[<span class="string">'Product A'</span>, <span class="string">'Product B'</span>])</span><br><span class="line"></span><br><span class="line">fruit_sales = pd.DataFrame([[<span class="number">35</span>, <span class="number">21</span>], [<span class="number">41</span>, <span class="number">34</span>]], columns=[<span class="string">'Apples'</span>, <span class="string">'Bananas'</span>],</span><br><span class="line">                index=[<span class="string">'2017 Sales'</span>, <span class="string">'2018 Sales'</span>])</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h3><p>创建</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.Series([<span class="number">30</span>, <span class="number">35</span>, <span class="number">40</span>], index=[<span class="string">&#x27;2015 Sales&#x27;</span>, <span class="string">&#x27;2016 Sales&#x27;</span>, <span class="string">&#x27;2017 Sales&#x27;</span>], name=<span class="string">&#x27;Product A&#x27;</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.Series([<span class="number">30</span>, <span class="number">35</span>, <span class="number">40</span>], index=[<span class="string">'2015 Sales'</span>, <span class="string">'2016 Sales'</span>, <span class="string">'2017 Sales'</span>], name=<span class="string">'Product A'</span>)</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h3><p>读CSV文件</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine_reviews = pd.read_csv(<span class="string">&quot;../input/wine-reviews/winemag-data-130k-v2.csv&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine_reviews = pd.read_csv(<span class="string">"../input/wine-reviews/winemag-data-130k-v2.csv"</span>)</span><br></pre></td></tr></table></figure></div>
 
 <p>查看形状</p>
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine_reviews.shape</span><br></pre></td></tr></table></figure></div>
@@ -574,16 +694,16 @@
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine_reviews.head()</span><br></pre></td></tr></table></figure></div>
 
 <p>指定源文件中某一行作为索引行</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine_reviews = pd.read_csv(<span class="string">&quot;../input/wine-reviews/winemag-data-130k-v2.csv&quot;</span>, index_col=<span class="number">0</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine_reviews = pd.read_csv(<span class="string">"../input/wine-reviews/winemag-data-130k-v2.csv"</span>, index_col=<span class="number">0</span>)</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h3><p>将DataFrame转换为CSV文件存储</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">animals.to_csv(<span class="string">&quot;cows_and_goats.csv&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">animals.to_csv(<span class="string">"cows_and_goats.csv"</span>)</span><br></pre></td></tr></table></figure></div>
 
 <h2 id="Indexing-Selecting-and-Assigning"><a href="#Indexing-Selecting-and-Assigning" class="headerlink" title="Indexing, Selecting and Assigning"></a>Indexing, Selecting and Assigning</h2><p>访问DataFrame中某一列(选择其中一个Series)</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reviews.country</span><br><span class="line"></span><br><span class="line">reviews[<span class="string">&#x27;country&#x27;</span>]</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reviews.country</span><br><span class="line"></span><br><span class="line">reviews[<span class="string">'country'</span>]</span><br></pre></td></tr></table></figure></div>
 
 <p>访问某个特定值</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews[<span class="string">&#x27;country&#x27;</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews[<span class="string">'country'</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="Indexing-in-pandas"><a href="#Indexing-in-pandas" class="headerlink" title="Indexing in pandas"></a>Indexing in pandas</h3><ol>
 <li><p>index-based selection：<code>iloc</code></p>
@@ -605,10 +725,10 @@
 <li>看重数据索引值，而非位置。可以将任何标准数据类型作为索引</li>
 </ul>
 <p>获取某一个entry</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.loc[<span class="number">0</span>, <span class="string">&#x27;country&#x27;</span>]</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.loc[<span class="number">0</span>, <span class="string">'country'</span>]</span><br></pre></td></tr></table></figure></div>
 
 <p>获取特定的行和列</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.loc[:, [<span class="string">&#x27;taster_name&#x27;</span>, <span class="string">&#x27;taster_twitter_handle&#x27;</span>, <span class="string">&#x27;points&#x27;</span>]]</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.loc[:, [<span class="string">'taster_name'</span>, <span class="string">'taster_twitter_handle'</span>, <span class="string">'points'</span>]]</span><br></pre></td></tr></table></figure></div>
 
 <hr>
 </li>
@@ -619,12 +739,12 @@
 </li>
 </ol>
 <h3 id="Manipulating-the-index"><a href="#Manipulating-the-index" class="headerlink" title="Manipulating the index"></a>Manipulating the index</h3><p>设置索引列（ID）</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.set_index(<span class="string">&quot;title&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.set_index(<span class="string">"title"</span>)</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="Conditional-selection"><a href="#Conditional-selection" class="headerlink" title="Conditional selection"></a>Conditional selection</h3><p>逻辑判断</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">reviews.country == <span class="string">&#x27;Italy&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 与</span></span><br><span class="line">reviews.loc[(reviews.country == <span class="string">&#x27;Italy&#x27;</span>) &amp; (reviews.points &gt;= <span class="number">90</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">reviews.loc[(reviews.country == <span class="string">&#x27;Italy&#x27;</span>) | (reviews.points &gt;= <span class="number">90</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># isin</span></span><br><span class="line">reviews.loc[reviews.country.isin([<span class="string">&#x27;Italy&#x27;</span>, <span class="string">&#x27;France&#x27;</span>])]</span><br><span class="line"></span><br><span class="line"><span class="comment"># isnull/notnull</span></span><br><span class="line">reviews.loc[reviews.price.notnull()]</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">reviews.country == <span class="string">'Italy'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 与</span></span><br><span class="line">reviews.loc[(reviews.country == <span class="string">'Italy'</span>) &amp; (reviews.points &gt;= <span class="number">90</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">reviews.loc[(reviews.country == <span class="string">'Italy'</span>) | (reviews.points &gt;= <span class="number">90</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># isin</span></span><br><span class="line">reviews.loc[reviews.country.isin([<span class="string">'Italy'</span>, <span class="string">'France'</span>])]</span><br><span class="line"></span><br><span class="line"><span class="comment"># isnull/notnull</span></span><br><span class="line">reviews.loc[reviews.price.notnull()]</span><br></pre></td></tr></table></figure></div>
 
-<h3 id="Assigning-data"><a href="#Assigning-data" class="headerlink" title="Assigning data"></a>Assigning data</h3><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reviews[<span class="string">&#x27;critic&#x27;</span>] = <span class="string">&#x27;everyone&#x27;</span></span><br><span class="line"></span><br><span class="line">reviews[<span class="string">&#x27;index_backwards&#x27;</span>] = <span class="built_in">range</span>(<span class="built_in">len</span>(reviews), <span class="number">0</span>, -<span class="number">1</span>)</span><br></pre></td></tr></table></figure></div>
+<h3 id="Assigning-data"><a href="#Assigning-data" class="headerlink" title="Assigning data"></a>Assigning data</h3><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reviews[<span class="string">'critic'</span>] = <span class="string">'everyone'</span></span><br><span class="line"></span><br><span class="line">reviews[<span class="string">'index_backwards'</span>] = <span class="built_in">range</span>(<span class="built_in">len</span>(reviews), <span class="number">0</span>, -<span class="number">1</span>)</span><br></pre></td></tr></table></figure></div>
 
 <h2 id="Summary-Functions-and-Maps"><a href="#Summary-Functions-and-Maps" class="headerlink" title="Summary Functions and Maps"></a>Summary Functions and Maps</h2><h3 id="Summary-functions"><a href="#Summary-functions" class="headerlink" title="Summary functions"></a>Summary functions</h3><p>总结信息（只对数值型有效）</p>
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.points.describe()</span><br></pre></td></tr></table></figure></div>
@@ -643,46 +763,46 @@
 <ul>
 <li>将数据的均值映射为0，返回映射后的结果</li>
 </ul>
- <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">review_points_mean = reviews.points.mean()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 map 函数对 &#x27;points&#x27; 列中的每个点数值进行处理，其中传入的是一个匿名函数（Lambda 函数），该函数将每个点数值减去平均值。这样做可以得到一个新的 Series，其中每个元素都是原始点数值减去平均值的结果。</span></span><br><span class="line">reviews.points.<span class="built_in">map</span>(<span class="keyword">lambda</span> p: p - review_points_mean)</span><br></pre></td></tr></table></figure></div>
+ <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">review_points_mean = reviews.points.mean()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 map 函数对 'points' 列中的每个点数值进行处理，其中传入的是一个匿名函数（Lambda 函数），该函数将每个点数值减去平均值。这样做可以得到一个新的 Series，其中每个元素都是原始点数值减去平均值的结果。</span></span><br><span class="line">reviews.points.<span class="built_in">map</span>(<span class="keyword">lambda</span> p: p - review_points_mean)</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p><code>apply()</code></p>
 <ul>
 <li>向apply()传入自制的函数，指定维度</li>
 </ul>
- <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">remean_points</span>(<span class="params">row</span>): <span class="comment"># 对每一行的points值进行映射</span></span><br><span class="line">row.points = row.points - review_points_mean</span><br><span class="line"><span class="keyword">return</span> row</span><br><span class="line"></span><br><span class="line">reviews.apply(remean_points, axis=<span class="string">&#x27;columns&#x27;</span>) <span class="comment"># axis=&#x27;columns&#x27; 会将函数应用在每一行上</span></span><br><span class="line"><span class="comment"># axis=&#x27;index&#x27; 会将函数应用在每一列上</span></span><br></pre></td></tr></table></figure></div>
+ <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">remean_points</span>(<span class="params">row</span>): <span class="comment"># 对每一行的points值进行映射</span></span><br><span class="line">row.points = row.points - review_points_mean</span><br><span class="line"><span class="keyword">return</span> row</span><br><span class="line"></span><br><span class="line">reviews.apply(remean_points, axis=<span class="string">'columns'</span>) <span class="comment"># axis='columns' 会将函数应用在每一行上</span></span><br><span class="line"><span class="comment"># axis='index' 会将函数应用在每一列上</span></span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p><code>map()</code>和<code>apply()</code>不会改变原数据，只会返回转换后的新Series或DataFrame</p>
 </li>
 <li><p>Pandas提供了许多常见的内置映射操作，下面的方法更快</p>
  <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">review_points_mean = reviews.points.mean()</span><br><span class="line">reviews.points - review_points_mean</span><br></pre></td></tr></table></figure></div>
 </li>
-<li><p>在等长的Series之间也有一些内置操作（+,-,&gt;,&lt;,&#x3D;&#x3D;等等），他们比<code>map</code>和<code>apply</code>快，但是没这么灵活</p>
- <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.country + <span class="string">&quot; - &quot;</span> + reviews.region_1</span><br></pre></td></tr></table></figure></div></li>
+<li><p>在等长的Series之间也有一些内置操作（+,-,&gt;,&lt;,==等等），他们比<code>map</code>和<code>apply</code>快，但是没这么灵活</p>
+ <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.country + <span class="string">" - "</span> + reviews.region_1</span><br></pre></td></tr></table></figure></div></li>
 </ol>
 <h2 id="Grouping-and-Sorting"><a href="#Grouping-and-Sorting" class="headerlink" title="Grouping and Sorting"></a>Grouping and Sorting</h2><h3 id="Groupwise-analysis"><a href="#Groupwise-analysis" class="headerlink" title="Groupwise analysis"></a>Groupwise analysis</h3><p>和<code>value_count()</code>有同样的效果</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.groupby(<span class="string">&#x27;points&#x27;</span>).points.count()</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.groupby(<span class="string">'points'</span>).points.count()</span><br></pre></td></tr></table></figure></div>
 
 <p>按分数分组后求每组最便宜的值</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.groupby(<span class="string">&#x27;points&#x27;</span>).price.<span class="built_in">min</span>()</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.groupby(<span class="string">'points'</span>).price.<span class="built_in">min</span>()</span><br></pre></td></tr></table></figure></div>
 
 <p>apply()可以直接访问并操作分组后的数据集，每次访问一个分组对象</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 首先，使用 groupby 方法将 DataFrame reviews 按照 &#x27;winery&#x27; 列的唯一值进行分组。这将返回一个分组对象，每个组都包含属于同一个 &#x27;winery&#x27; 的所有行。然后，对每个分组应用一个函数。在这里，使用了匿名函数（Lambda 函数），该函数接受一个参数 df，表示每个分组（即每个 &#x27;winery&#x27; 的所有行）。在每个分组中，通过 df.title.iloc[0] 获取该分组的第一行的 &#x27;title&#x27; 列值，即每个 &#x27;winery&#x27; 的第一款葡萄酒的标题。</span></span><br><span class="line">reviews.groupby(<span class="string">&#x27;winery&#x27;</span>).apply(<span class="keyword">lambda</span> df: df.title.iloc[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">reviews.groupby([<span class="string">&#x27;country&#x27;</span>, <span class="string">&#x27;province&#x27;</span>]).apply(<span class="keyword">lambda</span> df: df.loc[df.points.idxmax()])</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 首先，使用 groupby 方法将 DataFrame reviews 按照 'winery' 列的唯一值进行分组。这将返回一个分组对象，每个组都包含属于同一个 'winery' 的所有行。然后，对每个分组应用一个函数。在这里，使用了匿名函数（Lambda 函数），该函数接受一个参数 df，表示每个分组（即每个 'winery' 的所有行）。在每个分组中，通过 df.title.iloc[0] 获取该分组的第一行的 'title' 列值，即每个 'winery' 的第一款葡萄酒的标题。</span></span><br><span class="line">reviews.groupby(<span class="string">'winery'</span>).apply(<span class="keyword">lambda</span> df: df.title.iloc[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">reviews.groupby([<span class="string">'country'</span>, <span class="string">'province'</span>]).apply(<span class="keyword">lambda</span> df: df.loc[df.points.idxmax()])</span><br></pre></td></tr></table></figure></div>
 
 <p>利用agg()函数对分组后的数据集进行多个函数操作</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对每个分组应用聚合函数。在这里，price 是一个 Series，使用 agg() 方法应用多个聚合函数。具体地，使用了 len、min 和 max 函数，分别计算了每个分组中 &#x27;price&#x27; 列的长度（即行数）、最小值和最大值。</span></span><br><span class="line">reviews.groupby([<span class="string">&#x27;country&#x27;</span>]).price.agg([<span class="built_in">len</span>, <span class="built_in">min</span>, <span class="built_in">max</span>])</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对每个分组应用聚合函数。在这里，price 是一个 Series，使用 agg() 方法应用多个聚合函数。具体地，使用了 len、min 和 max 函数，分别计算了每个分组中 'price' 列的长度（即行数）、最小值和最大值。</span></span><br><span class="line">reviews.groupby([<span class="string">'country'</span>]).price.agg([<span class="built_in">len</span>, <span class="built_in">min</span>, <span class="built_in">max</span>])</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="Multi-indexes"><a href="#Multi-indexes" class="headerlink" title="Multi-indexes"></a>Multi-indexes</h3><p>按两个以上特征分组可能会导致多级索引的问题</p>
 <p>将多层索引转换回单层索引</p>
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">countries_reviewed.reset_index()</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a>Sorting</h3><p>按某一个特定列的值进行排序</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sort_values()默认是递增的顺序</span></span><br><span class="line">countries_reviewed.sort_values(by=<span class="string">&#x27;len&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 递减的顺序</span></span><br><span class="line">countries_reviewed.sort_values(by=<span class="string">&#x27;len&#x27;</span>, ascending=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sort_values()默认是递增的顺序</span></span><br><span class="line">countries_reviewed.sort_values(by=<span class="string">'len'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 递减的顺序</span></span><br><span class="line">countries_reviewed.sort_values(by=<span class="string">'len'</span>, ascending=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></div>
 
 <p>按索引排序</p>
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">countries_reviewed.sort_index()</span><br></pre></td></tr></table></figure></div>
 
 <p>按多于一个列进行排序</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">countries_reviewed.sort_values(by=[<span class="string">&#x27;country&#x27;</span>, <span class="string">&#x27;len&#x27;</span>])</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">countries_reviewed.sort_values(by=[<span class="string">'country'</span>, <span class="string">'len'</span>])</span><br></pre></td></tr></table></figure></div>
 
 <h2 id="Data-Types-and-Missing-Values"><a href="#Data-Types-and-Missing-Values" class="headerlink" title="Data Types and Missing Values"></a>Data Types and Missing Values</h2><h3 id="Dtypes"><a href="#Dtypes" class="headerlink" title="Dtypes"></a>Dtypes</h3><p>获取某一列的数据类型</p>
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.price.dtype</span><br></pre></td></tr></table></figure></div>
@@ -691,30 +811,30 @@
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.dtypes</span><br></pre></td></tr></table></figure></div>
 
 <p>转换某一列的数据类型</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.points.astype(<span class="string">&#x27;float64&#x27;</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.points.astype(<span class="string">'float64'</span>)</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="Missing-data"><a href="#Missing-data" class="headerlink" title="Missing data"></a>Missing data</h3><p>选出NaN的entries</p>
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews[pd.isnull(reviews.country)]</span><br></pre></td></tr></table></figure></div>
 
 <p>填充NaN值</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.region_2.fillna(<span class="string">&quot;Unknown&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.region_2.fillna(<span class="string">"Unknown"</span>)</span><br></pre></td></tr></table></figure></div>
 
 <p>替换非空值</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.taster_twitter_handle.replace(<span class="string">&quot;@kerinokeefe&quot;</span>, <span class="string">&quot;@kerino&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.taster_twitter_handle.replace(<span class="string">"@kerinokeefe"</span>, <span class="string">"@kerino"</span>)</span><br></pre></td></tr></table></figure></div>
 
 <h2 id="Renaming-and-Combining"><a href="#Renaming-and-Combining" class="headerlink" title="Renaming and Combining"></a>Renaming and Combining</h2><h3 id="Renaming"><a href="#Renaming" class="headerlink" title="Renaming"></a>Renaming</h3><p>修改索引名或列名</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.rename(columns=&#123;<span class="string">&#x27;points&#x27;</span>: <span class="string">&#x27;score&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.rename(columns={<span class="string">'points'</span>: <span class="string">'score'</span>})</span><br></pre></td></tr></table></figure></div>
 
 <p>修改列名使用<code>set_index()</code>更方便  </p>
 <p>Both the row index and the column index can have their own name attribute. The complimentary rename_axis() method may be used to change these names. </p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.rename_axis(<span class="string">&quot;wines&quot;</span>, axis=<span class="string">&#x27;rows&#x27;</span>).rename_axis(<span class="string">&quot;fields&quot;</span>, axis=<span class="string">&#x27;columns&#x27;</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reviews.rename_axis(<span class="string">"wines"</span>, axis=<span class="string">'rows'</span>).rename_axis(<span class="string">"fields"</span>, axis=<span class="string">'columns'</span>)</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="combining"><a href="#combining" class="headerlink" title="combining"></a>combining</h3><ol>
 <li><p><code>concat()</code>：最简单的方式</p>
- <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">canadian_youtube = pd.read_csv(<span class="string">&quot;../input/youtube-new/CAvideos.csv&quot;</span>)</span><br><span class="line">british_youtube = pd.read_csv(<span class="string">&quot;../input/youtube-new/GBvideos.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line">pd.concat([canadian_youtube, british_youtube])</span><br></pre></td></tr></table></figure></div>
+ <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">canadian_youtube = pd.read_csv(<span class="string">"../input/youtube-new/CAvideos.csv"</span>)</span><br><span class="line">british_youtube = pd.read_csv(<span class="string">"../input/youtube-new/GBvideos.csv"</span>)</span><br><span class="line"></span><br><span class="line">pd.concat([canadian_youtube, british_youtube])</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p><code>join()</code>：将拥有相同索引的数据集组合</p>
- <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">left = canadian_youtube.set_index([<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;trending_date&#x27;</span>])</span><br><span class="line">right = british_youtube.set_index([<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;trending_date&#x27;</span>])</span><br><span class="line"></span><br><span class="line">left.join(right, lsuffix=<span class="string">&#x27;_CAN&#x27;</span>, rsuffix=<span class="string">&#x27;_UK&#x27;</span>) <span class="comment"># suffix将用于区分left与right中的相同列名</span></span><br></pre></td></tr></table></figure></div>
+ <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">left = canadian_youtube.set_index([<span class="string">'title'</span>, <span class="string">'trending_date'</span>])</span><br><span class="line">right = british_youtube.set_index([<span class="string">'title'</span>, <span class="string">'trending_date'</span>])</span><br><span class="line"></span><br><span class="line">left.join(right, lsuffix=<span class="string">'_CAN'</span>, rsuffix=<span class="string">'_UK'</span>) <span class="comment"># suffix将用于区分left与right中的相同列名</span></span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p><code>merge()</code></p>
 </li>

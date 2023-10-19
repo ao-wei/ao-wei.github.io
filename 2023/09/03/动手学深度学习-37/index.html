@@ -71,7 +71,7 @@
     <!--- Inject Part-->
     
     <script id="hexo-configurations">
-    window.config = {"hostname":"ao-wei.github.io","root":"/","language":"zh-CN"};
+    window.config = {"hostname":"ao-wei.github.io","root":"/","language":"zh-CN","path":"search.xml"};
     window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/Day.jpg","dark":"/images/Night.jpg"},"title":"敖炜","subtitle":{"text":["操千曲而后晓声，观千剑而后识器"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/ao-wei","instagram":null,"zhihu":null,"twitter":null,"email":"aowei0821@gmail.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.5.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Tags":{"path":"/tags","icon":"fa-regular fa-tag"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"说说":"/shuoshuo","Github":"https://github.com/ao-wei","Blog":"https://ao-wei.github.io"}},"Links":{"icon":"fa-regular fa-link","submenus":{"友情链接":"/links/","Link2":"/link2","Link3":"/link3"}},"相册":{"icon":"fa-solid fa-image","path":"/masonry/"}},"search":{"enable":true,"preload":true},"tags":{"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"}},"categories":{"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"}}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2023/5/20 11:45:14"};
     window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
     window.data = {"masonry":true};
@@ -86,7 +86,119 @@
     
     
     
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -539,6 +651,14 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>5 分钟</span>
+        </span>
     
     
         <span class="article-pv article-meta-item">
@@ -566,19 +686,14 @@
 <li>向目标模型添加输出层，其输出数是目标数据集中的类别数。然后随机初始化该层的模型参数。</li>
 <li>在目标数据集（如椅子数据集）上训练目标模型。输出层将从头开始进行训练，而所有其他层的参数将根据源模型的参数进行微调。</li>
 </ol>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/finetune.svg"
-                      alt="微调。"
-                ></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="/finetune.svg" alt="微调。"></p>
 <p>当目标数据集比源数据集小得多时，微调有助于提高模型的泛化能力</p>
 <h2 id="热狗识别"><a href="#热狗识别" class="headerlink" title="热狗识别"></a>热狗识别</h2><p>让我们通过具体案例演示微调：热狗识别。<br>我们将在一个小型数据集上微调ResNet模型。该模型已在ImageNet数据集上进行了预训练。<br>这个小型数据集包含数千张包含热狗和不包含热狗的图像，我们将使用微调模型来识别图像中是否包含热狗。</p>
 <h3 id="获取数据集"><a href="#获取数据集" class="headerlink" title="获取数据集"></a>获取数据集</h3><p>使用的<strong>热狗数据集来源于网络</strong>。该数据集包含1400张热狗的“正类”图像，以及包含尽可能多的其他食物的“负类”图像。含着两个类别的1000张图片用于训练，其余的则用于测试。</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> d2l <span class="keyword">import</span> torch <span class="keyword">as</span> d2l</span><br><span class="line"></span><br><span class="line"><span class="comment">#@save</span></span><br><span class="line">d2l.DATA_HUB[<span class="string">&quot;hotdog&quot;</span>] = (d2l.DATA_URL + <span class="string">&#x27;hotdog.zip&#x27;</span>, <span class="string">&#x27;fba480ffa8aa7e0febbb511d181409f899b9baa5&#x27;</span>)</span><br><span class="line"></span><br><span class="line">data_dir = d2l.download_extract(<span class="string">&#x27;hotdog&#x27;</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> d2l <span class="keyword">import</span> torch <span class="keyword">as</span> d2l</span><br><span class="line"></span><br><span class="line"><span class="comment">#@save</span></span><br><span class="line">d2l.DATA_HUB[<span class="string">"hotdog"</span>] = (d2l.DATA_URL + <span class="string">'hotdog.zip'</span>, <span class="string">'fba480ffa8aa7e0febbb511d181409f899b9baa5'</span>)</span><br><span class="line"></span><br><span class="line">data_dir = d2l.download_extract(<span class="string">'hotdog'</span>)</span><br></pre></td></tr></table></figure></div>
 
 <p>分别读取训练和测试数据集中的所有图像文件</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">train_imgs = torchvision.datasets.ImageFolder(os.path.join(data_dir, <span class="string">&quot;train&quot;</span>))</span><br><span class="line"></span><br><span class="line">test_imgs = torchvision.datasets.ImageFloder(os.path.join(data_dir, <span class="string">&quot;test&quot;</span>))</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">train_imgs = torchvision.datasets.ImageFolder(os.path.join(data_dir, <span class="string">"train"</span>))</span><br><span class="line"></span><br><span class="line">test_imgs = torchvision.datasets.ImageFloder(os.path.join(data_dir, <span class="string">"test"</span>))</span><br></pre></td></tr></table></figure></div>
 
 <p>数据增广</p>
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用RGB通道的均值和标准差，以标准化每个通道(因为预训练模型在ImageNet上做了标准化)</span></span><br><span class="line">normalize = torchvision.transforms.Normaliza([<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>], [<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>])</span><br><span class="line"></span><br><span class="line">train_augs = torchvision.transforms.Compose([torchvision.transforms.RandomResizedCrop(<span class="number">224</span>),</span><br><span class="line">  torchvision.transforms.RandomHorizontalFlip(),</span><br><span class="line">  torchvision.transforms.ToTensor(),</span><br><span class="line">  normalize])</span><br><span class="line"></span><br><span class="line">test_augs = torchvision.transforms.Compose([torchvision.transforms.Resize([<span class="number">256</span>, <span class="number">256</span>]),</span><br><span class="line">  torchvision.transforms.CenterCrop(<span class="number">224</span>),</span><br><span class="line">  torchvision.transforms.ToTensor(),</span><br><span class="line">  normalize])</span><br></pre></td></tr></table></figure></div>
@@ -589,11 +704,11 @@
 <p>预训练的源模型实例包含许多特征层和一个输出层<code>fc</code>。此划分的主要目的是促进对除输出层以外所有层的模型参数进行微调。</p>
 <p>在ResNet的全局平均汇聚层后，全连接层转换为ImageNet数据集的1000个类输出。之后，我们构建一个新的神经网络作为目标模型。它的定义方式与预训练源模型的定义方式相同，只是最终层中的输出数量被设置为目标数据集中的类数（而不是1000个）。</p>
 <p>在下面的代码中，目标模型<code>finetune_net</code>中成员变量<code>features</code>的参数被初始化为源模型相应层的模型参数。由于模型参数是在ImageNet数据集上预训练的，并且足够好，因此通常只需要较小的学习率即可微调这些参数。</p>
-<p>成员变量<code>output</code>的参数是随机初始化的，通常需要更高的学习率才能从头开始训练。假设<code>Trainer</code>实例中的学习率为$\eta$，我们将成员变量<code>output</code>中参数的学习率设置为$10\eta$。</p>
+<p>成员变量<code>output</code>的参数是随机初始化的，通常需要更高的学习率才能从头开始训练。假设<code>Trainer</code>实例中的学习率为<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.489ex;" xmlns="http://www.w3.org/2000/svg" width="1.124ex" height="1.489ex" role="img" focusable="false" viewBox="0 -442 497 658"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D702" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q156 442 175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336V326Q503 302 439 53Q381 -182 377 -189Q364 -216 332 -216Q319 -216 310 -208T299 -186Q299 -177 358 57L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>，我们将成员变量<code>output</code>中参数的学习率设置为<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.489ex;" xmlns="http://www.w3.org/2000/svg" width="3.387ex" height="1.995ex" role="img" focusable="false" viewBox="0 -666 1497 882"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path></g><g data-mml-node="mi" transform="translate(1000,0)"><path data-c="1D702" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q156 442 175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336V326Q503 302 439 53Q381 -182 377 -189Q364 -216 332 -216Q319 -216 310 -208T299 -186Q299 -177 358 57L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>。</p>
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">finetune_net = torchvision.models.resnet18(pretrained=<span class="literal">True</span>)</span><br><span class="line">finetune_net.fc = nn.Linear(finetune_net.fc.in_features, <span class="number">2</span>)</span><br><span class="line">nn.init.xavier_uniform_(finetune_net.fc.weight);</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="微调模型"><a href="#微调模型" class="headerlink" title="微调模型"></a>微调模型</h3><p>定义一个训练函数<code>train_fine_tuning</code>，该函数使用微调，因此可以多次调用</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果param_group=True, 输出层中的模型参数将使用十倍的学习率</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">train_fine_tuning</span>(<span class="params">net, learning_rate, batch_size=<span class="number">128</span>, num_epochs=<span class="number">5</span>, param_group=<span class="literal">True</span></span>):</span><br><span class="line">    train_iter = torch.utils.data.DataLoader(torchvision.datasets.ImageFolder(os.path.join(data_dir, <span class="string">&quot;train&quot;</span>), transform=train_augs), batch_size=batch_size, shuffle=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    test_iter = torch.utils.data.DataLoader(torchvision.datasets.ImageFolder(os.path.join(data_iter, <span class="string">&quot;test&quot;</span>), transform=test_augs), batch_size=batch_size)</span><br><span class="line"></span><br><span class="line">    devices = d2l.try_all_gpus()</span><br><span class="line"></span><br><span class="line">    loss = nn.CrossEntropyLoss(reduction=<span class="string">&quot;none&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> param_group:</span><br><span class="line">        params_1x = [param <span class="keyword">for</span> name, param <span class="keyword">in</span> net.named_parameters() <span class="keyword">if</span> name <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">&quot;fc.weight&quot;</span>, <span class="string">&quot;fc.bias&quot;</span>]]</span><br><span class="line"></span><br><span class="line">        trainer = torch.optim.SGD([&#123;<span class="string">&quot;params&quot;</span> : params_1x&#125;,</span><br><span class="line">                                   &#123;<span class="string">&quot;params&quot;</span> : net.fc.parameters(),</span><br><span class="line">                                    <span class="string">&quot;lr&quot;</span> : learning_rate * <span class="number">10</span>&#125;],</span><br><span class="line">                                    lr = learning_rate, weight_decay=<span class="number">0.001</span>)</span><br><span class="line">                            </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        trainer = torch.optim.SGD(net.parameters(), lr = learning_rate, weight_decay=<span class="number">0.001</span>)</span><br><span class="line"></span><br><span class="line">    d2l.train_ch13(net, train_iter, test_iter, loss, trainer, num_epochs, devices)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用较小的学习率，通过*微调*训练获得模型参数</span></span><br><span class="line">train_fine_tuning(finetune_net, <span class="number">5e-5</span>)</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果param_group=True, 输出层中的模型参数将使用十倍的学习率</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">train_fine_tuning</span>(<span class="params">net, learning_rate, batch_size=<span class="number">128</span>, num_epochs=<span class="number">5</span>, param_group=<span class="literal">True</span></span>):</span><br><span class="line">    train_iter = torch.utils.data.DataLoader(torchvision.datasets.ImageFolder(os.path.join(data_dir, <span class="string">"train"</span>), transform=train_augs), batch_size=batch_size, shuffle=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    test_iter = torch.utils.data.DataLoader(torchvision.datasets.ImageFolder(os.path.join(data_iter, <span class="string">"test"</span>), transform=test_augs), batch_size=batch_size)</span><br><span class="line"></span><br><span class="line">    devices = d2l.try_all_gpus()</span><br><span class="line"></span><br><span class="line">    loss = nn.CrossEntropyLoss(reduction=<span class="string">"none"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> param_group:</span><br><span class="line">        params_1x = [param <span class="keyword">for</span> name, param <span class="keyword">in</span> net.named_parameters() <span class="keyword">if</span> name <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">"fc.weight"</span>, <span class="string">"fc.bias"</span>]]</span><br><span class="line"></span><br><span class="line">        trainer = torch.optim.SGD([{<span class="string">"params"</span> : params_1x},</span><br><span class="line">                                   {<span class="string">"params"</span> : net.fc.parameters(),</span><br><span class="line">                                    <span class="string">"lr"</span> : learning_rate * <span class="number">10</span>}],</span><br><span class="line">                                    lr = learning_rate, weight_decay=<span class="number">0.001</span>)</span><br><span class="line">                            </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        trainer = torch.optim.SGD(net.parameters(), lr = learning_rate, weight_decay=<span class="number">0.001</span>)</span><br><span class="line"></span><br><span class="line">    d2l.train_ch13(net, train_iter, test_iter, loss, trainer, num_epochs, devices)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用较小的学习率，通过*微调*训练获得模型参数</span></span><br><span class="line">train_fine_tuning(finetune_net, <span class="number">5e-5</span>)</span><br></pre></td></tr></table></figure></div>
 
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
 <li>迁移学习将从源数据集中学到的知识<em>迁移</em>到目标数据集，微调是迁移学习的常见技巧。</li>
