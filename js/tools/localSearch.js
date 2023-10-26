@@ -1,1 +1,327 @@
-"use strict";function _toConsumableArray(t){return _arrayWithoutHoles(t)||_iterableToArray(t)||_unsupportedIterableToArray(t)||_nonIterableSpread()}function _nonIterableSpread(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}function _unsupportedIterableToArray(t,e){var n;if(t)return"string"==typeof t?_arrayLikeToArray(t,e):"Map"===(n="Object"===(n=Object.prototype.toString.call(t).slice(8,-1))&&t.constructor?t.constructor.name:n)||"Set"===n?Array.from(t):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?_arrayLikeToArray(t,e):void 0}function _iterableToArray(t){if("undefined"!=typeof Symbol&&null!=t[Symbol.iterator]||null!=t["@@iterator"])return Array.from(t)}function _arrayWithoutHoles(t){if(Array.isArray(t))return _arrayLikeToArray(t)}function _arrayLikeToArray(t,e){(null==e||e>t.length)&&(e=t.length);for(var n=0,r=new Array(e);n<e;n++)r[n]=t[n];return r}function initLocalSearch(){var t=config.path;if(t){var n,r=!1,e=!0,o=(0===t.length?t="search.xml":t.endsWith("json")&&(e=!1),document.querySelector(".search-input")),a=document.getElementById("search-result"),x=function(t,e,n){var r=t.length;if(0===r)return[];var o,a=0,i=[];for(n||(e=e.toLowerCase(),t=t.toLowerCase());-1<(o=e.indexOf(t,a));)i.push({position:o,word:t}),a=o+r;return i},C=function(t,e,n,r){for(var o=n[n.length-1],a=o.position,i=o.word,c=[],s=0;a+i.length<=e&&0!==n.length;){i===r&&s++,c.push({position:a,length:i.length});var l=a+i.length;n.pop();for(var u=n.length-1;0<=u&&(a=(o=n[u]).position,i=o.word,!(l<=a));u--)n.pop()}return{hits:c,start:t,end:e,searchTextCount:s}},w=function(n,t){var r="",o=t.start;return t.hits.forEach(function(t){r+=n.substring(o,t.position);var e=t.position+t.length;r+='<b class="search-keyword">'.concat(n.substring(t.position,e),"</b>"),o=e}),r+=n.substring(o,t.end)},i=function(){var v,m,b,e;r&&(v=o.value.trim().toLowerCase(),1<(m=v.split(/[-\s]+/)).length&&m.push(v),b=[],0<v.length&&n.forEach(function(t){var e=t.title,n=t.content,r=t.url,o=e.toLowerCase(),a=n.toLowerCase(),i=[],c=[],s=0;if(m.forEach(function(t){i=i.concat(x(t,o,!1)),c=c.concat(x(t,a,!1))}),0<i.length||0<c.length){for(var t=i.length+c.length,l=([i,c].forEach(function(t){t.sort(function(t,e){return e.position!==t.position?e.position-t.position:t.word.length-e.word.length})}),[]),u=(0!==i.length&&(s+=(g=C(0,e.length,i,v)).searchTextCountInSlice,l.push(g)),[]);0!==c.length;){var h=c[c.length-1],f=h.position,h=h.word,p=f-20,d=f+80,f=(p<0&&(p=0),(d=d<f+h.length?f+h.length:d)>n.length&&(d=n.length),C(p,d,c,v));s+=f.searchTextCountInSlice,u.push(f)}u.sort(function(t,e){return t.searchTextCount!==e.searchTextCount?e.searchTextCount-t.searchTextCount:t.hits.length!==e.hits.length?e.hits.length-t.hits.length:t.start-e.start});var g=parseInt(theme.navbar.search.top_n_per_article||1,10),y=(0<=g&&(u=u.slice(0,g)),"");y+=0!==l.length?'<li><a href="'.concat(r,'" class="search-result-title">').concat(w(e,l[0]),"</a>"):'<li><a href="'.concat(r,'" class="search-result-title">').concat(e,"</a>"),u.forEach(function(t){y+='<a href="'.concat(r,'"><p class="search-result">').concat(w(n,t),"...</p></a>")}),y+="</li>",b.push({item:y,id:b.length,hitCount:t,searchTextCount:s})}}),1===m.length&&""===m[0]?a.innerHTML='<div id="no-result"><i class="fa-solid fa-magnifying-glass fa-5x"></i></div>':0===b.length?a.innerHTML='<div id="no-result"><i class="fa-solid fa-box-open fa-5x"></i></div>':(b.sort(function(t,e){return t.searchTextCount!==e.searchTextCount?e.searchTextCount-t.searchTextCount:t.hitCount!==e.hitCount?e.hitCount-t.hitCount:e.id-t.id}),e='<ul class="search-result-list">',b.forEach(function(t){e+=t.item}),e+="</ul>",a.innerHTML=e,window.pjax&&window.pjax.refresh(a)))},c=function(){fetch(config.root+t).then(function(t){return t.text()}).then(function(t){r=!0,n=(n=e?_toConsumableArray((new DOMParser).parseFromString(t,"text/xml").querySelectorAll("entry")).map(function(t){return{title:t.querySelector("title").textContent,content:t.querySelector("content").textContent,url:t.querySelector("url").textContent}}):JSON.parse(t)).filter(function(t){return t.title}).map(function(t){return t.title=t.title.trim(),t.content=t.content?t.content.trim().replace(/<[^>]+>/g,""):"",t.url=decodeURIComponent(t.url).replace(/\/{2,}/g,"/"),t});t=document.querySelector("#no-result");t&&(t.innerHTML='<i class="fa-solid fa-magnifying-glass fa-5x"></i>')})},s=(theme.navbar.search.preload&&c(),o&&o.addEventListener("input",i),document.querySelectorAll(".search-popup-trigger").forEach(function(t){t.addEventListener("click",function(){document.body.style.overflow="hidden",document.querySelector(".search-pop-overlay").classList.add("active"),setTimeout(function(){return o.focus()},500),r||c()})}),function(){document.body.style.overflow="",document.querySelector(".search-pop-overlay").classList.remove("active")});document.querySelector(".search-pop-overlay").addEventListener("click",function(t){t.target===document.querySelector(".search-pop-overlay")&&s()}),document.querySelector(".search-input-field-pre").addEventListener("click",function(){o.value="",o.focus(),i()}),document.querySelector(".popup-btn-close").addEventListener("click",s);try{swup.hooks.on("page:view",function(t){s()})}catch(t){}window.addEventListener("keyup",function(t){"Escape"===t.key&&s()})}else console.warn("`hexo-generator-searchdb` plugin is not installed!")}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=initLocalSearch;
+export default function initLocalSearch() {
+  // Search DB path
+  let searchPath = config.path;
+  if (!searchPath) {
+    // Search DB path
+    console.warn("`hexo-generator-searchdb` plugin is not installed!");
+    return;
+  }
+
+  // Popup Window
+  let isfetched = false;
+  let datas;
+  let isXml = true;
+  if (searchPath.length === 0) {
+    searchPath = "search.xml";
+  } else if (searchPath.endsWith("json")) {
+    isXml = false;
+  }
+  const searchInputDom = document.querySelector(".search-input");
+  const resultContent = document.getElementById("search-result");
+
+  const getIndexByWord = (word, text, caseSensitive) => {
+    let wordLen = word.length;
+    if (wordLen === 0) return [];
+    let startPosition = 0;
+    let position = [];
+    let index = [];
+    if (!caseSensitive) {
+      text = text.toLowerCase();
+      word = word.toLowerCase();
+    }
+    while ((position = text.indexOf(word, startPosition)) > -1) {
+      index.push({ position, word });
+      startPosition = position + wordLen;
+    }
+    return index;
+  };
+
+  // Merge hits into slices
+  const mergeIntoSlice = (start, end, index, searchText) => {
+    let currentItem = index[index.length - 1];
+    let { position, word } = currentItem;
+    let hits = [];
+    let searchTextCountInSlice = 0;
+
+    // Merge hits into the slice
+    while (position + word.length <= end && index.length !== 0) {
+      if (word === searchText) {
+        searchTextCountInSlice++;
+      }
+      hits.push({
+        position,
+        length: word.length,
+      });
+
+      const wordEnd = position + word.length;
+
+      // Move to the next position of the hit
+      index.pop();
+      for (let i = index.length - 1; i >= 0; i--) {
+        currentItem = index[i];
+        position = currentItem.position;
+        word = currentItem.word;
+        if (wordEnd <= position) {
+          break;
+        } else {
+          index.pop();
+        }
+      }
+    }
+
+    return {
+      hits,
+      start,
+      end,
+      searchTextCount: searchTextCountInSlice,
+    };
+  };
+
+  // Highlight title and content
+  const highlightKeyword = (text, slice) => {
+    let result = "";
+    let prevEnd = slice.start;
+    slice.hits.forEach((hit) => {
+      result += text.substring(prevEnd, hit.position);
+      let end = hit.position + hit.length;
+      result += `<b class="search-keyword">${text.substring(
+        hit.position,
+        end,
+      )}</b>`;
+      prevEnd = end;
+    });
+    result += text.substring(prevEnd, slice.end);
+    return result;
+  };
+
+  const inputEventFunction = () => {
+    if (!isfetched) return;
+    let searchText = searchInputDom.value.trim().toLowerCase();
+    let keywords = searchText.split(/[-\s]+/);
+    if (keywords.length > 1) {
+      keywords.push(searchText);
+    }
+    let resultItems = [];
+    if (searchText.length > 0) {
+      // Perform local searching
+      datas.forEach(({ title, content, url }) => {
+        let titleInLowerCase = title.toLowerCase();
+        let contentInLowerCase = content.toLowerCase();
+        let indexOfTitle = [];
+        let indexOfContent = [];
+        let searchTextCount = 0;
+        keywords.forEach((keyword) => {
+          indexOfTitle = indexOfTitle.concat(
+            getIndexByWord(keyword, titleInLowerCase, false),
+          );
+          indexOfContent = indexOfContent.concat(
+            getIndexByWord(keyword, contentInLowerCase, false),
+          );
+        });
+
+        // Show search results
+        if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+          let hitCount = indexOfTitle.length + indexOfContent.length;
+          // Sort index by position of keyword
+          [indexOfTitle, indexOfContent].forEach((index) => {
+            index.sort((itemLeft, itemRight) => {
+              if (itemRight.position !== itemLeft.position) {
+                return itemRight.position - itemLeft.position;
+              }
+              return itemLeft.word.length - itemRight.word.length;
+            });
+          });
+
+          let slicesOfTitle = [];
+          if (indexOfTitle.length !== 0) {
+            let tmp = mergeIntoSlice(0, title.length, indexOfTitle, searchText);
+            searchTextCount += tmp.searchTextCountInSlice;
+            slicesOfTitle.push(tmp);
+          }
+
+          let slicesOfContent = [];
+          while (indexOfContent.length !== 0) {
+            let item = indexOfContent[indexOfContent.length - 1];
+            let { position, word } = item;
+            // Cut out 100 characters
+            let start = position - 20;
+            let end = position + 80;
+            if (start < 0) {
+              start = 0;
+            }
+            if (end < position + word.length) {
+              end = position + word.length;
+            }
+            if (end > content.length) {
+              end = content.length;
+            }
+            let tmp = mergeIntoSlice(start, end, indexOfContent, searchText);
+            searchTextCount += tmp.searchTextCountInSlice;
+            slicesOfContent.push(tmp);
+          }
+
+          // Sort slices in content by search text's count and hits' count
+          slicesOfContent.sort((sliceLeft, sliceRight) => {
+            if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+              return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+            } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+              return sliceRight.hits.length - sliceLeft.hits.length;
+            }
+            return sliceLeft.start - sliceRight.start;
+          });
+
+          // Select top N slices in content
+          let upperBound = parseInt(
+            theme.navbar.search.top_n_per_article
+              ? theme.navbar.search.top_n_per_article
+              : 1,
+            10,
+          );
+          if (upperBound >= 0) {
+            slicesOfContent = slicesOfContent.slice(0, upperBound);
+          }
+
+          let resultItem = "";
+
+          if (slicesOfTitle.length !== 0) {
+            resultItem += `<li><a href="${url}" class="search-result-title">${highlightKeyword(
+              title,
+              slicesOfTitle[0],
+            )}</a>`;
+          } else {
+            resultItem += `<li><a href="${url}" class="search-result-title">${title}</a>`;
+          }
+
+          slicesOfContent.forEach((slice) => {
+            resultItem += `<a href="${url}"><p class="search-result">${highlightKeyword(
+              content,
+              slice,
+            )}...</p></a>`;
+          });
+
+          resultItem += "</li>";
+          resultItems.push({
+            item: resultItem,
+            id: resultItems.length,
+            hitCount,
+            searchTextCount,
+          });
+        }
+      });
+    }
+    if (keywords.length === 1 && keywords[0] === "") {
+      resultContent.innerHTML =
+        '<div id="no-result"><i class="fa-solid fa-magnifying-glass fa-5x"></i></div>';
+    } else if (resultItems.length === 0) {
+      resultContent.innerHTML =
+        '<div id="no-result"><i class="fa-solid fa-box-open fa-5x"></i></div>';
+    } else {
+      resultItems.sort((resultLeft, resultRight) => {
+        if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+          return resultRight.searchTextCount - resultLeft.searchTextCount;
+        } else if (resultLeft.hitCount !== resultRight.hitCount) {
+          return resultRight.hitCount - resultLeft.hitCount;
+        }
+        return resultRight.id - resultLeft.id;
+      });
+      let searchResultList = '<ul class="search-result-list">';
+      resultItems.forEach((result) => {
+        searchResultList += result.item;
+      });
+      searchResultList += "</ul>";
+      resultContent.innerHTML = searchResultList;
+      window.pjax && window.pjax.refresh(resultContent);
+    }
+  };
+
+  const fetchData = () => {
+    fetch(config.root + searchPath)
+      .then((response) => response.text())
+      .then((res) => {
+        // Get the contents from search data
+        isfetched = true;
+        datas = isXml
+          ? [
+              ...new DOMParser()
+                .parseFromString(res, "text/xml")
+                .querySelectorAll("entry"),
+            ].map((element) => {
+              return {
+                title: element.querySelector("title").textContent,
+                content: element.querySelector("content").textContent,
+                url: element.querySelector("url").textContent,
+              };
+            })
+          : JSON.parse(res);
+        // Only match articles with not empty titles
+        datas = datas
+          .filter((data) => data.title)
+          .map((data) => {
+            data.title = data.title.trim();
+            data.content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : "";
+            data.url = decodeURIComponent(data.url).replace(/\/{2,}/g, "/");
+            return data;
+          });
+        // Remove loading animation
+        const noResultDom = document.querySelector("#no-result");
+        noResultDom &&
+          (noResultDom.innerHTML =
+            '<i class="fa-solid fa-magnifying-glass fa-5x"></i>');
+      });
+  };
+
+  if (theme.navbar.search.preload) {
+    fetchData();
+  }
+
+  if (searchInputDom) {
+    searchInputDom.addEventListener("input", inputEventFunction);
+  }
+
+  // Handle and trigger popup window
+  document.querySelectorAll(".search-popup-trigger").forEach((element) => {
+    element.addEventListener("click", () => {
+      document.body.style.overflow = "hidden";
+      document.querySelector(".search-pop-overlay").classList.add("active");
+      setTimeout(() => searchInputDom.focus(), 500);
+      if (!isfetched) fetchData();
+    });
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.body.style.overflow = "";
+    document.querySelector(".search-pop-overlay").classList.remove("active");
+  };
+
+  document
+    .querySelector(".search-pop-overlay")
+    .addEventListener("click", (event) => {
+      if (event.target === document.querySelector(".search-pop-overlay")) {
+        onPopupClose();
+      }
+    });
+  document
+    .querySelector(".search-input-field-pre")
+    .addEventListener("click", () => {
+      searchInputDom.value = "";
+      searchInputDom.focus();
+      inputEventFunction();
+    });
+  document
+    .querySelector(".popup-btn-close")
+    .addEventListener("click", onPopupClose);
+  try {
+    swup.hooks.on("page:view", (visit) => {
+      onPopupClose();
+    });
+  } catch (e) {}
+
+  window.addEventListener("keyup", (event) => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+}

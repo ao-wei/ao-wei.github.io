@@ -1,1 +1,82 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.initMain=initMain,exports.main=void 0;var _utils=_interopRequireDefault(require("./utils.js")),_typed=_interopRequireDefault(require("./plugins/typed.js")),_lightDarkSwitch=_interopRequireDefault(require("./tools/lightDarkSwitch.js")),_lazyload=_interopRequireDefault(require("./layouts/lazyload.js")),_scrollTopBottom=_interopRequireDefault(require("./tools/scrollTopBottom.js")),_localSearch=_interopRequireDefault(require("./tools/localSearch.js")),_codeBlock=_interopRequireDefault(require("./tools/codeBlock.js"));function _interopRequireDefault(_){return _&&_.__esModule?_:{default:_}}var main=exports.main={themeInfo:{theme:"Redefine v".concat(theme.version),author:"EvanNotFound",repository:"https://github.com/EvanNotFound/hexo-theme-redefine"},localStorageKey:"REDEFINE-THEME-STATUS",styleStatus:{isExpandPageWidth:!1,isDark:!1,fontSizeLevel:0,isOpenPageAside:!0},printThemeInfo:function(){console.log('      ______ __  __  ______  __    __  ______                       \r\n     /\\__  _/\\ \\_\\ \\/\\  ___\\/\\ "-./  \\/\\  ___\\                      \r\n     \\/_/\\ \\\\ \\  __ \\ \\  __\\\\ \\ \\-./\\ \\ \\  __\\                      \r\n        \\ \\_\\\\ \\_\\ \\_\\ \\_____\\ \\_\\ \\ \\_\\ \\_____\\                    \r\n         \\/_/ \\/_/\\/_/\\/_____/\\/_/  \\/_/\\/_____/                    \r\n                                                               \r\n ______  ______  _____   ______  ______ __  __   __  ______    \r\n/\\  == \\/\\  ___\\/\\  __-./\\  ___\\/\\  ___/\\ \\/\\ "-.\\ \\/\\  ___\\   \r\n\\ \\  __<\\ \\  __\\\\ \\ \\/\\ \\ \\  __\\\\ \\  __\\ \\ \\ \\ \\-.  \\ \\  __\\   \r\n \\ \\_\\ \\_\\ \\_____\\ \\____-\\ \\_____\\ \\_\\  \\ \\_\\ \\_\\\\"\\_\\ \\_____\\ \r\n  \\/_/ /_/\\/_____/\\/____/ \\/_____/\\/_/   \\/_/\\/_/ \\/_/\\/_____/\r\n                                                               \r\n  Github: https://github.com/EvanNotFound/hexo-theme-redefine')},setStyleStatus:function(){localStorage.setItem(main.localStorageKey,JSON.stringify(main.styleStatus))},getStyleStatus:function(){var _=localStorage.getItem(main.localStorageKey);if(_){for(var e in _=JSON.parse(_),main.styleStatus)main.styleStatus[e]=_[e];return _}return null},refresh:function(){(0,_utils.default)(),(0,_lightDarkSwitch.default)(),(0,_scrollTopBottom.default)(),0!==theme.home_banner.subtitle.text.length&&location.pathname===config.root&&(0,_typed.default)("subtitle"),!0===theme.navbar.search.enable&&(0,_localSearch.default)(),!0===theme.articles.code_block.copy&&(0,_codeBlock.default)(),!0===theme.articles.lazyload&&(0,_lazyload.default)()}};function initMain(){main.printThemeInfo(),main.refresh()}document.addEventListener("DOMContentLoaded",initMain);try{swup.hooks.on("page:view",function(){main.refresh()})}catch(_){}
+/* main function */
+import initUtils from "./utils.js";
+import initTyped from "./plugins/typed.js";
+import initModeToggle from "./tools/lightDarkSwitch.js";
+import initLazyLoad from "./layouts/lazyload.js";
+import initScrollTopBottom from "./tools/scrollTopBottom.js";
+import initLocalSearch from "./tools/localSearch.js";
+import initCopyCode from "./tools/codeBlock.js";
+
+export const main = {
+  themeInfo: {
+    theme: `Redefine v${theme.version}`,
+    author: "EvanNotFound",
+    repository: "https://github.com/EvanNotFound/hexo-theme-redefine",
+  },
+  localStorageKey: "REDEFINE-THEME-STATUS",
+  styleStatus: {
+    isExpandPageWidth: false,
+    isDark: false,
+    fontSizeLevel: 0,
+    isOpenPageAside: true,
+  },
+  printThemeInfo: () => {
+    console.log(
+      `      ______ __  __  ______  __    __  ______                       \r\n     \/\\__  _\/\\ \\_\\ \\\/\\  ___\\\/\\ \"-.\/  \\\/\\  ___\\                      \r\n     \\\/_\/\\ \\\\ \\  __ \\ \\  __\\\\ \\ \\-.\/\\ \\ \\  __\\                      \r\n        \\ \\_\\\\ \\_\\ \\_\\ \\_____\\ \\_\\ \\ \\_\\ \\_____\\                    \r\n         \\\/_\/ \\\/_\/\\\/_\/\\\/_____\/\\\/_\/  \\\/_\/\\\/_____\/                    \r\n                                                               \r\n ______  ______  _____   ______  ______ __  __   __  ______    \r\n\/\\  == \\\/\\  ___\\\/\\  __-.\/\\  ___\\\/\\  ___\/\\ \\\/\\ \"-.\\ \\\/\\  ___\\   \r\n\\ \\  __<\\ \\  __\\\\ \\ \\\/\\ \\ \\  __\\\\ \\  __\\ \\ \\ \\ \\-.  \\ \\  __\\   \r\n \\ \\_\\ \\_\\ \\_____\\ \\____-\\ \\_____\\ \\_\\  \\ \\_\\ \\_\\\\\"\\_\\ \\_____\\ \r\n  \\\/_\/ \/_\/\\\/_____\/\\\/____\/ \\\/_____\/\\\/_\/   \\\/_\/\\\/_\/ \\\/_\/\\\/_____\/\r\n                                                               \r\n  Github: https:\/\/github.com\/EvanNotFound\/hexo-theme-redefine`,
+    ); // console log message
+  },
+  setStyleStatus: () => {
+    localStorage.setItem(
+      main.localStorageKey,
+      JSON.stringify(main.styleStatus),
+    );
+  },
+  getStyleStatus: () => {
+    let temp = localStorage.getItem(main.localStorageKey);
+    if (temp) {
+      temp = JSON.parse(temp);
+      for (let key in main.styleStatus) {
+        main.styleStatus[key] = temp[key];
+      }
+      return temp;
+    } else {
+      return null;
+    }
+  },
+  refresh: () => {
+    initUtils();
+    initModeToggle();
+    initScrollTopBottom();
+    if (
+      theme.home_banner.subtitle.text.length !== 0 &&
+      location.pathname === config.root
+    ) {
+      initTyped("subtitle");
+    }
+
+    if (theme.navbar.search.enable === true) {
+      initLocalSearch();
+    }
+
+    if (theme.articles.code_block.copy === true) {
+      initCopyCode();
+    }
+
+    if (theme.articles.lazyload === true) {
+      initLazyLoad();
+    }
+  },
+};
+
+export function initMain() {
+  main.printThemeInfo();
+  main.refresh();
+}
+
+document.addEventListener("DOMContentLoaded", initMain);
+
+try {
+  swup.hooks.on("page:view", () => {
+    main.refresh();
+  });
+} catch (e) {}

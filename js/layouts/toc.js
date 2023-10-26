@@ -1,1 +1,115 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.initTOC=initTOC;var _tocToggle=require("../tools/tocToggle.js"),_main=require("../main.js");function _toConsumableArray(e){return _arrayWithoutHoles(e)||_iterableToArray(e)||_unsupportedIterableToArray(e)||_nonIterableSpread()}function _nonIterableSpread(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}function _unsupportedIterableToArray(e,t){var r;if(e)return"string"==typeof e?_arrayLikeToArray(e,t):"Map"===(r="Object"===(r=Object.prototype.toString.call(e).slice(8,-1))&&e.constructor?e.constructor.name:r)||"Set"===r?Array.from(e):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?_arrayLikeToArray(e,t):void 0}function _iterableToArray(e){if("undefined"!=typeof Symbol&&null!=e[Symbol.iterator]||null!=e["@@iterator"])return Array.from(e)}function _arrayWithoutHoles(e){if(Array.isArray(e))return _arrayLikeToArray(e)}function _arrayLikeToArray(e,t){(null==t||t>e.length)&&(t=e.length);for(var r=0,o=new Array(t);r<t;r++)o[r]=e[r];return o}function initTOC(){var t={navItems:document.querySelectorAll(".post-toc-wrap .post-toc li"),updateActiveTOCLink:function(){var e;Array.isArray(t.sections)&&(-1===(e=t.sections.findIndex(function(e){return e&&0<e.getBoundingClientRect().top-100}))?e=t.sections.length-1:0<e&&e--,this.activateTOCLink(e))},registerTOCScroll:function(){t.sections=_toConsumableArray(document.querySelectorAll(".post-toc li a.nav-link")).map(function(e){return document.getElementById(decodeURI(e.getAttribute("href")).replace("#",""))})},activateTOCLink:function(e){var t,r,o,e=document.querySelectorAll(".post-toc li a.nav-link")[e];e&&!e.classList.contains("active-current")&&(document.querySelectorAll(".post-toc .active").forEach(function(e){e.classList.remove("active","active-current")}),e.classList.add("active","active-current"),o=(t=document.querySelector(".toc-content-container")).getBoundingClientRect().top,r=t.offsetHeight>window.innerHeight?(t.offsetHeight-window.innerHeight)/2:0,o=e.getBoundingClientRect().top-o-Math.max(document.documentElement.clientHeight,window.innerHeight||0)/2+e.offsetHeight/2-r,e=t.scrollTop+o,t.scrollTo({top:e,behavior:"smooth"}))},showTOCAside:function(){function e(){var e=_main.main.getStyleStatus(),t="isOpenPageAside";e&&e.hasOwnProperty(t)?(0,_tocToggle.initTocToggle)().pageAsideHandleOfTOC(e[t]):(0,_tocToggle.initTocToggle)().pageAsideHandleOfTOC(!0)}var t="init_open";!theme.articles.toc.hasOwnProperty(t)||theme.articles.toc[t]?e():(0,_tocToggle.initTocToggle)().pageAsideHandleOfTOC(!1)}};return 0<t.navItems.length?(t.showTOCAside(),t.registerTOCScroll()):document.querySelectorAll(".toc-content-container, .toc-marker").forEach(function(e){e.remove()}),t}try{swup.hooks.on("page:view",function(){initTOC()})}catch(e){}document.addEventListener("DOMContentLoaded",initTOC);
+/* main function */
+
+import { initTocToggle } from "../tools/tocToggle.js";
+import { main } from "../main.js";
+export function initTOC() {
+  const utils = {
+    navItems: document.querySelectorAll(".post-toc-wrap .post-toc li"),
+
+    updateActiveTOCLink() {
+      if (!Array.isArray(utils.sections)) return;
+      let index = utils.sections.findIndex((element) => {
+        return element && element.getBoundingClientRect().top - 100 > 0;
+      });
+      if (index === -1) {
+        index = utils.sections.length - 1;
+      } else if (index > 0) {
+        index--;
+      }
+      this.activateTOCLink(index);
+    },
+
+    registerTOCScroll() {
+      utils.sections = [
+        ...document.querySelectorAll(".post-toc li a.nav-link"),
+      ].map((element) => {
+        const target = document.getElementById(
+          decodeURI(element.getAttribute("href")).replace("#", ""),
+        );
+        return target;
+      });
+    },
+
+    activateTOCLink(index) {
+      const target = document.querySelectorAll(".post-toc li a.nav-link")[
+        index
+      ];
+
+      if (!target || target.classList.contains("active-current")) {
+        return;
+      }
+
+      document.querySelectorAll(".post-toc .active").forEach((element) => {
+        element.classList.remove("active", "active-current");
+      });
+      target.classList.add("active", "active-current");
+      // Scroll to the active TOC item
+      const tocElement = document.querySelector(".toc-content-container");
+      const tocTop = tocElement.getBoundingClientRect().top;
+      const scrollTopOffset =
+        tocElement.offsetHeight > window.innerHeight
+          ? (tocElement.offsetHeight - window.innerHeight) / 2
+          : 0;
+      const targetTop = target.getBoundingClientRect().top - tocTop;
+      const viewportHeight = Math.max(
+        document.documentElement.clientHeight,
+        window.innerHeight || 0,
+      );
+      const distanceToCenter =
+        targetTop -
+        viewportHeight / 2 +
+        target.offsetHeight / 2 -
+        scrollTopOffset;
+      const scrollTop = tocElement.scrollTop + distanceToCenter;
+
+      tocElement.scrollTo({
+        top: scrollTop,
+        behavior: "smooth", // Smooth scroll
+      });
+    },
+
+    showTOCAside() {
+      const openHandle = () => {
+        const styleStatus = main.getStyleStatus();
+        const key = "isOpenPageAside";
+        if (styleStatus && styleStatus.hasOwnProperty(key)) {
+          initTocToggle().pageAsideHandleOfTOC(styleStatus[key]);
+        } else {
+          initTocToggle().pageAsideHandleOfTOC(true);
+        }
+      };
+
+      const initOpenKey = "init_open";
+
+      if (theme.articles.toc.hasOwnProperty(initOpenKey)) {
+        theme.articles.toc[initOpenKey]
+          ? openHandle()
+          : initTocToggle().pageAsideHandleOfTOC(false);
+      } else {
+        openHandle();
+      }
+    },
+  };
+
+  if (utils.navItems.length > 0) {
+    utils.showTOCAside();
+    utils.registerTOCScroll();
+  } else {
+    document
+      .querySelectorAll(".toc-content-container, .toc-marker")
+      .forEach((elem) => {
+        elem.remove();
+      });
+  }
+
+  return utils;
+}
+
+// Event listeners
+try {
+  swup.hooks.on("page:view", () => {
+    initTOC();
+  });
+} catch (e) {}
+
+document.addEventListener("DOMContentLoaded", initTOC);

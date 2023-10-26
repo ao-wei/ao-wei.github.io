@@ -1,1 +1,48 @@
-"use strict";function _toConsumableArray(e){return _arrayWithoutHoles(e)||_iterableToArray(e)||_unsupportedIterableToArray(e)||_nonIterableSpread()}function _nonIterableSpread(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}function _unsupportedIterableToArray(e,r){var t;if(e)return"string"==typeof e?_arrayLikeToArray(e,r):"Map"===(t="Object"===(t=Object.prototype.toString.call(e).slice(8,-1))&&e.constructor?e.constructor.name:t)||"Set"===t?Array.from(e):"Arguments"===t||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t)?_arrayLikeToArray(e,r):void 0}function _iterableToArray(e){if("undefined"!=typeof Symbol&&null!=e[Symbol.iterator]||null!=e["@@iterator"])return Array.from(e)}function _arrayWithoutHoles(e){if(Array.isArray(e))return _arrayLikeToArray(e)}function _arrayLikeToArray(e,r){(null==r||r>e.length)&&(r=e.length);for(var t=0,o=new Array(r);t<r;t++)o[t]=e[t];return o}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var initCopyCode=function(){HTMLElement.prototype.wrap=function(e){this.parentNode.insertBefore(e,this),this.parentNode.removeChild(this),e.appendChild(this)},document.querySelectorAll("figure.highlight").forEach(function(e){var r=document.createElement("div"),t=(e.wrap(r),r.classList.add("highlight-container"),r.insertAdjacentHTML("beforeend",'<div class="copy-button"><i class="fa-regular fa-copy"></i></div>'),r.insertAdjacentHTML("beforeend",'<div class="fold-button"><i class="fa-solid fa-chevron-down"></i></div>'),r.querySelector(".copy-button")),o=r.querySelector(".fold-button");t.addEventListener("click",function(){var e=_toConsumableArray(r.querySelectorAll(".code .line")).map(function(e){return e.innerText}).join("\n");navigator.clipboard.writeText(e),t.querySelector("i").className="fa-regular fa-check",setTimeout(function(){t.querySelector("i").className="fa-regular fa-copy"},1e3)}),o.addEventListener("click",function(){r.classList.toggle("folded"),o.querySelector("i").className=r.classList.contains("folded")?"fa-solid fa-chevron-up":"fa-solid fa-chevron-down"})})},_default=exports.default=initCopyCode;
+const initCopyCode = () => {
+  HTMLElement.prototype.wrap = function (wrapper) {
+    this.parentNode.insertBefore(wrapper, this);
+    this.parentNode.removeChild(this);
+    wrapper.appendChild(this);
+  };
+
+  document.querySelectorAll("figure.highlight").forEach((element) => {
+    const container = document.createElement("div");
+    element.wrap(container);
+    container.classList.add("highlight-container");
+    container.insertAdjacentHTML(
+      "beforeend",
+      '<div class="copy-button"><i class="fa-regular fa-copy"></i></div>',
+    );
+    container.insertAdjacentHTML(
+      "beforeend",
+      '<div class="fold-button"><i class="fa-solid fa-chevron-down"></i></div>',
+    );
+    const copyButton = container.querySelector(".copy-button");
+    const foldButton = container.querySelector(".fold-button");
+    copyButton.addEventListener("click", () => {
+      const codeLines = [...container.querySelectorAll(".code .line")];
+      const code = codeLines.map((line) => line.innerText).join("\n");
+
+      // Copy code to clipboard
+      navigator.clipboard.writeText(code);
+
+      // Display 'copied' icon
+      copyButton.querySelector("i").className = "fa-regular fa-check";
+
+      // Reset icon after a while
+      setTimeout(() => {
+        copyButton.querySelector("i").className = "fa-regular fa-copy";
+      }, 1000);
+    });
+    foldButton.addEventListener("click", () => {
+      container.classList.toggle("folded");
+      foldButton.querySelector("i").className = container.classList.contains(
+        "folded",
+      )
+        ? "fa-solid fa-chevron-up"
+        : "fa-solid fa-chevron-down";
+    });
+  });
+};
+
+export default initCopyCode;

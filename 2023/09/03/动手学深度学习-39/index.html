@@ -1,1 +1,1125 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="keywords" content="敖炜,博客"><meta name="author" content="敖炜"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="canonical" href="https://ao-wei.github.io/2023/09/03/动手学深度学习-39/"><meta name="robots" content="index,follow"><meta name="googlebot" content="index,follow"><meta name="revisit-after" content="1 days"><meta name="description" content="实战Kaggle比赛，图像分类（CIFAR-10）这里将从原始图像文件开始，然后逐步组织、读取并将它们转换为张量格式"><meta property="og:type" content="article"><meta property="og:title" content="动手学深度学习-39"><meta property="og:url" content="https://ao-wei.github.io/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-39/index.html"><meta property="og:site_name" content="敖炜"><meta property="og:description" content="实战Kaggle比赛，图像分类（CIFAR-10）这里将从原始图像文件开始，然后逐步组织、读取并将它们转换为张量格式"><meta property="og:locale" content="zh_CN"><meta property="article:published_time" content="2023-09-03T09:08:15.000Z"><meta property="article:modified_time" content="2023-09-03T09:15:48.845Z"><meta property="article:author" content="Ao Wei"><meta property="article:tag" content="深度学习"><meta name="twitter:card" content="summary"><link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192"><link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg"><meta name="theme-color" content="#A31F34"><link rel="shortcut icon" href="/images/redefine-favicon.svg"><title>动手学深度学习-39 - 敖炜的博客</title><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/assets/build/styles.css"><link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fonts/fonts.css"><link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fonts/Satoshi/satoshi.css"><link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fonts/Chillax/chillax.css"><script id="hexo-configurations">window.config={hostname:"ao-wei.github.io",root:"/",language:"zh-CN",path:"search.xml"},window.theme={articles:{style:{font_size:"16px",line_height:1.5,image_border_radius:"14px",image_alignment:"center",image_caption:!1,link_icon:!0},word_count:{enable:!0,count:!0,min2read:!0},author_label:{enable:!0,auto:!1,list:[]},code_block:{copy:!0,style:"mac",font:{enable:!1,family:null,url:null}},toc:{enable:!0,max_depth:3,number:!1,expand:!0,init_open:!0},copyright:!0,lazyload:!0,recommendation:{enable:!1,title:"推荐阅读",limit:3,mobile_limit:2,placeholder:"/images/wallhaven-wqery6-light.webp",skip_dirs:[]}},colors:{primary:"#A31F34",secondary:null},global:{fonts:{chinese:{enable:!1,family:null,url:null},english:{enable:!1,family:null,url:null}},content_max_width:"1000px",sidebar_width:"210px",hover:{shadow:!0,scale:!0},scroll_progress:{bar:!0,percentage:!0},website_counter:{url:"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",enable:!0,site_pv:!0,site_uv:!0,post_pv:!0},single_page:!0,open_graph:!0,google_analytics:{enable:!1,id:null}},home_banner:{enable:!0,style:"fixed",image:{light:"/images/Day.webp",dark:"/images/Night.webp"},title:"敖炜",subtitle:{text:["操千曲而后晓声，观千剑而后识器"],hitokoto:{enable:!1,api:"https://v1.hitokoto.cn"},typing_speed:100,backing_speed:80,starting_delay:500,backing_delay:1500,loop:!0,smart_backspace:!0},text_color:{light:"#fff",dark:"#d1d1b6"},text_style:{title_size:"2.8rem",subtitle_size:"1.5rem",line_height:1.2},custom_font:{enable:!1,family:null,url:null},social_links:{enable:!0,links:{github:"https://github.com/ao-wei",instagram:null,zhihu:null,twitter:null,email:"aowei0821@gmail.com"},qrs:{weixin:null}}},plugins:{feed:{enable:!1},aplayer:{enable:!1,type:"fixed",audios:[{name:null,artist:null,url:null,cover:null}]},mermaid:{enable:!0,version:"9.3.0"}},version:"2.5.0",navbar:{auto_hide:!0,color:{left:"#f78736",right:"#367df7",transparency:35},links:{Home:{path:"/",icon:"fa-regular fa-house"},Tags:{path:"/tags",icon:"fa-regular fa-tag"},Categories:{path:"/categories",icon:"fa-regular fa-folder"},Archives:{path:"/archives",icon:"fa-regular fa-archive"},About:{icon:"fa-regular fa-user",submenus:{"说说":"/shuoshuo",Github:"https://github.com/ao-wei",Blog:"https://ao-wei.github.io"}},Links:{icon:"fa-regular fa-link",submenus:{"友情链接":"/links/",Link2:"/link2",Link3:"/link3"}},"相册":{icon:"fa-solid fa-image",path:"/masonry/"}},search:{enable:!0,preload:!0},tags:{Tags:{icon:"fa-solid fa-tags",path:"/tags/"}},categories:{Categories:{icon:"fa-solid fa-folder",path:"/categories/"}}},page_templates:{friends_column:2,tags_style:"blur"},home:{sidebar:{enable:!0,position:"left",first_item:"menu",announcement:null,links:null},article_date_format:"auto",categories:{enable:!0,limit:3},tags:{enable:!0,limit:3}},footerStart:"2023/5/20 11:45:14"},window.lang_ago={second:"%s 秒前",minute:"%s 分钟前",hour:"%s 小时前",day:"%s 天前",week:"%s 周前",month:"%s 个月前",year:"%s 年前"},window.data={masonry:!0}</script><link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fontawesome/fontawesome.min.css"><link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fontawesome/brands.min.css"><link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fontawesome/solid.min.css"><link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fontawesome/regular.min.css"><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax=SVG]{direction:ltr}mjx-container[jax=SVG]>svg{overflow:visible}mjx-container[jax=SVG][display=true]{display:block;text-align:center;margin:1em 0}mjx-container[jax=SVG][justify=left]{text-align:left}mjx-container[jax=SVG][justify=right]{text-align:right}g[data-mml-node=merror]>g{fill:red;stroke:red}g[data-mml-node=merror]>rect[data-background]{fill:yellow;stroke:none}g[data-mml-node=mtable]>line[data-line]{stroke-width:70px;fill:none}g[data-mml-node=mtable]>rect[data-frame]{stroke-width:70px;fill:none}g[data-mml-node=mtable]>.mjx-dashed{stroke-dasharray:140}g[data-mml-node=mtable]>.mjx-dotted{stroke-linecap:round;stroke-dasharray:0,140}g[data-mml-node=mtable]>svg{overflow:visible}[jax=SVG] mjx-tool{display:inline-block;position:relative;width:0;height:0}[jax=SVG] mjx-tool>mjx-tip{position:absolute;top:0;left:0}mjx-tool>mjx-tip{display:inline-block;padding:.2em;border:1px solid #888;font-size:70%;background-color:#f8f8f8;color:#000;box-shadow:2px 2px 5px #aaa}g[data-mml-node=maction][data-toggle]{cursor:pointer}mjx-status{display:block;position:fixed;left:1em;bottom:1em;min-width:25%;padding:.2em .4em;border:1px solid #888;font-size:90%;background-color:#f8f8f8;color:#000}foreignObject[data-mjx-xml]{font-family:initial;line-height:normal;overflow:visible}.MathJax path{stroke-width:3}mjx-container[display=true]{overflow:auto hidden}mjx-container[display=true]+br{display:none}</style></head><body><div class="progress-bar-container"><span class="scroll-progress-bar"></span><span class="pjax-progress-bar"></span><span class="swup-progress-icon"><i class="fa-solid fa-circle-notch fa-spin"></i></span></div><main class="page-container" id="swup"><div class="main-content-container"><div class="main-content-header"><header class="navbar-container"><div class="navbar-content"><div class="left"><a class="logo-image" href="/"><img src="/images/redefine-logo.svg"></a><a class="logo-title" href="/">敖炜的博客</a></div><div class="right"><div class="desktop"><ul class="navbar-list"><li class="navbar-item"><a href="/"><i class="fa-regular fa-house"></i> 首页</a></li><li class="navbar-item"><a href="/tags"><i class="fa-regular fa-tag"></i> 标签</a></li><li class="navbar-item"><a href="/categories"><i class="fa-regular fa-folder"></i> 分类</a></li><li class="navbar-item"><a href="/archives"><i class="fa-regular fa-archive"></i> 归档</a></li><li class="navbar-item"><a class="has-dropdown" href="#" onclick="return!1"><i class="fa-regular fa-user"></i> 关于&nbsp;<i class="fa-solid fa-chevron-down"></i></a><ul class="sub-menu"><li><a href="/shuoshuo">说说</a></li><li><a target="_blank" rel="noopener" href="https://github.com/ao-wei">GITHUB</a></li><li><a href="https://ao-wei.github.io">BLOG</a></li></ul></li><li class="navbar-item"><a class="has-dropdown" href="#" onclick="return!1"><i class="fa-regular fa-link"></i> 链接&nbsp;<i class="fa-solid fa-chevron-down"></i></a><ul class="sub-menu"><li><a href="/links/">友情链接</a></li><li><a href="/link2">LINK2</a></li><li><a href="/link3">LINK3</a></li></ul></li><li class="navbar-item"><a href="/masonry/"><i class="fa-solid fa-image"></i> 相册</a></li><li class="navbar-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></li></ul></div><div class="mobile"><div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div><div class="icon-item navbar-bar"><div class="navbar-bar-middle"></div></div></div></div></div><div class="navbar-drawer w-full absolute top-0 left-0 bg-background-color"><ul class="drawer-navbar-list flex flex-col justify-start items-center"><li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center"><a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group" href="/"><i class="fa-regular fa-house"></i> 首页</a></li><li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center"><a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group" href="/tags"><i class="fa-regular fa-tag"></i> 标签</a></li><li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center"><a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group" href="/categories"><i class="fa-regular fa-folder"></i> 分类</a></li><li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center"><a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group" href="/archives"><i class="fa-regular fa-archive"></i> 归档</a></li><li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center"><a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group has-dropdown" href="#" onclick="return!1"><i class="fa-regular fa-user"></i> 关于&nbsp;<i class="group-hover:rotate-180 transition-transform fa-solid fa-chevron-down"></i></a></li><li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl"><a class="py-0.5" href="/shuoshuo">说说</a></li><li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl"><a class="py-0.5" target="_blank" rel="noopener" href="https://github.com/ao-wei">GITHUB</a></li><li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl"><a class="py-0.5" href="https://ao-wei.github.io">BLOG</a></li><li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center"><a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group has-dropdown" href="#" onclick="return!1"><i class="fa-regular fa-link"></i> 链接&nbsp;<i class="group-hover:rotate-180 transition-transform fa-solid fa-chevron-down"></i></a></li><li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl"><a class="py-0.5" href="/links/">友情链接</a></li><li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl"><a class="py-0.5" href="/link2">LINK2</a></li><li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl"><a class="py-0.5" href="/link3">LINK3</a></li><li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center"><a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group" href="/masonry/"><i class="fa-solid fa-image"></i> 相册</a></li></ul></div><div class="window-mask"></div></header></div><div class="main-content-body"><div class="main-content"><div class="post-page-container"><div class="article-content-container"><div class="article-title"><h1 class="article-title-regular">动手学深度学习-39</h1></div><div class="article-header flex flex-row gap-2 items-center"><div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]"><img src="/images/%E5%A4%B4%E5%83%8F.webp"></div><div class="info flex flex-col justify-between"><div class="author flex items-center"><span class="name text-default-text-color text-lg font-semibold">敖炜</span> <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span></div><div class="meta-info"><div class="article-meta-info"><span class="article-date article-meta-item"><i class="fa-regular fa-pen-fancy"></i> &nbsp; <span class="desktop">2023-09-03 17:08:15</span> <span class="mobile">2023-09-03 17:08:15</span> <span class="hover-info">创建</span></span><span class="article-date article-meta-item"><i class="fa-regular fa-wrench"></i> &nbsp; <span class="desktop">2023-09-03 17:15:48</span> <span class="mobile">2023-09-03 17:15:48</span> <span class="hover-info">更新</span></span><span class="article-categories article-meta-item"><i class="fa-regular fa-folders"></i> &nbsp;<ul><li><a href="/categories/CS/">CS</a>&nbsp;</li><li>></li><li><a href="/categories/CS/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>&nbsp;</li></ul></span><span class="article-tags article-meta-item"><i class="fa-regular fa-tags"></i> &nbsp;<ul><li><a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>&nbsp;</li></ul></span><span class="article-wordcount article-meta-item"><i class="fa-regular fa-typewriter"></i> &nbsp;<span>2k 字</span></span><span class="article-min2read article-meta-item"><i class="fa-regular fa-clock"></i> &nbsp;<span>8 分钟</span></span><span class="article-pv article-meta-item"><i class="fa-regular fa-eye"></i> &nbsp;<span id="busuanzi_value_page_pv"></span></span></div></div></div></div><div class="article-content markdown-body"><h1 id="实战Kaggle比赛，图像分类（CIFAR-10）"><a href="#实战Kaggle比赛，图像分类（CIFAR-10）" class="headerlink" title="实战Kaggle比赛，图像分类（CIFAR-10）"></a>实战Kaggle比赛，图像分类（CIFAR-10）</h1><p>这里将从原始图像文件开始，然后逐步组织、读取并将它们转换为张量格式</p><span id="more"></span><h2 id="获取并组织数据集"><a href="#获取并组织数据集" class="headerlink" title="获取并组织数据集"></a>获取并组织数据集</h2><p>比赛数据集分为训练集和测试集，其中训练集包含50000张、测试集包含300000张图像。在测试集中，10000张图像将被用于评估，而剩下的290000张图像将不会被进行评估，包含它们只是为了防止手动标记测试集并提交标记结果（防作弊）。两个数据集中的图像都是png格式，高度和宽度均为32像素并有三个颜色通道（RGB）。这些图片共涵盖10个类别：飞机、汽车、鸟类、猫、鹿、狗、青蛙、马、船和卡车。</p><h3 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h3><p>为了便于入门，<strong>使用包含前1000个训练图像和5个随机测试图像的数据集的小规模样本</strong>。要使用Kaggle竞赛的完整数据集，需要将以下<code>demo</code>变量设置为<code>False</code>。</p><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> d2l <span class="keyword">import</span> torch <span class="keyword">as</span> d2l</span><br><span class="line"></span><br><span class="line"><span class="comment">#@save</span></span><br><span class="line">d2l.DATA_HUB[<span class="string">"cifar10_tiny"</span>] = (d2l.DATA_URL + <span class="string">"kaggle_cifar10_tiny.zip"</span>, <span class="string">'2068874e4b9a9f0fb07ebe0ad2b29754449ccacd'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果使用完整的Kaggle竞赛的数据集，设置demo为False</span></span><br><span class="line">demo = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> demo:</span><br><span class="line">    data_dir = d2l.download_extract(<span class="string">"cifar10_tiny"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    data_dir = <span class="string">"../data/cifar-10/"</span></span><br></pre></td></tr></table></figure></div><h3 id="整理数据集"><a href="#整理数据集" class="headerlink" title="整理数据集"></a>整理数据集</h3><p>需要整理数据集来训练和测试模型。首先，我们用以下函数读取CSV文件中的标签，它返回一个字典，该字典将文件名中不带扩展名的部分映射到其标签。</p><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_csv_labels</span>(<span class="params">fname</span>):</span><br><span class="line">    <span class="string">"""读取fname来给标签字典返回一个文件名"""</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(fname, <span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="comment"># 跳过文件头行（列名）</span></span><br><span class="line">        line = f.readlines()[<span class="number">1</span>:]</span><br><span class="line"></span><br><span class="line">    tokens = [l.rstrip().split(<span class="string">","</span>) <span class="keyword">for</span> l <span class="keyword">in</span> lines]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(((name, label) <span class="keyword">for</span> name, label <span class="keyword">in</span> tokens))</span><br><span class="line"></span><br><span class="line">labels = read_csv_labels(os.path.join(data_dir, <span class="string">"trainLabels.csv"</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"# 训练样本 ："</span>, <span class="built_in">len</span>(labels))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"# 类别 ："</span>, <span class="built_in">len</span>(<span class="built_in">set</span>(labels.values())))</span><br></pre></td></tr></table></figure></div><p>定义<code>reorg_train_valid</code>函数来<strong>将验证集从原始的训练集中拆分出来</strong>。此函数中的参数<code>valid_ratio</code>是验证集中的样本数与原始训练集中的样本数之比。更具体地说，令<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align:-.025ex" xmlns="http://www.w3.org/2000/svg" width="1.357ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 600 453"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341 56 388 89 425 135 442Q171 442 195 424T225 390 231 369Q231 367 232 367L243 378Q304 442 382 442 436 442 469 415T503 336 465 179 427 52Q427 26 444 26 450 26 453 27 482 32 505 65T540 145Q542 153 560 153 580 153 580 145 580 144 576 130 568 101 554 73T508 17 439-10Q392-10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291 189 157Q156 26 151 16 138-11 108-11 95-11 87-5T76 7 74 17Q74 30 112 180T152 343Q153 348 153 366 153 405 129 405 91 405 66 305 60 285 60 284 58 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>等于样本最少的类别中的图像数量，而<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align:-.025ex" xmlns="http://www.w3.org/2000/svg" width="1.02ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 451 453"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317 38 348 53 381 73 411 99 433 132 442Q161 442 183 430T214 408 225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400 430 381 430 363 430 333 417 315T391 292 366 288Q346 288 334 299T322 328Q322 376 378 392 356 405 342 405 286 405 239 331 229 315 224 298T190 165Q156 25 151 16 138-11 108-11 95-11 87-5T76 7 74 17Q74 30 114 189T154 366Q154 405 128 405 107 405 92 377T68 316 57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>是比率。验证集将为每个类别拆分出<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align:-.566ex" xmlns="http://www.w3.org/2000/svg" width="12.495ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 5522.7 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="6D" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122 103 161 103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441 178 442H181V402Q181 364 182 364T187 369 199 384 218 402 247 421 285 437Q305 442 336 442 351 442 364 440T387 434 406 426 421 417 432 406 441 395 448 384 452 374 455 366L457 361 460 365Q463 369 466 373T475 384 488 397 503 410 523 422 546 432 572 439 603 442Q729 442 740 329 741 322 741 190V104Q741 66 743 59T754 49Q775 46 803 46H819V0H811L788 1Q764 2 737 2T699 3Q596 3 587 0H579V46H595Q656 46 656 62 657 64 657 200 656 335 655 343 649 371 635 385T611 402 585 404Q540 404 506 370 479 343 472 315T464 232V168 108Q464 78 465 68T468 55 477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62 380 64 380 200 379 335 378 343 372 371 358 385T334 402 308 404Q263 404 229 370 202 343 195 315T187 232V168 108Q187 78 188 68T191 55 200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path data-c="61" d="M137 305T115 305 78 320 63 359Q63 394 97 421T218 448Q291 448 336 416T396 340Q401 326 401 309T402 194V124Q402 76 407 58T428 40Q443 40 448 56T453 109V145H493V106Q492 66 490 59 481 29 455 12T400-6 353 12 329 54V58L327 55Q325 52 322 49T314 40 302 29 287 17 269 6 247-2 221-8 190-11Q130-11 82 20T34 107Q34 128 41 147T68 188 116 225 194 253 304 268H318V290Q318 324 312 340 290 411 215 411 197 411 181 410T156 406 148 403Q170 388 170 359 170 334 154 320ZM126 106Q126 75 150 51T209 26Q247 26 276 49T315 109Q317 116 318 175 318 233 317 233 309 233 296 232T251 223 193 203 147 166 126 106Z" transform="translate(833,0)"></path><path data-c="78" d="M201 0Q189 3 102 3 26 3 17 0H11V46H25Q48 47 67 52T96 61 121 78 139 96 160 122 180 150L226 210 168 288Q159 301 149 315T133 336 122 351 113 363 107 370 100 376 94 379 88 381 80 383Q74 383 44 385H16V431H23Q59 429 126 429 219 429 229 431H237V385Q201 381 201 369 201 367 211 353T239 315 268 274L272 270 297 304Q329 345 329 358 329 364 327 369T322 376 317 380 310 384L307 385H302V431H309Q324 428 408 428 487 428 493 431H499V385H492Q443 385 411 368 394 360 377 341T312 257L296 236 358 151Q424 61 429 57T446 50Q464 46 499 46H516V0H510 502Q494 1 482 1T457 2 432 2 414 3Q403 3 377 3T327 1L304 0H295V46H298Q309 46 320 51T331 63Q331 65 291 120L250 175Q249 174 219 133T185 88Q181 83 181 74 181 63 188 55T206 46Q208 46 208 23V0H201Z" transform="translate(1333,0)"></path></g><g data-mml-node="mo" transform="translate(1861,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488 164 576 202 643 244 695 277 729 302 750H315 319Q333 750 333 741 333 738 316 720T275 667 226 581 184 443 167 250 184 58 225-81 274-167 316-220 333-241Q333-250 318-250H315 302L274-226Q180-141 137-14T94 250Z"></path></g><g data-mml-node="mo" transform="translate(2250,0)"><path data-c="230A" d="M174 734Q174 735 175 737T177 740 180 744 184 747 189 749 196 750Q206 748 214 735V-210H310 373Q401-210 411-213T422-230 411-247 369-251Q362-251 338-251T298-250H190Q178-246 174-234V734Z"></path></g><g data-mml-node="mi" transform="translate(2694,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341 56 388 89 425 135 442Q171 442 195 424T225 390 231 369Q231 367 232 367L243 378Q304 442 382 442 436 442 469 415T503 336 465 179 427 52Q427 26 444 26 450 26 453 27 482 32 505 65T540 145Q542 153 560 153 580 153 580 145 580 144 576 130 568 101 554 73T508 17 439-10Q392-10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291 189 157Q156 26 151 16 138-11 108-11 95-11 87-5T76 7 74 17Q74 30 112 180T152 343Q153 348 153 366 153 405 129 405 91 405 66 305 60 285 60 284 58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(3294,0)"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317 38 348 53 381 73 411 99 433 132 442Q161 442 183 430T214 408 225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400 430 381 430 363 430 333 417 315T391 292 366 288Q346 288 334 299T322 328Q322 376 378 392 356 405 342 405 286 405 239 331 229 315 224 298T190 165Q156 25 151 16 138-11 108-11 95-11 87-5T76 7 74 17Q74 30 114 189T154 366Q154 405 128 405 107 405 92 377T68 316 57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3745,0)"><path data-c="230B" d="M229 734Q229 735 230 737T232 740 235 744 239 747 244 749 251 750Q262 748 269 735V-235Q266-240 256-249L147-250H77Q43-250 32-247T21-230 32-213 72-209Q79-209 99-209T133-210H229V734Z"></path></g><g data-mml-node="mo" transform="translate(4189,0)"><path data-c="2C" d="M78 35T78 60 94 103 137 121Q165 121 187 96T210 8Q210-27 201-60T180-117 154-158 130-185 117-194Q113-194 104-185T95-172Q95-168 106-156T131-126 157-76 173-3V9L172 8Q170 7 167 6T161 3 152 1 140 0Q113 0 96 17Z"></path></g><g data-mml-node="mn" transform="translate(4633.7,0)"><path data-c="31" d="M213 578 200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641 273 663Q275 666 285 666 294 666 302 660V361L303 61Q310 54 315 52T339 48 401 46H427V0H416Q395 3 257 3 121 3 100 0H88V46H114Q136 46 152 46T177 47 193 50 201 52 207 57 213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(5133.7,0)"><path data-c="29" d="M60 749 64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12 224-76 186-143 145-194 113-227 90-246Q87-249 86-250H74Q66-250 63-250T58-247 55-238Q56-237 66-225 221-64 221 250T66 725Q56 737 55 738 55 746 60 749Z"></path></g></g></g></svg></mjx-container>张图像。让我们以<code>valid_ratio=0.1</code>为例，由于原始的训练集有50000张图像，因此<code>train_valid_test/train</code>路径中将有45000张图像用于训练，而剩下5000张图像将作为路径<code>train_valid_test/valid</code>中的验证集。组织数据集后，同类别的图像将被放置在同一文件夹下。</p><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">copyfile</span>(<span class="params">filename, target_dir</span>):</span><br><span class="line">    <span class="string">"""将文件复制到目标目录"""</span></span><br><span class="line">    os.makedirs(target_dir, exist_ok=<span class="literal">True</span>)</span><br><span class="line">    shutil.copy(filename, target_dir)</span><br><span class="line"></span><br><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reorg_train_valid</span>(<span class="params">data_dir, labels, valid_ratio</span>):</span><br><span class="line">    <span class="string">"""将验证集从原始的训练集中拆分出来"""</span></span><br><span class="line">    <span class="comment"># 训练数据集中样本最少的类别中的样本数</span></span><br><span class="line">    n = collections.Counter(labels.values()).most_common()[-<span class="number">1</span>][<span class="number">1</span>]</span><br><span class="line">    <span class="comment"># 验证集中每个类别的样本数</span></span><br><span class="line">    n_valid_per_label = <span class="built_in">max</span>(<span class="number">1</span>, math.floor(n * valid_ratio))</span><br><span class="line">    label_count = {}</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> train_file <span class="keyword">in</span> os.listdir(os.path.join(data_dir, <span class="string">"train"</span>)):</span><br><span class="line">        label = labels[train_file.split(<span class="string">"."</span>)[<span class="number">0</span>]]</span><br><span class="line">        fname = os.path.join(data_dir, <span class="string">"train"</span>, train_file)</span><br><span class="line">        copyfile(fname, os.path.join(data_dir, <span class="string">"train_valid_test"</span>, <span class="string">"train_valid"</span>, label))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> label <span class="keyword">not</span> <span class="keyword">in</span> label_count <span class="keyword">or</span> label_count[label] &lt; n_valid_per_label:</span><br><span class="line">            copyfile(fname, os.path.join(data_dir, <span class="string">"rain_valid_test"</span>, <span class="string">"valid"</span>, label))</span><br><span class="line"></span><br><span class="line">            label_count[label] = label_count.get(label, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            copyfile(fname, os.path.join(data_dir, <span class="string">"train_valid_test"</span>, <span class="string">"train"</span>, label))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n_valid_per_label</span><br></pre></td></tr></table></figure></div><p>下面的<code>reorg_test</code>函数用来<strong>在预测期间整理测试集，以方便读取</strong></p><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reorg_test</span>(<span class="params">data_dir</span>):</span><br><span class="line">    <span class="string">"""在预测期间整理测试集，以方便读取"""</span></span><br><span class="line">    <span class="keyword">for</span> test_file <span class="keyword">in</span> os.listdir(os.path.join(data_dir, <span class="string">"test"</span>)):</span><br><span class="line">        copyfile(os.path.join(data_dir, <span class="string">"test"</span>, test_file),</span><br><span class="line">                 os.path.join(data_dir, <span class="string">'train_valid_test'</span>, <span class="string">'test'</span>, <span class="string">'unknown'</span>))</span><br></pre></td></tr></table></figure></div><p>最后，我们使用一个函数来<strong>调用前面定义的函数</strong><code>read_csv_labels</code>、<code>reorg_train_valid</code>和<code>reorg_test</code></p><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">reorg_cifar10_data</span>(<span class="params">data_dir, valid_ratio</span>):</span><br><span class="line">    labels = read_csv_labels(os.path.join(data_dir, <span class="string">"trainLabels.csv"</span>))</span><br><span class="line">    reorg_train_valid(data_dir, labels, valid_ratio)</span><br><span class="line">    reorg_test(data_dir)</span><br></pre></td></tr></table></figure></div><p>在这里，我们只将样本数据集的批量大小设置为32。在实际训练和测试中，应该使用Kaggle竞赛的完整数据集，并将<code>batch_size</code>设置为更大的整数，例如128。我们将10％的训练样本作为调整超参数的验证集。</p><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">batch_size = <span class="number">32</span> <span class="keyword">if</span> demo <span class="keyword">else</span> <span class="number">128</span></span><br><span class="line">valid_ratio = <span class="number">0.1</span></span><br><span class="line">reorg_cifar10_data(data_dir, valid_ratio)</span><br></pre></td></tr></table></figure></div><h2 id="图像增广"><a href="#图像增广" class="headerlink" title="图像增广"></a>图像增广</h2><p>我们使用图像增广来解决过拟合的问题。例如在训练中，我们可以随机水平翻转图像。我们还可以对彩色图像的三个RGB通道执行标准化。下面，我们列出了其中一些可以调整的操作。</p><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">transform_train = torchvision.transforms.Compose([</span><br><span class="line">    <span class="comment"># 在高度和宽度上将图像放大到40像素的正方形</span></span><br><span class="line">    torchvision.transforms.Resize(<span class="number">40</span>),</span><br><span class="line">    <span class="comment"># 随机裁剪出一个高度和宽度均为40像素的正方形图像，</span></span><br><span class="line">    <span class="comment"># 生成一个面积为原始图像面积0.64～1倍的小正方形，</span></span><br><span class="line">    <span class="comment"># 然后将其缩放为高度和宽度均为32像素的正方形</span></span><br><span class="line">    torchvision.transforms.RandomResizedCrop(<span class="number">32</span>, scale=(<span class="number">0.64</span>, <span class="number">1.0</span>), ratio=(<span class="number">1.0</span>, <span class="number">1.0</span>)),</span><br><span class="line">    torchvision.transforms.RandomHorizontalFlip(),</span><br><span class="line">    torchvision.transforms.ToTensor(),</span><br><span class="line">    <span class="comment"># 标准化图像的每个通道</span></span><br><span class="line">    torchvision.transforms.Normalize([<span class="number">0.4914</span>, <span class="number">0.4822</span>, <span class="number">0.4465</span>],</span><br><span class="line">                                     [<span class="number">0.2023</span>, <span class="number">0.1994</span>, <span class="number">0.2010</span>])]</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在测试期间，我们只对图像执行标准化，以消除评估结果中的随机性。</span></span><br><span class="line"></span><br><span class="line">transform_test = torchvision.transforms.Compose([</span><br><span class="line">    torchvision.transforms.ToTensor(),</span><br><span class="line">    torchvision.transforms.Normalize([<span class="number">0.4914</span>, <span class="number">0.4822</span>, <span class="number">0.4465</span>],</span><br><span class="line">                                     [<span class="number">0.2023</span>, <span class="number">0.1994</span>, <span class="number">0.2010</span>])])</span><br></pre></td></tr></table></figure></div><h2 id="读取数据集"><a href="#读取数据集" class="headerlink" title="读取数据集"></a>读取数据集</h2><p>接下来，读取由原始图像组成的数据集，每个样本都包括一张图片和一个标签</p><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">train_ds, train_valid_ds = [torchvision.datasets.ImageFolder(os.path.join(data_dir, <span class="string">"train_valid_test"</span>, folder), transform=transform_train) <span class="keyword">for</span> folder <span class="keyword">in</span> [<span class="string">"train"</span>, <span class="string">"train_valid"</span>]]</span><br><span class="line"></span><br><span class="line">valid_ds, test_ds = [torchvision.datasets.ImageFolder(os.path.join(data_dir, <span class="string">"train_valid_test"</span>, folder), transform=transform_test) <span class="keyword">for</span> folder <span class="keyword">in</span> [<span class="string">"valid"</span>, <span class="string">"test"</span>]]</span><br></pre></td></tr></table></figure></div><p>在训练期间，我们需要<strong>指定上面定义的所有图像增广操作</strong>。当验证集在超参数调整过程中用于模型评估时，不应引入图像增广的随机性。<br>在最终预测之前，我们根据训练集和验证集组合而成的训练模型进行训练，以充分利用所有标记的数据。</p><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">train_iter, train_valid_iter = [torch.utils.data.DataLoader(dataset, batch_size, shuffle=<span class="literal">True</span>, drop_last=<span class="literal">True</span>) <span class="keyword">for</span> dataset <span class="keyword">in</span> (train_ds, train_valid_ds)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># drop_last为True表示如果最后一个batch不满足所要的需求大小，将其丢掉</span></span><br><span class="line">valid_iter = torch.utils.data.DataLoader(valid_ds, batch_size, shuffle=<span class="literal">False</span>,</span><br><span class="line">                                         drop_last=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">test_iter = torch.utils.data.DataLoader(test_ds, batch_size, shuffle=<span class="literal">False</span>,</span><br><span class="line">                                        drop_last=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></div><h2 id="定义模型"><a href="#定义模型" class="headerlink" title="定义模型"></a>定义模型</h2><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_net</span>():</span><br><span class="line">    num_classes = <span class="number">10</span></span><br><span class="line">    net = d2l.resnet18(num_classer, <span class="number">3</span>) <span class="comment"># 3表示通道</span></span><br><span class="line">    <span class="keyword">return</span> net</span><br><span class="line"></span><br><span class="line">loss = nn.CrossEntropyLoss(reduction=<span class="string">"none"</span>)</span><br></pre></td></tr></table></figure></div><h2 id="定义训练函数"><a href="#定义训练函数" class="headerlink" title="定义训练函数"></a>定义训练函数</h2><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># lr_period表示每隔多少时间（epoch）将lr减小, lr_decay表示lr减小多少(decay * lr)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">net, train_iter, valid_iter, num_epochs, lr, wd, devices, lr_period, lr_decay</span>):</span><br><span class="line">    trainer = torch.optim.SGD(net.parameters(), lr=lr, momentum=<span class="number">0.9</span>, weight_dacay=wd)</span><br><span class="line">    scheduler = torch.optim.lr_scheduler.StepLR(trainer, lr_period, lr_decay)</span><br><span class="line">    num_batchs, timer = <span class="built_in">len</span>(train_iter), d2l.Timer()</span><br><span class="line"></span><br><span class="line">    legend = [<span class="string">'train loss'</span>, <span class="string">'train acc'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> valid_iter <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        legend.append(<span class="string">"valid acc"</span>)</span><br><span class="line"></span><br><span class="line">    animator = d2l.Animator(xlabel=<span class="string">"epoch"</span>, xlim=[<span class="number">1</span>, num_epochs], legend=legend)</span><br><span class="line"></span><br><span class="line">    net = nn.DataParallel(net, device_ids=devices).to(devices[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">        net.train()</span><br><span class="line">        metric = d2l.Accumulator(<span class="number">3</span>)</span><br><span class="line">        <span class="keyword">for</span> i, (features, labels) <span class="keyword">in</span> <span class="built_in">enumerate</span>(train_iter):</span><br><span class="line">            timer.start()</span><br><span class="line">            l, acc = d2l.train_batch_ch13(net, features, labels, loss, trainer, devices)</span><br><span class="line">            metric.add(l, acc, labels.shape[<span class="number">0</span>])</span><br><span class="line">            timer.stop()</span><br><span class="line">            <span class="keyword">if</span> (i + <span class="number">1</span>) % (num_batches // <span class="number">5</span>) == <span class="number">0</span> <span class="keyword">or</span> i == num_batches - <span class="number">1</span>:</span><br><span class="line">                animator.add(epoch + (i + <span class="number">1</span>) / num_batches, (metric[<span class="number">0</span>] / metric[<span class="number">2</span>], metric[<span class="number">1</span>] / metric[<span class="number">2</span>], <span class="literal">None</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> valid_iter <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            valid_acc = d2l.evaluate_acuracy_gpu(net, valid_iter)</span><br><span class="line">            animator.add(epoch + <span class="number">1</span>, (<span class="literal">None</span>, <span class="literal">None</span>, valid_acc))</span><br><span class="line"></span><br><span class="line">        scheduler.step()</span><br><span class="line"></span><br><span class="line">    measures = (<span class="string">f'train loss <span class="subst">{metric[<span class="number">0</span>] / metric[<span class="number">2</span>]:<span class="number">.3</span>f}</span>, '</span></span><br><span class="line">                <span class="string">f'train acc <span class="subst">{metric[<span class="number">1</span>] / metric[<span class="number">2</span>]:<span class="number">.3</span>f}</span>'</span>)</span><br><span class="line">    <span class="keyword">if</span> valid_iter <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        measures += <span class="string">f', valid acc <span class="subst">{valid_acc:<span class="number">.3</span>f}</span>'</span></span><br><span class="line">    <span class="built_in">print</span>(measures + <span class="string">f'\n<span class="subst">{metric[<span class="number">2</span>] * num_epochs / timer.<span class="built_in">sum</span>():<span class="number">.1</span>f}</span>'</span></span><br><span class="line">          <span class="string">f' examples/sec on <span class="subst">{<span class="built_in">str</span>(devices)}</span>'</span>)             </span><br></pre></td></tr></table></figure></div><h2 id="训练和验证模型"><a href="#训练和验证模型" class="headerlink" title="训练和验证模型"></a>训练和验证模型</h2><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">devices, num_epochs, lr, wd = d2l.try_all_gpus(), <span class="number">20</span>, <span class="number">2e-4</span>, <span class="number">5e-4</span></span><br><span class="line">lr_period, lr_decay, net = <span class="number">4</span>, <span class="number">0.9</span>, get_net()</span><br><span class="line">train(net, train_iter, valid_iter, num_epochs, lr, wd, devices, lr_period,, lr_decay)</span><br></pre></td></tr></table></figure></div><h2 id="在-Kaggle-上对测试集进行分类并提交结果"><a href="#在-Kaggle-上对测试集进行分类并提交结果" class="headerlink" title="在 Kaggle 上对测试集进行分类并提交结果"></a>在 Kaggle 上<strong>对测试集进行分类并提交结果</strong></h2><p>在通过验证集调得具有超参数的满意的模型后，我们使用所有标记的数据（包括验证集）来重新训练模型并对测试集进行分类。</p><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">net, preds = get_net(), []</span><br><span class="line">train(net, train_valid_iter, <span class="literal">None</span>, num_epochs, lr, wd, devices, lr_period, lr_decay)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> X, _ <span class="keyword">in</span> test_iter:</span><br><span class="line">    y_hat = net(X.to(device[<span class="number">0</span>]))</span><br><span class="line">    preds.extend(y_hat.argmax(dim=<span class="number">1</span>).<span class="built_in">type</span>(torch.int32).cpu().numpy())</span><br><span class="line"></span><br><span class="line">sorted_ids = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(test_ds) + <span class="number">1</span>))</span><br><span class="line">sorted_ids.sort(key=<span class="keyword">lambda</span> x: <span class="built_in">str</span>(x))</span><br><span class="line">df = pd.DataFrame({<span class="string">'id'</span>: sorted_ids, <span class="string">'label'</span>: preds})</span><br><span class="line">df[<span class="string">'label'</span>] = df[<span class="string">'label'</span>].apply(<span class="keyword">lambda</span> x: train_valid_ds.classes[x])</span><br><span class="line">df.to_csv(<span class="string">'submission.csv'</span>, index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></div><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul><li>将包含原始图像文件的数据集组织为所需格式后，我们可以读取它们。</li><li>我们可以在图像分类竞赛中使用卷积神经网络和图像增广。</li></ul></div><div class="post-copyright-info"><div class="article-copyright-info-container"><ul><li><strong>标题:</strong> 动手学深度学习-39</li><li><strong>作者:</strong> 敖炜</li><li><strong>创建于 :</strong> 2023-09-03 17:08:15</li><li><strong>更新于 :</strong> 2023-09-03 17:15:48</li><li><strong>链接:</strong> https://ao-wei.github.io/2023/09/03/动手学深度学习-39/</li><li><strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。</li></ul></div></div><ul class="post-tags-box"><li class="tag-item"><a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">#深度学习</a>&nbsp;</li></ul><div class="article-nav"><div class="article-prev"><a class="prev" rel="prev" href="/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-41/"><span class="left arrow-icon flex justify-center items-center"><i class="fa-solid fa-chevron-left"></i></span> <span class="title flex justify-center items-center"><span class="post-nav-title-item">动手学深度学习-41</span> <span class="post-nav-item">上一篇</span></span></a></div><div class="article-next"><a class="next" rel="next" href="/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-37/"><span class="title flex justify-center items-center"><span class="post-nav-title-item">动手学深度学习-37</span> <span class="post-nav-item">下一篇</span></span><span class="right arrow-icon flex justify-center items-center"><i class="fa-solid fa-chevron-right"></i></span></a></div></div><div class="comment-container"><div class="comments-container pjax"><div id="comment-anchor"></div><div class="comment-area-title"><i class="fa-solid fa-comments"></i> &nbsp;评论</div><div id="gitalk-container"></div><script data-swup-reload-script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script><script data-swup-reload-script>function loadGitalk(){let e=decodeURI(location.pathname);e.length>50&&(e=e.substring(0,47)+"...");try{Gitalk&&new Gitalk({clientID:"84f432a6c2210013d4ae",clientSecret:"438277261cad1d6d23d28e1c4f2e7818c1535ecf",repo:"blog-s-comments",owner:"ao-wei",admin:["ao-wei"],id:e,language:"zh-CN"}).render("gitalk-container")}catch(e){window.Gitalk=null}}{const e=setTimeout((()=>{loadGitalk(),clearTimeout(e)}),1e3)}</script></div></div></div><div class="toc-content-container"><div class="post-toc-wrap"><div class="post-toc"><div class="toc-title">此页目录</div><div class="page-title">动手学深度学习-39</div><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E6%88%98Kaggle%E6%AF%94%E8%B5%9B%EF%BC%8C%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%EF%BC%88CIFAR-10%EF%BC%89"><span class="nav-text">实战Kaggle比赛，图像分类（CIFAR-10）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%B9%B6%E7%BB%84%E7%BB%87%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">获取并组织数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">下载数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E7%90%86%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">整理数据集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%B9%BF"><span class="nav-text">图像增广</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">读取数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="nav-text">定义模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E8%AE%AD%E7%BB%83%E5%87%BD%E6%95%B0"><span class="nav-text">定义训练函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E5%92%8C%E9%AA%8C%E8%AF%81%E6%A8%A1%E5%9E%8B"><span class="nav-text">训练和验证模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-Kaggle-%E4%B8%8A%E5%AF%B9%E6%B5%8B%E8%AF%95%E9%9B%86%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB%E5%B9%B6%E6%8F%90%E4%BA%A4%E7%BB%93%E6%9E%9C"><span class="nav-text">在 Kaggle 上对测试集进行分类并提交结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li></ol></div></div></div></div></div></div><div class="main-content-footer"><footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color"><div class="info-container py-3 text-center"><div class="text-center">&copy; <span>2023</span> - 2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration:0.5s;color:#f54545"></i>&nbsp;&nbsp;<a href="/">敖炜</a></div><script data-swup-reload-script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right"><span id="busuanzi_container_site_uv" class="lg:!block"><span class="text-sm">访问人数</span><span id="busuanzi_value_site_uv"></span></span> <span id="busuanzi_container_site_pv" class="lg:!block"><span class="text-sm">总访问量</span><span id="busuanzi_value_site_pv"></span></span></div><div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left"><span class="lg:block text-sm">由<?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4 25.8l-200 115.5L56 371.5l199.6 114.7 200-115.5.4-230.2L256.4 25.8zM349 354.6l-18.4 10.7-18.6-11V275H200v79.6l-18.4 10.7-18.6-11v-197l18.5-10.6 18.5 10.8V237h112v-79.6l18.5-10.6 18.5 10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span> <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.5.0</a></span></div><div>博客已运行<span class="odometer" id="runtime_days"></span> 天<span class="odometer" id="runtime_hours"></span> 小时<span class="odometer" id="runtime_minutes"></span> 分钟<span class="odometer" id="runtime_seconds"></span> 秒</div><script data-swup-reload-script>try{function odometer_init(){document.querySelectorAll(".odometer").forEach((e=>{new Odometer({el:e,format:"( ddd).dd",duration:200})}))}odometer_init()}catch(e){}</script></div></footer></div></div><div class="post-tools"><div class="post-tools-container"><ul class="article-tools-list"><li class="right-bottom-tools page-aside-toggle"><i class="fa-regular fa-outdent"></i></li><li class="go-comment"><i class="fa-regular fa-comments"></i></li></ul></div></div><div class="right-side-tools-container"><div class="side-tools-container"><ul class="hidden-tools-list"><li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center"><i class="fa-regular fa-magnifying-glass-plus"></i></li><li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center"><i class="fa-regular fa-magnifying-glass-minus"></i></li><li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center"><i class="fa-regular fa-moon"></i></li><li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center"><i class="fa-regular fa-arrow-down"></i></li></ul><ul class="visible-tools-list"><li class="right-bottom-tools toggle-tools-list flex justify-center items-center"><i class="fa-regular fa-cog fa-spin"></i></li><li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center"><i class="arrow-up fas fa-arrow-up"></i><span class="percent"></span></li></ul></div></div><div class="image-viewer-container"><img src=""></div><div class="search-pop-overlay"><div class="popup search-popup"><div class="search-header"><span class="search-input-field-pre"><i class="fa-solid fa-keyboard"></i></span><div class="search-input-container"><input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input"></div><span class="popup-btn-close"><i class="fa-solid fa-times"></i></span></div><div id="search-result"><div id="no-result"><i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i></div></div></div></div></main><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/Swup.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/SwupSlideTheme.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/SwupScriptsPlugin.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/SwupProgressPlugin.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/SwupScrollPlugin.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/SwupPreloadPlugin.min.js"></script><script>const swup=new Swup({plugins:[new SwupScriptsPlugin({optin:!0}),new SwupProgressPlugin,new SwupScrollPlugin({offset:80}),new SwupSlideTheme({mainElement:".main-content-body"}),new SwupPreloadPlugin],containers:["#swup"]})</script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/imageViewer.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/utils.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/main.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/layouts/navbarShrink.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/scrollTopBottom.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/lightDarkSwitch.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/layouts/categoryList.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/localSearch.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/codeBlock.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/layouts/lazyload.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/runtime.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/odometer.min.js"></script><link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/assets/odometer-theme-minimal.css"><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/Typed.min.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/plugins/typed.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/mermaid.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/plugins/mermaid.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/minimasonry.min.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/plugins/masonry.js"></script><div class="post-scripts" data-swup-reload-script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/anime.min.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/tocToggle.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/layouts/toc.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/plugins/tabs.js"></script></div></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="敖炜,博客">
+    
+    <meta name="author" content="敖炜">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://ao-wei.github.io/2023/09/03/动手学深度学习-39/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="实战Kaggle比赛，图像分类（CIFAR-10）这里将从原始图像文件开始，然后逐步组织、读取并将它们转换为张量格式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动手学深度学习-39">
+<meta property="og:url" content="https://ao-wei.github.io/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-39/index.html">
+<meta property="og:site_name" content="敖炜">
+<meta property="og:description" content="实战Kaggle比赛，图像分类（CIFAR-10）这里将从原始图像文件开始，然后逐步组织、读取并将它们转换为张量格式">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-03T09:08:15.000Z">
+<meta property="article:modified_time" content="2023-09-03T09:15:48.845Z">
+<meta property="article:author" content="Ao Wei">
+<meta property="article:tag" content="深度学习">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            动手学深度学习-39 -
+        
+        敖炜的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/assets/build/styles.css">
+    
+
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fonts/fonts.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fonts/Satoshi/satoshi.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fonts/Chillax/chillax.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ao-wei.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/Day.webp","dark":"/images/Night.webp"},"title":"敖炜","subtitle":{"text":["操千曲而后晓声，观千剑而后识器"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/ao-wei","instagram":null,"zhihu":null,"twitter":null,"email":"aowei0821@gmail.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.5.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Tags":{"path":"/tags","icon":"fa-regular fa-tag"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"说说":"/shuoshuo","Github":"https://github.com/ao-wei","Blog":"https://ao-wei.github.io"}},"Links":{"icon":"fa-regular fa-link","submenus":{"友情链接":"/links/","Link2":"/link2","Link3":"/link3"}},"相册":{"icon":"fa-solid fa-image","path":"/masonry/"}},"search":{"enable":true,"preload":true},"tags":{"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"}},"categories":{"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"}}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2023/5/20 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":true};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="swup-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/redefine-logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                敖炜的博客
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        首页
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/tags"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-tag"></i>
+                                        
+                                        标签
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/categories"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-folder"></i>
+                                        
+                                        分类
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        归档
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown" 
+                                    href="#" onClick="return false;">
+                                    
+                                        
+                                            <i class="fa-regular fa-user"></i>
+                                        
+                                        关于&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                    
+                                        <li>
+                                        <a href="/shuoshuo">说说
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://github.com/ao-wei">GITHUB
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a href="https://ao-wei.github.io">BLOG
+                                        </a>
+                                        </li>
+                                    
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown" 
+                                    href="#" onClick="return false;">
+                                    
+                                        
+                                            <i class="fa-regular fa-link"></i>
+                                        
+                                        链接&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                    
+                                        <li>
+                                        <a href="/links/">友情链接
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a href="/link2">LINK2
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a href="/link3">LINK3
+                                        </a>
+                                        </li>
+                                    
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/masonry/"  >
+                                    
+                                        
+                                            <i class="fa-solid fa-image"></i>
+                                        
+                                        相册
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer w-full absolute top-0 left-0 bg-background-color">
+        <ul class="drawer-navbar-list flex flex-col justify-start items-center">
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                首页
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
+                        href="/tags"  >
+                             
+                                
+                                    <i class="fa-regular fa-tag"></i>
+                                
+                                标签
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
+                        href="/categories"  >
+                             
+                                
+                                    <i class="fa-regular fa-folder"></i>
+                                
+                                分类
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                归档
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group has-dropdown" 
+                        href="#" onClick="return false;">
+                            
+                                
+                                    <i class="fa-regular fa-user"></i>
+                                
+                                关于&nbsp;<i class="group-hover:rotate-180 transition-transform fa-solid fa-chevron-down"></i>
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                              
+                        
+                            <li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                <a class="py-0.5" href="/shuoshuo">说说</a>
+                            </li>
+                        
+                            <li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                <a class="py-0.5" target="_blank" rel="noopener" href="https://github.com/ao-wei">GITHUB</a>
+                            </li>
+                        
+                            <li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                <a class="py-0.5" href="https://ao-wei.github.io">BLOG</a>
+                            </li>
+                        
+                    
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group has-dropdown" 
+                        href="#" onClick="return false;">
+                            
+                                
+                                    <i class="fa-regular fa-link"></i>
+                                
+                                链接&nbsp;<i class="group-hover:rotate-180 transition-transform fa-solid fa-chevron-down"></i>
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                              
+                        
+                            <li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                <a class="py-0.5" href="/links/">友情链接</a>
+                            </li>
+                        
+                            <li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                <a class="py-0.5" href="/link2">LINK2</a>
+                            </li>
+                        
+                            <li class="drawer-navbar-item text-base flex justify-center items-center hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                <a class="py-0.5" href="/link3">LINK3</a>
+                            </li>
+                        
+                    
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
+                        href="/masonry/"  >
+                             
+                                
+                                    <i class="fa-solid fa-image"></i>
+                                
+                                相册
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            
+                <h1 class="article-title-regular">动手学深度学习-39</h1>
+            
+            </div>
+            
+                    
+        
+        
+            <div class="article-header flex flex-row gap-2 items-center">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/%E5%A4%B4%E5%83%8F.webp">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">敖炜</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-09-03 17:08:15</span>
+        <span class="mobile">2023-09-03 17:08:15</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-09-03 17:15:48</span>
+            <span class="mobile">2023-09-03 17:15:48</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/CS/">CS</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/CS/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>8 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body">
+            <h1 id="实战Kaggle比赛，图像分类（CIFAR-10）"><a href="#实战Kaggle比赛，图像分类（CIFAR-10）" class="headerlink" title="实战Kaggle比赛，图像分类（CIFAR-10）"></a>实战Kaggle比赛，图像分类（CIFAR-10）</h1><p>这里将从原始图像文件开始，然后逐步组织、读取并将它们转换为张量格式</p>
+<span id="more"></span>
+
+<h2 id="获取并组织数据集"><a href="#获取并组织数据集" class="headerlink" title="获取并组织数据集"></a>获取并组织数据集</h2><p>比赛数据集分为训练集和测试集，其中训练集包含50000张、测试集包含300000张图像。在测试集中，10000张图像将被用于评估，而剩下的290000张图像将不会被进行评估，包含它们只是为了防止手动标记测试集并提交标记结果（防作弊）。两个数据集中的图像都是png格式，高度和宽度均为32像素并有三个颜色通道（RGB）。这些图片共涵盖10个类别：飞机、汽车、鸟类、猫、鹿、狗、青蛙、马、船和卡车。</p>
+<h3 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h3><p>为了便于入门，<strong>使用包含前1000个训练图像和5个随机测试图像的数据集的小规模样本</strong>。要使用Kaggle竞赛的完整数据集，需要将以下<code>demo</code>变量设置为<code>False</code>。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> d2l <span class="keyword">import</span> torch <span class="keyword">as</span> d2l</span><br><span class="line"></span><br><span class="line"><span class="comment">#@save</span></span><br><span class="line">d2l.DATA_HUB[<span class="string">"cifar10_tiny"</span>] = (d2l.DATA_URL + <span class="string">"kaggle_cifar10_tiny.zip"</span>, <span class="string">'2068874e4b9a9f0fb07ebe0ad2b29754449ccacd'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果使用完整的Kaggle竞赛的数据集，设置demo为False</span></span><br><span class="line">demo = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> demo:</span><br><span class="line">    data_dir = d2l.download_extract(<span class="string">"cifar10_tiny"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    data_dir = <span class="string">"../data/cifar-10/"</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="整理数据集"><a href="#整理数据集" class="headerlink" title="整理数据集"></a>整理数据集</h3><p>需要整理数据集来训练和测试模型。首先，我们用以下函数读取CSV文件中的标签，它返回一个字典，该字典将文件名中不带扩展名的部分映射到其标签。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_csv_labels</span>(<span class="params">fname</span>):</span><br><span class="line">    <span class="string">"""读取fname来给标签字典返回一个文件名"""</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(fname, <span class="string">"r"</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="comment"># 跳过文件头行（列名）</span></span><br><span class="line">        line = f.readlines()[<span class="number">1</span>:]</span><br><span class="line"></span><br><span class="line">    tokens = [l.rstrip().split(<span class="string">","</span>) <span class="keyword">for</span> l <span class="keyword">in</span> lines]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span>(((name, label) <span class="keyword">for</span> name, label <span class="keyword">in</span> tokens))</span><br><span class="line"></span><br><span class="line">labels = read_csv_labels(os.path.join(data_dir, <span class="string">"trainLabels.csv"</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"# 训练样本 ："</span>, <span class="built_in">len</span>(labels))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"# 类别 ："</span>, <span class="built_in">len</span>(<span class="built_in">set</span>(labels.values())))</span><br></pre></td></tr></table></figure></div>
+
+<p>定义<code>reorg_train_valid</code>函数来<strong>将验证集从原始的训练集中拆分出来</strong>。此函数中的参数<code>valid_ratio</code>是验证集中的样本数与原始训练集中的样本数之比。更具体地说，令<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.357ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 600 453"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>等于样本最少的类别中的图像数量，而<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.02ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 451 453"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>是比率。验证集将为每个类别拆分出<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="12.495ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 5522.7 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="6D" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q351 442 364 440T387 434T406 426T421 417T432 406T441 395T448 384T452 374T455 366L457 361L460 365Q463 369 466 373T475 384T488 397T503 410T523 422T546 432T572 439T603 442Q729 442 740 329Q741 322 741 190V104Q741 66 743 59T754 49Q775 46 803 46H819V0H811L788 1Q764 2 737 2T699 3Q596 3 587 0H579V46H595Q656 46 656 62Q657 64 657 200Q656 335 655 343Q649 371 635 385T611 402T585 404Q540 404 506 370Q479 343 472 315T464 232V168V108Q464 78 465 68T468 55T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path data-c="61" d="M137 305T115 305T78 320T63 359Q63 394 97 421T218 448Q291 448 336 416T396 340Q401 326 401 309T402 194V124Q402 76 407 58T428 40Q443 40 448 56T453 109V145H493V106Q492 66 490 59Q481 29 455 12T400 -6T353 12T329 54V58L327 55Q325 52 322 49T314 40T302 29T287 17T269 6T247 -2T221 -8T190 -11Q130 -11 82 20T34 107Q34 128 41 147T68 188T116 225T194 253T304 268H318V290Q318 324 312 340Q290 411 215 411Q197 411 181 410T156 406T148 403Q170 388 170 359Q170 334 154 320ZM126 106Q126 75 150 51T209 26Q247 26 276 49T315 109Q317 116 318 175Q318 233 317 233Q309 233 296 232T251 223T193 203T147 166T126 106Z" transform="translate(833,0)"></path><path data-c="78" d="M201 0Q189 3 102 3Q26 3 17 0H11V46H25Q48 47 67 52T96 61T121 78T139 96T160 122T180 150L226 210L168 288Q159 301 149 315T133 336T122 351T113 363T107 370T100 376T94 379T88 381T80 383Q74 383 44 385H16V431H23Q59 429 126 429Q219 429 229 431H237V385Q201 381 201 369Q201 367 211 353T239 315T268 274L272 270L297 304Q329 345 329 358Q329 364 327 369T322 376T317 380T310 384L307 385H302V431H309Q324 428 408 428Q487 428 493 431H499V385H492Q443 385 411 368Q394 360 377 341T312 257L296 236L358 151Q424 61 429 57T446 50Q464 46 499 46H516V0H510H502Q494 1 482 1T457 2T432 2T414 3Q403 3 377 3T327 1L304 0H295V46H298Q309 46 320 51T331 63Q331 65 291 120L250 175Q249 174 219 133T185 88Q181 83 181 74Q181 63 188 55T206 46Q208 46 208 23V0H201Z" transform="translate(1333,0)"></path></g><g data-mml-node="mo" transform="translate(1861,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mo" transform="translate(2250,0)"><path data-c="230A" d="M174 734Q174 735 175 737T177 740T180 744T184 747T189 749T196 750Q206 748 214 735V-210H310H373Q401 -210 411 -213T422 -230T411 -247T369 -251Q362 -251 338 -251T298 -250H190Q178 -246 174 -234V734Z"></path></g><g data-mml-node="mi" transform="translate(2694,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(3294,0)"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3745,0)"><path data-c="230B" d="M229 734Q229 735 230 737T232 740T235 744T239 747T244 749T251 750Q262 748 269 735V-235Q266 -240 256 -249L147 -250H77Q43 -250 32 -247T21 -230T32 -213T72 -209Q79 -209 99 -209T133 -210H229V734Z"></path></g><g data-mml-node="mo" transform="translate(4189,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mn" transform="translate(4633.7,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(5133.7,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>张图像。让我们以<code>valid_ratio=0.1</code>为例，由于原始的训练集有50000张图像，因此<code>train_valid_test/train</code>路径中将有45000张图像用于训练，而剩下5000张图像将作为路径<code>train_valid_test/valid</code>中的验证集。组织数据集后，同类别的图像将被放置在同一文件夹下。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">copyfile</span>(<span class="params">filename, target_dir</span>):</span><br><span class="line">    <span class="string">"""将文件复制到目标目录"""</span></span><br><span class="line">    os.makedirs(target_dir, exist_ok=<span class="literal">True</span>)</span><br><span class="line">    shutil.copy(filename, target_dir)</span><br><span class="line"></span><br><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reorg_train_valid</span>(<span class="params">data_dir, labels, valid_ratio</span>):</span><br><span class="line">    <span class="string">"""将验证集从原始的训练集中拆分出来"""</span></span><br><span class="line">    <span class="comment"># 训练数据集中样本最少的类别中的样本数</span></span><br><span class="line">    n = collections.Counter(labels.values()).most_common()[-<span class="number">1</span>][<span class="number">1</span>]</span><br><span class="line">    <span class="comment"># 验证集中每个类别的样本数</span></span><br><span class="line">    n_valid_per_label = <span class="built_in">max</span>(<span class="number">1</span>, math.floor(n * valid_ratio))</span><br><span class="line">    label_count = {}</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> train_file <span class="keyword">in</span> os.listdir(os.path.join(data_dir, <span class="string">"train"</span>)):</span><br><span class="line">        label = labels[train_file.split(<span class="string">"."</span>)[<span class="number">0</span>]]</span><br><span class="line">        fname = os.path.join(data_dir, <span class="string">"train"</span>, train_file)</span><br><span class="line">        copyfile(fname, os.path.join(data_dir, <span class="string">"train_valid_test"</span>, <span class="string">"train_valid"</span>, label))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> label <span class="keyword">not</span> <span class="keyword">in</span> label_count <span class="keyword">or</span> label_count[label] &lt; n_valid_per_label:</span><br><span class="line">            copyfile(fname, os.path.join(data_dir, <span class="string">"rain_valid_test"</span>, <span class="string">"valid"</span>, label))</span><br><span class="line"></span><br><span class="line">            label_count[label] = label_count.get(label, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            copyfile(fname, os.path.join(data_dir, <span class="string">"train_valid_test"</span>, <span class="string">"train"</span>, label))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n_valid_per_label</span><br></pre></td></tr></table></figure></div>
+
+<p>下面的<code>reorg_test</code>函数用来<strong>在预测期间整理测试集，以方便读取</strong></p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">reorg_test</span>(<span class="params">data_dir</span>):</span><br><span class="line">    <span class="string">"""在预测期间整理测试集，以方便读取"""</span></span><br><span class="line">    <span class="keyword">for</span> test_file <span class="keyword">in</span> os.listdir(os.path.join(data_dir, <span class="string">"test"</span>)):</span><br><span class="line">        copyfile(os.path.join(data_dir, <span class="string">"test"</span>, test_file),</span><br><span class="line">                 os.path.join(data_dir, <span class="string">'train_valid_test'</span>, <span class="string">'test'</span>, <span class="string">'unknown'</span>))</span><br></pre></td></tr></table></figure></div>
+
+<p>最后，我们使用一个函数来<strong>调用前面定义的函数</strong><code>read_csv_labels</code>、<code>reorg_train_valid</code>和<code>reorg_test</code></p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">reorg_cifar10_data</span>(<span class="params">data_dir, valid_ratio</span>):</span><br><span class="line">    labels = read_csv_labels(os.path.join(data_dir, <span class="string">"trainLabels.csv"</span>))</span><br><span class="line">    reorg_train_valid(data_dir, labels, valid_ratio)</span><br><span class="line">    reorg_test(data_dir)</span><br></pre></td></tr></table></figure></div>
+
+<p>在这里，我们只将样本数据集的批量大小设置为32。在实际训练和测试中，应该使用Kaggle竞赛的完整数据集，并将<code>batch_size</code>设置为更大的整数，例如128。我们将10％的训练样本作为调整超参数的验证集。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">batch_size = <span class="number">32</span> <span class="keyword">if</span> demo <span class="keyword">else</span> <span class="number">128</span></span><br><span class="line">valid_ratio = <span class="number">0.1</span></span><br><span class="line">reorg_cifar10_data(data_dir, valid_ratio)</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="图像增广"><a href="#图像增广" class="headerlink" title="图像增广"></a>图像增广</h2><p>我们使用图像增广来解决过拟合的问题。例如在训练中，我们可以随机水平翻转图像。我们还可以对彩色图像的三个RGB通道执行标准化。下面，我们列出了其中一些可以调整的操作。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">transform_train = torchvision.transforms.Compose([</span><br><span class="line">    <span class="comment"># 在高度和宽度上将图像放大到40像素的正方形</span></span><br><span class="line">    torchvision.transforms.Resize(<span class="number">40</span>),</span><br><span class="line">    <span class="comment"># 随机裁剪出一个高度和宽度均为40像素的正方形图像，</span></span><br><span class="line">    <span class="comment"># 生成一个面积为原始图像面积0.64～1倍的小正方形，</span></span><br><span class="line">    <span class="comment"># 然后将其缩放为高度和宽度均为32像素的正方形</span></span><br><span class="line">    torchvision.transforms.RandomResizedCrop(<span class="number">32</span>, scale=(<span class="number">0.64</span>, <span class="number">1.0</span>), ratio=(<span class="number">1.0</span>, <span class="number">1.0</span>)),</span><br><span class="line">    torchvision.transforms.RandomHorizontalFlip(),</span><br><span class="line">    torchvision.transforms.ToTensor(),</span><br><span class="line">    <span class="comment"># 标准化图像的每个通道</span></span><br><span class="line">    torchvision.transforms.Normalize([<span class="number">0.4914</span>, <span class="number">0.4822</span>, <span class="number">0.4465</span>],</span><br><span class="line">                                     [<span class="number">0.2023</span>, <span class="number">0.1994</span>, <span class="number">0.2010</span>])]</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在测试期间，我们只对图像执行标准化，以消除评估结果中的随机性。</span></span><br><span class="line"></span><br><span class="line">transform_test = torchvision.transforms.Compose([</span><br><span class="line">    torchvision.transforms.ToTensor(),</span><br><span class="line">    torchvision.transforms.Normalize([<span class="number">0.4914</span>, <span class="number">0.4822</span>, <span class="number">0.4465</span>],</span><br><span class="line">                                     [<span class="number">0.2023</span>, <span class="number">0.1994</span>, <span class="number">0.2010</span>])])</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="读取数据集"><a href="#读取数据集" class="headerlink" title="读取数据集"></a>读取数据集</h2><p>接下来，读取由原始图像组成的数据集，每个样本都包括一张图片和一个标签</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">train_ds, train_valid_ds = [torchvision.datasets.ImageFolder(os.path.join(data_dir, <span class="string">"train_valid_test"</span>, folder), transform=transform_train) <span class="keyword">for</span> folder <span class="keyword">in</span> [<span class="string">"train"</span>, <span class="string">"train_valid"</span>]]</span><br><span class="line"></span><br><span class="line">valid_ds, test_ds = [torchvision.datasets.ImageFolder(os.path.join(data_dir, <span class="string">"train_valid_test"</span>, folder), transform=transform_test) <span class="keyword">for</span> folder <span class="keyword">in</span> [<span class="string">"valid"</span>, <span class="string">"test"</span>]]</span><br></pre></td></tr></table></figure></div>
+
+<p>在训练期间，我们需要<strong>指定上面定义的所有图像增广操作</strong>。当验证集在超参数调整过程中用于模型评估时，不应引入图像增广的随机性。<br>在最终预测之前，我们根据训练集和验证集组合而成的训练模型进行训练，以充分利用所有标记的数据。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">train_iter, train_valid_iter = [torch.utils.data.DataLoader(dataset, batch_size, shuffle=<span class="literal">True</span>, drop_last=<span class="literal">True</span>) <span class="keyword">for</span> dataset <span class="keyword">in</span> (train_ds, train_valid_ds)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># drop_last为True表示如果最后一个batch不满足所要的需求大小，将其丢掉</span></span><br><span class="line">valid_iter = torch.utils.data.DataLoader(valid_ds, batch_size, shuffle=<span class="literal">False</span>,</span><br><span class="line">                                         drop_last=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">test_iter = torch.utils.data.DataLoader(test_ds, batch_size, shuffle=<span class="literal">False</span>,</span><br><span class="line">                                        drop_last=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="定义模型"><a href="#定义模型" class="headerlink" title="定义模型"></a>定义模型</h2><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_net</span>():</span><br><span class="line">    num_classes = <span class="number">10</span></span><br><span class="line">    net = d2l.resnet18(num_classer, <span class="number">3</span>) <span class="comment"># 3表示通道</span></span><br><span class="line">    <span class="keyword">return</span> net</span><br><span class="line"></span><br><span class="line">loss = nn.CrossEntropyLoss(reduction=<span class="string">"none"</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="定义训练函数"><a href="#定义训练函数" class="headerlink" title="定义训练函数"></a>定义训练函数</h2><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># lr_period表示每隔多少时间（epoch）将lr减小, lr_decay表示lr减小多少(decay * lr)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">train</span>(<span class="params">net, train_iter, valid_iter, num_epochs, lr, wd, devices, lr_period, lr_decay</span>):</span><br><span class="line">    trainer = torch.optim.SGD(net.parameters(), lr=lr, momentum=<span class="number">0.9</span>, weight_dacay=wd)</span><br><span class="line">    scheduler = torch.optim.lr_scheduler.StepLR(trainer, lr_period, lr_decay)</span><br><span class="line">    num_batchs, timer = <span class="built_in">len</span>(train_iter), d2l.Timer()</span><br><span class="line"></span><br><span class="line">    legend = [<span class="string">'train loss'</span>, <span class="string">'train acc'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> valid_iter <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        legend.append(<span class="string">"valid acc"</span>)</span><br><span class="line"></span><br><span class="line">    animator = d2l.Animator(xlabel=<span class="string">"epoch"</span>, xlim=[<span class="number">1</span>, num_epochs], legend=legend)</span><br><span class="line"></span><br><span class="line">    net = nn.DataParallel(net, device_ids=devices).to(devices[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">        net.train()</span><br><span class="line">        metric = d2l.Accumulator(<span class="number">3</span>)</span><br><span class="line">        <span class="keyword">for</span> i, (features, labels) <span class="keyword">in</span> <span class="built_in">enumerate</span>(train_iter):</span><br><span class="line">            timer.start()</span><br><span class="line">            l, acc = d2l.train_batch_ch13(net, features, labels, loss, trainer, devices)</span><br><span class="line">            metric.add(l, acc, labels.shape[<span class="number">0</span>])</span><br><span class="line">            timer.stop()</span><br><span class="line">            <span class="keyword">if</span> (i + <span class="number">1</span>) % (num_batches // <span class="number">5</span>) == <span class="number">0</span> <span class="keyword">or</span> i == num_batches - <span class="number">1</span>:</span><br><span class="line">                animator.add(epoch + (i + <span class="number">1</span>) / num_batches, (metric[<span class="number">0</span>] / metric[<span class="number">2</span>], metric[<span class="number">1</span>] / metric[<span class="number">2</span>], <span class="literal">None</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> valid_iter <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            valid_acc = d2l.evaluate_acuracy_gpu(net, valid_iter)</span><br><span class="line">            animator.add(epoch + <span class="number">1</span>, (<span class="literal">None</span>, <span class="literal">None</span>, valid_acc))</span><br><span class="line"></span><br><span class="line">        scheduler.step()</span><br><span class="line"></span><br><span class="line">    measures = (<span class="string">f'train loss <span class="subst">{metric[<span class="number">0</span>] / metric[<span class="number">2</span>]:<span class="number">.3</span>f}</span>, '</span></span><br><span class="line">                <span class="string">f'train acc <span class="subst">{metric[<span class="number">1</span>] / metric[<span class="number">2</span>]:<span class="number">.3</span>f}</span>'</span>)</span><br><span class="line">    <span class="keyword">if</span> valid_iter <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        measures += <span class="string">f', valid acc <span class="subst">{valid_acc:<span class="number">.3</span>f}</span>'</span></span><br><span class="line">    <span class="built_in">print</span>(measures + <span class="string">f'\n<span class="subst">{metric[<span class="number">2</span>] * num_epochs / timer.<span class="built_in">sum</span>():<span class="number">.1</span>f}</span>'</span></span><br><span class="line">          <span class="string">f' examples/sec on <span class="subst">{<span class="built_in">str</span>(devices)}</span>'</span>)             </span><br></pre></td></tr></table></figure></div>
+
+<h2 id="训练和验证模型"><a href="#训练和验证模型" class="headerlink" title="训练和验证模型"></a>训练和验证模型</h2><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">devices, num_epochs, lr, wd = d2l.try_all_gpus(), <span class="number">20</span>, <span class="number">2e-4</span>, <span class="number">5e-4</span></span><br><span class="line">lr_period, lr_decay, net = <span class="number">4</span>, <span class="number">0.9</span>, get_net()</span><br><span class="line">train(net, train_iter, valid_iter, num_epochs, lr, wd, devices, lr_period,, lr_decay)</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="在-Kaggle-上对测试集进行分类并提交结果"><a href="#在-Kaggle-上对测试集进行分类并提交结果" class="headerlink" title="在 Kaggle 上对测试集进行分类并提交结果"></a>在 Kaggle 上<strong>对测试集进行分类并提交结果</strong></h2><p>在通过验证集调得具有超参数的满意的模型后，我们使用所有标记的数据（包括验证集）来重新训练模型并对测试集进行分类。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">net, preds = get_net(), []</span><br><span class="line">train(net, train_valid_iter, <span class="literal">None</span>, num_epochs, lr, wd, devices, lr_period, lr_decay)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> X, _ <span class="keyword">in</span> test_iter:</span><br><span class="line">    y_hat = net(X.to(device[<span class="number">0</span>]))</span><br><span class="line">    preds.extend(y_hat.argmax(dim=<span class="number">1</span>).<span class="built_in">type</span>(torch.int32).cpu().numpy())</span><br><span class="line"></span><br><span class="line">sorted_ids = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(test_ds) + <span class="number">1</span>))</span><br><span class="line">sorted_ids.sort(key=<span class="keyword">lambda</span> x: <span class="built_in">str</span>(x))</span><br><span class="line">df = pd.DataFrame({<span class="string">'id'</span>: sorted_ids, <span class="string">'label'</span>: preds})</span><br><span class="line">df[<span class="string">'label'</span>] = df[<span class="string">'label'</span>].apply(<span class="keyword">lambda</span> x: train_valid_ds.classes[x])</span><br><span class="line">df.to_csv(<span class="string">'submission.csv'</span>, index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>将包含原始图像文件的数据集组织为所需格式后，我们可以读取它们。</li>
+<li>我们可以在图像分类竞赛中使用卷积神经网络和图像增广。</li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 动手学深度学习-39</li>
+        <li><strong>作者:</strong> 敖炜</li>
+        <li><strong>创建于
+                :</strong> 2023-09-03 17:08:15</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2023-09-03 17:15:48
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://ao-wei.github.io/2023/09/03/动手学深度学习-39/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+            本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
+            
+
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">#深度学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-41/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">动手学深度学习-41</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
+                        href="/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-37/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">动手学深度学习-37</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container">
+                <div class="comments-container pjax">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;评论
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-swup-reload-script
+            src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script data-swup-reload-script>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: '84f432a6c2210013d4ae',
+                    clientSecret: '438277261cad1d6d23d28e1c4f2e7818c1535ecf',
+                    repo: 'blog-s-comments',
+                    owner: 'ao-wei',
+                    admin: ['ao-wei'],
+                    id: __gitalk__pathname,
+                    language: 'zh-CN'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">动手学深度学习-39</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E6%88%98Kaggle%E6%AF%94%E8%B5%9B%EF%BC%8C%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%EF%BC%88CIFAR-10%EF%BC%89"><span class="nav-text">实战Kaggle比赛，图像分类（CIFAR-10）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%B9%B6%E7%BB%84%E7%BB%87%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">获取并组织数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">下载数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E7%90%86%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">整理数据集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%B9%BF"><span class="nav-text">图像增广</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">读取数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="nav-text">定义模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E8%AE%AD%E7%BB%83%E5%87%BD%E6%95%B0"><span class="nav-text">定义训练函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E5%92%8C%E9%AA%8C%E8%AF%81%E6%A8%A1%E5%9E%8B"><span class="nav-text">训练和验证模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-Kaggle-%E4%B8%8A%E5%AF%B9%E6%B5%8B%E8%AF%95%E9%9B%86%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB%E5%B9%B6%E6%8F%90%E4%BA%A4%E7%BB%93%E6%9E%9C"><span class="nav-text">在 Kaggle 上对测试集进行分类并提交结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2023</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">敖炜</a>
+        </div>
+        
+            <script data-swup-reload-script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.5.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/Swup.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/SwupSlideTheme.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/SwupScriptsPlugin.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/SwupProgressPlugin.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/SwupScrollPlugin.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/SwupPreloadPlugin.min.js"></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/imageViewer.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/utils.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/main.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/layouts/navbarShrink.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/scrollTopBottom.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/lightDarkSwitch.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/layouts/categoryList.js"></script>
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/localSearch.js"></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/codeBlock.js"></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/layouts/lazyload.js"></script>
+
+
+
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/runtime.js"></script>
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/odometer.min.js"></script>
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/Typed.min.js"></script>
+  <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/plugins/typed.js"></script>
+
+
+
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/mermaid.min.js"></script>
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/plugins/mermaid.js"></script>
+
+
+
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/minimasonry.min.js"></script>
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/plugins/masonry.js"></script>
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/libs/anime.min.js"></script>
+        <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/tools/tocToggle.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/layouts/toc.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.5.0/source/js/plugins/tabs.js"></script>
+    
+</div>
+
+
+<script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
