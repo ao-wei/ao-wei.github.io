@@ -22,12 +22,12 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="哈希表哈希表，又名散列表，通过建立键key与值value之间的映射，实现高效的元素查询，向哈希表输入一个键，可在时间内获取其对应的值      数组 链表 哈希表    查找元素      添加元素      删除元素      常用操作包括初始化、查询和添加（删除）键值对 PythonC++12345678910111213141516171819202122232425# 哈希表的初始化has">
+        <meta name="description" content="这一篇博客将介绍哈希表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构：哈希表">
 <meta property="og:url" content="https://ao-wei.github.io/2023/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E5%93%88%E5%B8%8C%E8%A1%A8/index.html">
 <meta property="og:site_name" content="敖炜">
-<meta property="og:description" content="哈希表哈希表，又名散列表，通过建立键key与值value之间的映射，实现高效的元素查询，向哈希表输入一个键，可在时间内获取其对应的值      数组 链表 哈希表    查找元素      添加元素      删除元素      常用操作包括初始化、查询和添加（删除）键值对 PythonC++12345678910111213141516171819202122232425# 哈希表的初始化has">
+<meta property="og:description" content="这一篇博客将介绍哈希表">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ao-wei.github.io/2023/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E5%93%88%E5%B8%8C%E8%A1%A8/hash_table_lookup.png">
 <meta property="og:image" content="https://ao-wei.github.io/2023/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E5%93%88%E5%B8%8C%E8%A1%A8/hash_function.png">
@@ -37,10 +37,9 @@
 <meta property="og:image" content="https://ao-wei.github.io/2023/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E5%93%88%E5%B8%8C%E8%A1%A8/hash_table_linear_probing.png">
 <meta property="og:image" content="https://ao-wei.github.io/2023/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E5%93%88%E5%B8%8C%E8%A1%A8/hash_table_open_addressing_deletion.png">
 <meta property="article:published_time" content="2023-11-02T11:48:46.000Z">
-<meta property="article:modified_time" content="2023-11-07T07:58:51.091Z">
+<meta property="article:modified_time" content="2023-11-09T01:20:50.036Z">
 <meta property="article:author" content="Ao Wei">
-<meta property="article:tag" content="敖炜">
-<meta property="article:tag" content="博客">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://ao-wei.github.io/2023/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E5%93%88%E5%B8%8C%E8%A1%A8/hash_table_lookup.png">
     
@@ -610,13 +609,50 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-11-07 15:58:51</span>
-            <span class="mobile">2023-11-07 15:58:51</span>
+            <span class="desktop">2023-11-09 09:20:50</span>
+            <span class="mobile">2023-11-09 09:20:50</span>
             <span class="hover-info">更新</span>
         </span>
     
 
     
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/CS/">CS</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/CS/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -646,7 +682,10 @@ mjx-container[display="true"] + br {
 
 
         <div class="article-content markdown-body">
-            <h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><p><strong>哈希表</strong>，又名<strong>散列表</strong>，通过建立<strong>键</strong><code>key</code>与<strong>值</strong><code>value</code>之间的映射，实现<strong>高效</strong>的<strong>元素查询</strong>，向哈希表输入一个键，可在<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.618ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2041 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1152,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(1652,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>时间内获取其对应的值</p>
+            <p>这一篇博客将介绍<strong>哈希表</strong></p>
+<span id="more"></span>
+
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><p><strong>哈希表</strong>，又名<strong>散列表</strong>，通过建立<strong>键</strong><code>key</code>与<strong>值</strong><code>value</code>之间的映射，实现<strong>高效</strong>的<strong>元素查询</strong>，向哈希表输入一个键，可在<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.618ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2041 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1152,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(1652,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>时间内获取其对应的值</p>
 <p><img lazyload="" src="/images/loading.svg" data-src="/2023/11/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E5%93%88%E5%B8%8C%E8%A1%A8/hash_table_lookup.png" alt="哈希表的抽象表示"></p>
 <table>
 <thead>
@@ -844,7 +883,7 @@ mjx-container[display="true"] + br {
         
             <li>
                 <strong>更新于
-                    :</strong> 2023-11-07 15:58:51
+                    :</strong> 2023-11-09 09:20:50
             </li>
         
         <li>
@@ -866,11 +905,34 @@ mjx-container[display="true"] + br {
         
 
         
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
 
         
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2023/11/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%91/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">数据结构：树</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">
