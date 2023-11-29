@@ -609,15 +609,15 @@ mjx-container[display="true"] + br {
                 </div>
                 <div class="statistics">
                     <a class="item" href="/tags">
-                        <div class="number">10</div>
+                        <div class="number">9</div>
                         <div class="label">标签</div>
                     </a>
                     <a class="item" href="/categories">
-                        <div class="number">12</div>
+                        <div class="number">11</div>
                         <div class="label">分类</div>
                     </a>
                     <a class="item" href="/archives">
-                        <div class="number">56</div>
+                        <div class="number">54</div>
                         <div class="label">文章</div>
                     </a>
                 </div>
@@ -651,8 +651,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="目标检测、边界框和数据集"><a href="#目标检测、边界框和数据集" class="headerlink" title="目标检测、边界框和数据集"></a>目标检测、边界框和数据集</h1><p>在图像分类任务中，我们假设图像中只有一个主要物体对象，我们只关注如何识别其类别。然而，很多时候图像里有多个我们感兴趣的目标，我们不仅想知道它们的类别，还想得到它们在图像中的具体位置。在计算机视觉里，我们将这类任务称为<em>目标检测</em>（object detection）或<em>目标识别</em>（object recognition）。</p>
-<p>目标检测在多个领域中被广泛使用。例如，在无人驾驶里，我们需要通过识别拍摄到的视频图像里的车辆、行人、道路和障碍物的位置来规划行进线路。机器人也常通过该任务来检测感兴趣的目标。安防领域则需要检测异常目标，如歹徒或者炸弹。</p>
+                            <p><strong>目标检测、边界框和数据集</strong></p>
                         
                     </div>
 
@@ -729,7 +728,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="实战Kaggle比赛，图像分类（CIFAR-10）"><a href="#实战Kaggle比赛，图像分类（CIFAR-10）" class="headerlink" title="实战Kaggle比赛，图像分类（CIFAR-10）"></a>实战Kaggle比赛，图像分类（CIFAR-10）</h1><p>这里将从原始图像文件开始，然后逐步组织、读取并将它们转换为张量格式</p>
+                            <p><strong>实战Kaggle比赛，图像分类（CIFAR-10）</strong></p>
                         
                     </div>
 
@@ -806,7 +805,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="微调"><a href="#微调" class="headerlink" title="微调"></a>微调</h1><p>应用<em>迁移学习</em>（transfer learning）将从<em>源数据集</em>学到的知识迁移到<em>目标数据集</em>。例如，尽管ImageNet数据集中的大多数图像与椅子无关，但在此数据集上训练的模型可能会提取更通用的图像特征，这有助于识别边缘、纹理、形状和对象组合。这些类似的特征也可能有效地识别椅子。</p>
+                            <p><strong>微调</strong></p>
                         
                     </div>
 
@@ -883,7 +882,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="数据增广（主要是图像增广）"><a href="#数据增广（主要是图像增广）" class="headerlink" title="数据增广（主要是图像增广）"></a>数据增广（主要是图像增广）</h1><p>大型数据集是成功应用深度神经网络的先决条件。<br>图像增广在对训练图像进行一系列的随机变化之后，生成相似但不同的训练样本，从而扩大了训练集的规模。<br>此外，应用图像增广的原因是，随机改变训练样本可以减少模型对某些属性的依赖，从而提高模型的泛化能力。<br>例如，我们可以以不同的方式裁剪图像，使感兴趣的对象出现在不同的位置，减少模型对于对象出现位置的依赖。<br>我们还可以调整亮度、颜色等因素来降低模型对颜色的敏感度。<br>可以说，图像增广技术对于AlexNet的成功是必不可少的。</p>
+                            <p><strong>数据增广（主要是图像增广）</strong></p>
                         
                     </div>
 
@@ -960,7 +959,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="残差网络（ResNet）"><a href="#残差网络（ResNet）" class="headerlink" title="残差网络（ResNet）"></a>残差网络（ResNet）</h1><p>随着设计越来越深的网络，深刻理解“新添加的层如何提升神经网络的性能”变得至关重要。更重要的是设计网络的能力，在这种网络中，添加层会使网络更具表现力，为了取得质的突破，我们需要一些数学基础知识。</p>
+                            <p><strong>残差网络（ResNet）</strong></p>
                         
                     </div>
 
@@ -1037,7 +1036,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="批量归一化"><a href="#批量归一化" class="headerlink" title="批量归一化"></a>批量归一化</h1><p>训练深层神经网络是十分困难的，特别是在较短的时间内使他们收敛更加棘手。<em>批量规范化</em>（batch normalization）是一种流行且有效的技术，可持续加速深层网络的收敛速度。再结合在之后将介绍的残差块，批量规范化使得研究人员能够训练100层以上的网络。</p>
+                            <p><strong>批量归一化</strong></p>
                         
                     </div>
 
@@ -1114,7 +1113,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="含并行连结的网络GoogLeNet-Inception-V3"><a href="#含并行连结的网络GoogLeNet-Inception-V3" class="headerlink" title="含并行连结的网络GoogLeNet/Inception V3"></a>含并行连结的网络GoogLeNet/Inception V3</h1>
+                            <p><strong>含并行连结的网络GoogLeNet/Inception V3</strong></p>
                         
                     </div>
 
@@ -1191,7 +1190,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            网络中的网络（NiN）LeNet、AlexNet和VGG都有一个共同的设计模式：通过一系列的卷积层与汇聚层来提取空间结构特征；然后通过全连接层对特征的表征进行处理。AlexNet和VGG对LeNet的改进主要在于如何扩大和加深这两个模块。或者，可以想...
+                            <p><strong>网络中的网络（NiN）</strong></p>
                         
                     </div>
 
@@ -1268,7 +1267,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="使用块的网络（VGG）"><a href="#使用块的网络（VGG）" class="headerlink" title="使用块的网络（VGG）"></a>使用块的网络（VGG）</h1><p>与芯片设计中工程师从放置晶体管到逻辑元件再到逻辑块的过程类似，神经网络架构的设计也逐渐变得更加抽象。研究人员开始从单个神经元的角度思考问题，发展到整个层，现在又转向块，重复层的模式。使用块的想法首先出现在牛津大学的<a class="link" target="_blank" rel="noopener" href="http://www.robots.ox.ac.uk/~vgg/">视觉几何组（visual geometry group） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>的<em>VGG网络</em>中。通过使用循环和子程序，可以很容易地在任何现代深度学习框架的代码中实现这些重复的架构。</p>
+                            <p><strong>使用块的网络（VGG）</strong></p>
                         
                     </div>
 
@@ -1345,13 +1344,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="深度卷积神经网络AlexNet"><a href="#深度卷积神经网络AlexNet" class="headerlink" title="深度卷积神经网络AlexNet"></a>深度卷积神经网络AlexNet</h1><p>与训练<em>端到端</em>（从像素到分类结果）系统不同，经典机器学习的流水线看起来更像下面这样：</p>
-<ol>
-<li>获取一个有趣的数据集。在早期，收集这些数据集需要昂贵的传感器（在当时最先进的图像也就100万像素）。</li>
-<li>根据光学、几何学、其他知识以及偶然的发现，手工对特征数据集进行预处理。</li>
-<li>通过标准的特征提取算法，如SIFT（尺度不变特征变换）和SURF（加速鲁棒特征）或其他手动调整的流水线来输入数据。</li>
-<li>将提取的特征送入最喜欢的分类器中（例如线性模型或其它核方法），以训练分类器。</li>
-</ol>
+                            <p><strong>深度卷积神经网络AlexNet</strong></p>
                         
                     </div>
 

@@ -22,15 +22,15 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="使用和购买GPU查看显卡信息 1!nvidia-smi  在PyTorch中，每个数组都有一个设备（device），我们通常将其称为环境（context）。默认情况下，所有变量和相关的计算都分配给CPU。有时环境可能是GPU。当我们跨多个服务器部署作业时，事情会变得更加棘手。通过智能地将数组分配给环境，我们可以最大限度地减少在设备之间传输数据的时间。例如，当在带有GPU的服务器上训练神经网络时，我">
+        <meta name="description" content="使用和购买GPU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动手学深度学习-17">
 <meta property="og:url" content="https://ao-wei.github.io/2023/08/19/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-17/index.html">
 <meta property="og:site_name" content="敖炜">
-<meta property="og:description" content="使用和购买GPU查看显卡信息 1!nvidia-smi  在PyTorch中，每个数组都有一个设备（device），我们通常将其称为环境（context）。默认情况下，所有变量和相关的计算都分配给CPU。有时环境可能是GPU。当我们跨多个服务器部署作业时，事情会变得更加棘手。通过智能地将数组分配给环境，我们可以最大限度地减少在设备之间传输数据的时间。例如，当在带有GPU的服务器上训练神经网络时，我">
+<meta property="og:description" content="使用和购买GPU">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-19T06:03:11.000Z">
-<meta property="article:modified_time" content="2023-08-19T06:08:37.679Z">
+<meta property="article:modified_time" content="2023-11-29T10:56:57.257Z">
 <meta property="article:author" content="Ao Wei">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
@@ -601,8 +601,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-08-19 14:08:37</span>
-            <span class="mobile">2023-08-19 14:08:37</span>
+            <span class="desktop">2023-11-29 18:56:57</span>
+            <span class="mobile">2023-11-29 18:56:57</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -674,12 +674,13 @@ mjx-container[display="true"] + br {
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <h1 id="使用和购买GPU"><a href="#使用和购买GPU" class="headerlink" title="使用和购买GPU"></a>使用和购买GPU</h1><p>查看显卡信息</p>
+            <p><strong>使用和购买GPU</strong></p>
+<span id="more"></span>
+
+<p>查看显卡信息</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!nvidia-smi</span><br></pre></td></tr></table></figure></div>
 
 <p>在PyTorch中，每个数组都有一个设备（device），我们通常将其称为环境（context）。默认情况下，所有变量和相关的计算都分配给CPU。<br>有时环境可能是GPU。当我们跨多个服务器部署作业时，事情会变得更加棘手。通过智能地将数组分配给环境，我们可以最大限度地减少在设备之间传输数据的时间。例如，当在带有GPU的服务器上训练神经网络时，我们通常希望模型的参数在GPU上。</p>
-<span id="more"></span>
-
 <h2 id="计算设备"><a href="#计算设备" class="headerlink" title="计算设备"></a>计算设备</h2><p>我们可以指定用于存储和计算的设备，如CPU和GPU。默认情况下，张量是在内存中创建的，然后使用CPU计算它。  </p>
 <p>在PyTorch中，CPU和GPU可以用<code>torch.device('cpu')</code>和<code>torch.device('cuda')</code>表示。应该注意的是，<code>cpu</code>设备意味着所有物理CPU和内存，这意味着PyTorch的计算将尝试使用所有CPU核心。然而，<code>gpu</code>设备只代表一个卡和相应的显存。如果有多个GPU，我们使用<code>torch.device(f'cuda:{i}')</code>来表示第<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="0.781ex" height="1.52ex" role="img" focusable="false" viewBox="0 -661 345 672"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>块GPU（<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="0.781ex" height="1.52ex" role="img" focusable="false" viewBox="0 -661 345 672"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path></g></g></g></svg></mjx-container>从0开始）。另外，<code>cuda:0</code>和<code>cuda</code>是等价的。</p>
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"></span><br><span class="line">torch.device(<span class="string">'cpu'</span>), torch.device(<span class="string">'cuda'</span>), torch.device(<span class="string">'cuda:1'</span>)</span><br></pre></td></tr></table></figure></div>
@@ -723,7 +724,7 @@ mjx-container[display="true"] + br {
         
             <li>
                 <strong>更新于
-                    :</strong> 2023-08-19 14:08:37
+                    :</strong> 2023-11-29 18:56:57
             </li>
         
         <li>
@@ -861,7 +862,7 @@ mjx-container[display="true"] + br {
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">动手学深度学习-17</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%92%8C%E8%B4%AD%E4%B9%B0GPU"><span class="nav-text">使用和购买GPU</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E8%AE%BE%E5%A4%87"><span class="nav-text">计算设备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F%E5%92%8CGPU"><span class="nav-text">张量和GPU</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%9C%A8GPU%E4%B8%8A"><span class="nav-text">存储在GPU上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6"><span class="nav-text">复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%81%E6%B3%A8"><span class="nav-text">旁注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8EGPU"><span class="nav-text">神经网络与GPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E8%AE%BE%E5%A4%87"><span class="nav-text">计算设备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%A0%E9%87%8F%E5%92%8CGPU"><span class="nav-text">张量和GPU</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%9C%A8GPU%E4%B8%8A"><span class="nav-text">存储在GPU上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6"><span class="nav-text">复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%81%E6%B3%A8"><span class="nav-text">旁注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%B8%8EGPU"><span class="nav-text">神经网络与GPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol>
 
     </div>
 </div>

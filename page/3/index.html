@@ -609,15 +609,15 @@ mjx-container[display="true"] + br {
                 </div>
                 <div class="statistics">
                     <a class="item" href="/tags">
-                        <div class="number">10</div>
+                        <div class="number">9</div>
                         <div class="label">标签</div>
                     </a>
                     <a class="item" href="/categories">
-                        <div class="number">12</div>
+                        <div class="number">11</div>
                         <div class="label">分类</div>
                     </a>
                     <a class="item" href="/archives">
-                        <div class="number">56</div>
+                        <div class="number">54</div>
                         <div class="label">文章</div>
                     </a>
                 </div>
@@ -651,8 +651,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="卷积神经网络（LeNet）"><a href="#卷积神经网络（LeNet）" class="headerlink" title="卷积神经网络（LeNet）"></a>卷积神经网络（LeNet）</h1><p>卷积层可以在图像中保留空间结构。同时，用卷积层代替全连接层的另一个好处是：模型更简洁、所需的参数更少</p>
-<p>LeNet是最早发布的卷积神经网络之一，因其在计算机视觉任务中的高效性能而受到广泛关注</p>
+                            <p><strong>卷积神经网络（LeNet）</strong> </p>
                         
                     </div>
 
@@ -729,10 +728,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="池化层（汇聚层）"><a href="#池化层（汇聚层）" class="headerlink" title="池化层（汇聚层）"></a>池化层（汇聚层）</h1><p>通常当我们处理图像时，我们希望逐渐降低隐藏表示的空间分辨率、聚集信息，这样随着我们在神经网络中层叠的上升，每个神经元对其敏感的感受野（输入）就越大。</p>
-<p>而我们的机器学习任务通常会跟全局图像的问题有关（例如，“图像是否包含一只猫呢？”），所以我们最后一层的神经元应该对整个输入的全局敏感。通过逐渐聚合信息，生成越来越粗糙的映射，最终实现学习全局表示的目标，同时将卷积图层的所有优势保留在中间层。</p>
-<p>此外，当检测较底层的特征时（如垂直边缘检测），我们通常希望这些特征保持某种程度上的平移不变性</p>
-<p>接下来将介绍<em>汇聚</em>(pooling)层，它具有双重目的：降低卷积层对位置的敏感性，同时降低对空间降采样表示的敏感性。</p>
+                            <p><strong>池化层（汇聚层）</strong></p>
                         
                     </div>
 
@@ -809,7 +805,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="卷积层的多输入多输出通道"><a href="#卷积层的多输入多输出通道" class="headerlink" title="卷积层的多输入多输出通道"></a>卷积层的多输入多输出通道</h1><p>当我们添加通道时，我们的输入和隐藏的表示都变成了三维张量。例如，每个RGB输入图像具有<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="9.586ex" height="1.62ex" role="img" focusable="false" viewBox="0 -694 4236.9 716"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(1722.4,0)"><path data-c="210E" d="M137 683Q138 683 209 688T282 694Q294 694 294 685Q294 674 258 534Q220 386 220 383Q220 381 227 388Q288 442 357 442Q411 442 444 415T478 336Q478 285 440 178T402 50Q403 36 407 31T422 26Q450 26 474 56T513 138Q516 149 519 151T535 153Q555 153 555 145Q555 144 551 130Q535 71 500 33Q466 -10 419 -10H414Q367 -10 346 17T325 74Q325 90 361 192T398 345Q398 404 354 404H349Q266 404 205 306L198 293L164 158Q132 28 127 16Q114 -11 83 -11Q69 -11 59 -2T48 16Q48 30 121 320L195 616Q195 629 188 632T149 637H128Q122 643 122 645T124 664Q129 683 137 683Z"></path></g><g data-mml-node="mo" transform="translate(2520.7,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(3520.9,0)"><path data-c="1D464" d="M580 385Q580 406 599 424T641 443Q659 443 674 425T690 368Q690 339 671 253Q656 197 644 161T609 80T554 12T482 -11Q438 -11 404 5T355 48Q354 47 352 44Q311 -11 252 -11Q226 -11 202 -5T155 14T118 53T104 116Q104 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Q21 293 29 315T52 366T96 418T161 441Q204 441 227 416T250 358Q250 340 217 250T184 111Q184 65 205 46T258 26Q301 26 334 87L339 96V119Q339 122 339 128T340 136T341 143T342 152T345 165T348 182T354 206T362 238T373 281Q402 395 406 404Q419 431 449 431Q468 431 475 421T483 402Q483 389 454 274T422 142Q420 131 420 107V100Q420 85 423 71T442 42T487 26Q558 26 600 148Q609 171 620 213T632 273Q632 306 619 325T593 357T580 385Z"></path></g></g></g></svg></mjx-container>的形状。我们将这个大小为<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="1.131ex" height="1.554ex" role="img" focusable="false" viewBox="0 -665 500 687"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></g></g></g></svg></mjx-container>的轴称为<em>通道</em>（channel）维度。</p>
+                            <p><strong>卷积层的多输入多输出通道</strong></p>
                         
                     </div>
 
@@ -886,7 +882,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="卷积层里的填充和步幅"><a href="#卷积层里的填充和步幅" class="headerlink" title="卷积层里的填充和步幅"></a>卷积层里的填充和步幅</h1>
+                            <p><strong>卷积层里的填充和步幅</strong></p>
                         
                     </div>
 
@@ -963,8 +959,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h1><p><em>卷积神经网络</em>（convolutional neural network，CNN）是一类强大的、为处理图像数据而设计的神经网络。基于卷积神经网络架构的模型在计算机视觉领域中已经占主导地位，当今几乎所有的图像识别、目标检测或语义分割相关的学术竞赛和商业应用都以这种方法为基础。  </p>
-<p>现代卷积神经网络的设计得益于生物学、群论和一系列的补充实验。卷积神经网络需要的参数少于全连接架构的网络，而且卷积也很容易用GPU并行计算。因此卷积神经网络除了能够高效地采样从而获得精确的模型，还能够高效地计算。久而久之，从业人员越来越多地使用卷积神经网络。即使在通常使用循环神经网络的一维序列结构任务上（例如音频、文本和时间序列分析），卷积神经网络也越来越受欢迎。通过对卷积神经网络一些巧妙的调整，也使它们在图结构数据和推荐系统中发挥作用。 </p>
+                            <p><strong>卷积层</strong></p>
                         
                     </div>
 
@@ -1041,10 +1036,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="使用和购买GPU"><a href="#使用和购买GPU" class="headerlink" title="使用和购买GPU"></a>使用和购买GPU</h1><p>查看显卡信息</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!nvidia-smi</span><br></pre></td></tr></table></figure>
-
-<p>在PyTorch中，每个数组都有一个设备（device），我们通常将其称为环境（context）。默认情况下，所有变量和相关的计算都分配给CPU。<br>有时环境可能是GPU。当我们跨多个服务器部署作业时，事情会变得更加棘手。通过智能地将数组分配给环境，我们可以最大限度地减少在设备之间传输数据的时间。例如，当在带有GPU的服务器上训练神经网络时，我们通常希望模型的参数在GPU上。</p>
+                            <p><strong>使用和购买GPU</strong></p>
                         
                     </div>
 
@@ -1121,7 +1113,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="PyTorch神经网络基础"><a href="#PyTorch神经网络基础" class="headerlink" title="PyTorch神经网络基础"></a>PyTorch神经网络基础</h1>
+                            <p><strong>PyTorch神经网络基础</strong></p>
                         
                     </div>
 
@@ -1198,7 +1190,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><p>Pandas是非常受欢迎的数据分析库，跟着<a class="link" target="_blank" rel="noopener" href="https://www.kaggle.com/code/residentmario/creating-reading-and-writing">Kaggle <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上的教程简单学一下</p>
+                            <p><strong>Pandas</strong></p>
                         
                     </div>
 
@@ -1275,7 +1267,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="实战Kaggle比赛：预测房价"><a href="#实战Kaggle比赛：预测房价" class="headerlink" title="实战Kaggle比赛：预测房价"></a>实战Kaggle比赛：预测房价</h1>
+                            <p><strong>实战Kaggle比赛：预测房价</strong></p>
                         
                     </div>
 
@@ -1352,7 +1344,7 @@ mjx-container[display="true"] + br {
 
                     <div class="home-article-content markdown-body">
                         
-                            <h1 id="数值稳定性-模型初始化和激活函数"><a href="#数值稳定性-模型初始化和激活函数" class="headerlink" title="数值稳定性 + 模型初始化和激活函数"></a>数值稳定性 + 模型初始化和激活函数</h1><p>初始化方案的选择在神经网络学习中起着举足轻重的作用，它对保持数值稳定性至关重要。此外，这些初始方案的选择可以与非线性激活函数的选择有趣的结合在一起。我们选择哪个函数以及如何初始化参数可以决定优化算法收敛的速度有多快。糟糕的选择可能会导致我们在训练时遇到梯度爆炸或梯度消失</p>
+                            <p><strong>数值稳定性+模型初始化和激活函数</strong></p>
                         
                     </div>
 
