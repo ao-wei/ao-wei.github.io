@@ -29,13 +29,13 @@
 <meta property="og:site_name" content="敖炜">
 <meta property="og:description" content="微调">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ao-wei.github.io/finetune.svg">
+<meta property="og:image" content="https://ao-wei.github.io/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-37/finetune.svg">
 <meta property="article:published_time" content="2023-09-03T09:08:03.000Z">
 <meta property="article:modified_time" content="2023-11-29T11:00:10.252Z">
 <meta property="article:author" content="Ao Wei">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ao-wei.github.io/finetune.svg">
+<meta name="twitter:image" content="https://ao-wei.github.io/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-37/finetune.svg">
     
     
     <!--- Icon Part-->
@@ -911,7 +911,7 @@ mjx-container[display="true"] + br {
 <li>向目标模型添加输出层，其输出数是目标数据集中的类别数。然后随机初始化该层的模型参数。</li>
 <li>在目标数据集（如椅子数据集）上训练目标模型。输出层将从头开始进行训练，而所有其他层的参数将根据源模型的参数进行微调。</li>
 </ol>
-<p><img lazyload="" src="/images/loading.svg" data-src="/finetune.svg" alt="微调。"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-37/finetune.svg" alt="微调。"></p>
 <p>当目标数据集比源数据集小得多时，微调有助于提高模型的泛化能力</p>
 <h2 id="热狗识别"><a href="#热狗识别" class="headerlink" title="热狗识别"></a>热狗识别</h2><p>让我们通过具体案例演示微调：热狗识别。<br>我们将在一个小型数据集上微调ResNet模型。该模型已在ImageNet数据集上进行了预训练。<br>这个小型数据集包含数千张包含热狗和不包含热狗的图像，我们将使用微调模型来识别图像中是否包含热狗。</p>
 <h3 id="获取数据集"><a href="#获取数据集" class="headerlink" title="获取数据集"></a>获取数据集</h3><p>使用的<strong>热狗数据集来源于网络</strong>。该数据集包含1400张热狗的“正类”图像，以及包含尽可能多的其他食物的“负类”图像。含着两个类别的1000张图片用于训练，其余的则用于测试。</p>

@@ -29,13 +29,13 @@
 <meta property="og:site_name" content="敖炜">
 <meta property="og:description" content="批量归一化">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://ao-wei.github.io/deep_model.png">
+<meta property="og:image" content="https://ao-wei.github.io/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-28/deep_model.png">
 <meta property="article:published_time" content="2023-09-03T09:07:38.000Z">
 <meta property="article:modified_time" content="2023-11-29T10:59:31.123Z">
 <meta property="article:author" content="Ao Wei">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ao-wei.github.io/deep_model.png">
+<meta name="twitter:image" content="https://ao-wei.github.io/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-28/deep_model.png">
     
     
     <!--- Icon Part-->
@@ -909,7 +909,7 @@ mjx-container[display="true"] + br {
 <p>第二，对于典型的多层感知机或卷积神经网络。当我们训练时，中间层中的变量（例如，多层感知机中的仿射变换输出）可能具有更广的变化范围：不论是沿着从输入到输出的层，跨同一层中的单元，或是随着时间的推移，模型参数的随着训练更新变幻莫测。<br>批量规范化的发明者非正式地假设，这些变量分布中的这种偏移可能会阻碍网络的收敛。<br>直观地说，我们可能会猜想，如果一个层的可变值是另一层的100倍，这可能需要对学习率进行补偿调整。</p>
 <p>第三，更深层的网络很复杂，容易过拟合。<br>这意味着正则化变得更加重要。</p>
 <p>另一个角度看训练深层网络时的问题</p>
-<p><img lazyload="" src="/images/loading.svg" data-src="/deep_model.png" alt="问题"></p>
+<p><img lazyload="" src="/images/loading.svg" data-src="/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-28/deep_model.png" alt="问题"></p>
 <pre><code>- 收敛速度慢:
   - 由于训练时先正向传播后反向传播，且每层的梯度一般较小，若网络较深，则反向传播时会出现类似于梯度消失的现象，导致距离数据更近的层梯度较小，收敛慢，而距离输出更近的层梯度较大，收敛快。然而底部的层一般都用于提取较基础的特征信息，上方的层收敛后，由于底部提取基础特征的层仍在变化，上方的层一直在不停的重新训练，导致整个网络难以收敛，训练较慢。
 
