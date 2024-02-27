@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="敖炜,博客">
+    
+    <meta name="author" content="敖炜">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+        
+        
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://ao-wei.github.io/2024/02/05/焦虑症与恐惧症手册/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="这篇文章被加密了，需要输入密码进行查看">
+<meta property="og:type" content="article">
+<meta property="og:title" content="焦虑症与恐惧症手册">
+<meta property="og:url" content="https://ao-wei.github.io/2024/02/05/%E7%84%A6%E8%99%91%E7%97%87%E4%B8%8E%E6%81%90%E6%83%A7%E7%97%87%E6%89%8B%E5%86%8C/index.html">
+<meta property="og:site_name" content="敖炜">
+<meta property="og:description" content="这篇文章被加密了，需要输入密码进行查看">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-05T07:15:51.000Z">
+<meta property="article:modified_time" content="2024-02-06T00:51:53.921Z">
+<meta property="article:author" content="Ao Wei">
+<meta property="article:tag" content="读书笔记">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            焦虑症与恐惧症手册 -
+        
+        敖炜的博客
+    </title>
+
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/fonts/Chillax/chillax.css">
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/libs/anime.min.js"></script>
+    <h1 class="ml13">
+        敖炜的博客
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/assets/build/styles.css">
+    
+
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/fonts/fonts.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/fonts/Satoshi/satoshi.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ao-wei.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/Day.jpg","dark":"/images/Night.jpg"},"title":"敖炜","subtitle":{"text":["操千曲而后晓声，观千剑而后识器"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/ao-wei","instagram":null,"zhihu":null,"twitter":null,"email":"aowei0821@gmail.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.6.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Tags":{"path":"/tags","icon":"fa-regular fa-tag"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"说说":"/shuoshuo","Github":"https://github.com/ao-wei","Blog":"https://ao-wei.github.io"}},"Links":{"icon":"fa-regular fa-link","submenus":{"友情链接":"/links/","Link2":"/link2","Link3":"/link3"}},"相册":{"icon":"fa-solid fa-image","path":"/masonry/"}},"search":{"enable":true,"preload":true},"tags":{"Tags":{"icon":"fa-solid fa-tags","path":"/tags/"}},"categories":{"Categories":{"icon":"fa-solid fa-folder","path":"/categories/"}}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2023/5/20 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":true};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+
+    <div class="navbar-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/redefine-logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                敖炜的博客
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-regular fa-tag fa-fw"></i>
+                                    标签
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/shuoshuo">
+                                                    说说
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/ao-wei">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="https://ao-wei.github.io">
+                                                    BLOG
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-link fa-fw"></i>
+                                    链接
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/links/">
+                                                    友情链接
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/link2">
+                                                    LINK2
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/link3">
+                                                    LINK3
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/masonry/"
+                                        >
+                                    <i class="fa-solid fa-image fa-fw"></i>
+                                    相册
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                标签
+                            </span>
+                            
+                                <i class="fa-regular fa-tag fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/shuoshuo">说说</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/ao-wei">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="https://ao-wei.github.io">BLOG</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-Links"
+                        >
+                            <span>
+                                链接
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Links">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/links/">友情链接</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/link2">LINK2</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/link3">LINK3</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/masonry/"
+                        >
+                            <span>
+                                相册
+                            </span>
+                            
+                                <i class="fa-solid fa-image fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">11</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">13</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">58</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">焦虑症与恐惧症手册</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/%E5%A4%B4%E5%83%8F.jpeg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">敖炜</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-02-05 15:15:51</span>
+        <span class="mobile">2024-02-05 15:15:51</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-02-06 08:51:53</span>
+            <span class="mobile">2024-02-06 08:51:53</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>9 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            
+<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d3b7e698eac52c2c105cf03a4dea008e5a664d7989905381766668123a3102a8">8b9cf39661b1df746fb1be885d8a9c697e96d276db5f2ec84d2584e9876dd783f5be4d4edaf1c2d6ebd673997dc31a7ab4361adbfb7be7ddcf62f7d34a35760588e306de1cf883d60ffd7224d22a73fd258f63a408ee125cc55c5755db1f42e34941bb5bcb0a07ea9221c521b9bd5e0593e8031507068fe63b9e5690a38d5e93b5d4f41c208422e307761697b036028a30d8ed12fdd117f70ef363238e5e1ba07c004e2dc254f45b48fc81b7e13a6a7495b1eb8b4e40a1e24740e08879b256c7749707302f7319e9e423475e39fe883add5bd2359eb2c44eb81fbf5236465a06252c566789e4b899d21cf6c05c6bab44ab2aa93861bb1866489ee0902ea4c91ec7b4813540e10dd12f9ec81fa3c8a7eaf63aa3b70ef389a2128077a6bbbb67a026c3a9792800772b5fb12b889d92f15ce8c0bb7075d839a21e35ba3b86ec3f2a4b528e6c50dace7243d8f23c6fc03e9dc1c0a6ce08b51c84c313bf8e53f3eb2772251c51babe083f481fcb365f3c44178a7a5818b27017357c25707a5b5a9e8725a536f588dd7ce41b370abf9adc94eef35d6de20789b6cab31fe6e2240e361b605b460a14d6d642faed39869fcec673f81669b514996f8eb2a08e91c1b5eed44e6ddeac0e0700f929ccbb5f27e53b96fac76fa07bbd3a12a6b340d56f21509efc135ed32d8a2d80fd862632bfe827ad3a885505a71d4cae8df9903d3a52eef7b32feb8b0b34756a05b946341ae393b156a008a91efeda15886223a48f6daa69674dfd931270b04b64e6966986cead15f7d2af151fad9868e0704726a87c01e6f8d0b186f21efeef394a34e244c71993edf43bfd16d483dd3fb83a609d438e2e4ec308c3ef16a25402d458c888e2c27c0586a82fc250d6c6a5dccc1d849f72f286b5983b897d32dd356fd09441901e86c1194623781a94cff190e3cb99ed162631bac7f4c2e80cd201ba2f2d5d3c39461b9efb83418fc9b9ca43b98813233c1768cff86872e88b5003e1d21eb67826ac73d919d9cbc3d831cf695ca4a2332ef343bb918fd31d68b1d0c4f66f33cf6067c58772efabe80a75de09cffcb194591ba3c8303d68f5c52dee7181500f1ef7e128d78231dfadee925a1799bf29472b466df2fba585e1c8905abff89254f4a2e68b0c783e9e7e60adaadf981bd2b902d59a994d81326de2bc121ad4398d39c331ece5cf753ed2207802d4eaee4643bb6d50414cac0a58200713412d669650f67f416a167beee58465ac7b046aa725ab3d69cbb571c87dcac345f0db038b5fe92afa4ada82f6bbfa45b9d30301bb8373c27ea27b9a656ccd3331c0da03885e64d45f1a96bf1e98c199f1994007f5c35e10f7f9a5a28e36bcf5fc132ce67d48976d489c48ab4395f57cbf0b2c34d16840185cf7a0a9e1fb9011dea157bdf92a4d895694521e858060ef91a4df174be162c6d608871df2c414953fddff3f7aeeeb90083beb30cf0a0e64d918051ff926e3135b01bd9542b4f4e18487ad1f08970e50c6a07f2fa2444bcfec7ccbb28d666e1105c7261154c09111d111df40fde29fb00d6535a870ec3d1e569cbac88418e09871a7fb74b99d1563e6acee13f150fc8a5f9f7f07cd88b3e2632b953c7e07f0549205499ab436b1eb0d53b52ec9cffd229833b857c7a0dc407412eabac890669aaa90f343f9c7457ff0e8a52bd508abad9162d5d84c261e9b1f61668049c7a71251f4e53c5e15c33443a7764135ca4db8b877b8a6b04ee208344f29db2c10996cc6144370c2c3f0fba3192196417be40b350fd29f9ce2c870d9fc14780a6e20e78dfa01d5445f92b32209797434bcb1452a3111876a43da4c7ef3254694d287572231df02c555b3e6acffd5e2082a9df90a93ecb2c24ca7bda2f599a24d1048b941dd180dcd13341bc85d4667f3c7e95b87b7fb2fdfb1f5f4b56c770d585d6cb958c754a4f829fee981a2d064d906eebd28b7ded26223956bc47d809907333a4cb0c5ae6393774ff318f74c8df551d62cd3970db07af0124c46e6ff857bf482324dacc4b5a7de42633054f477b77f029765f6bc6dc79b7b7444b6cdffcb61e67bcde2d17224ef1afc5ee228850f952b52a03af4019f5d8c3050f55c6e7cf0c78e103593dd2d60cf139ca19210c9555d30acb8fc6fe5940f6250ccc4555e9cfccb3158468f85a70bff12665404e82a7ea05075c099ada17bf23f59ba1deb8a6a1e56b3ac851b65259adbb60650831293e2a8877d41700cbe982869a57f451e6fa29ac5c203745113bf54e85f86cf15428d36a3b61c42d0388af02152b7bd676159c9d63d9c4801a979c472a11203c5bd12251a4398f303ccf20d68e4b4e4086544f797e61d30ba6d7f000d8afb0b4698903de82f73ba86604905559c9f005493e2990da010d30d7e608ac7e90079677e18802cd07232a45d12c16623a82daafc713da2d63e457ae4da1c887bb4a18850ebda419e83adb80c25d27cd8e7dbac0168a3d308da83e78f7034d1e5bdc38d0615ba14fa9f8b97a58b1a637a6c2dedec82fa46d0e41e8beeed5e85677c0b4d198809afa4ca8d28557bff10fa4dc68179efe8dcdbbad8ad253abf6391cc2df1a8a643b25e59565d9bc79cbe288c628b5d9d0f0542aab20dd3d7f8291a8473d22c3dd1aa3bdc2e357fa8fa9b733e0d439b82002fe5f8282e2079285de7d63acee8932ebe0c3c176322d6a4136830daaa43b6875583170a4b1e3f3e3b95114fc5e83f2cd3392a86fba9b0c159d2c976b3035979cc5ee768b064e0248ef9d5ce7f49707a51d377736eb706e1dbd29cca2461c64ef7dbbdc65e12faf05775b82b8c30e74fac03fa07a46e1722467f072266607e8d64c51f73daa7ec6893319e60843b92cfb51c3f51a9042b00c137efd6f75ffc9998836c4d6c639ad4345159684bd55644622830cbd549c332474cfbabebea9172ebea087e4c9186fc2218cdd6a4683e999be3ddcf0c3794d7be3cb9841dc76d3c2d3967504ec7cf3c4799ff5197f94a941d381abafdaec061150048b4e818346b1aa9c4c490ef30e26c4c57cdd176e3d133406c73c41fbfee1a3e170411c53591297ef7f2fc186b0284315800ba1a7ed672f985ebe128e9bfe0a46db45cfa70854d356d77d3376e694d61cb6480e26d4b16cdeb67afb531e35eb3fec12f869573d23a878675db9b4e9519550078103947d0fec341ed693a23b665d4396de18d2b43d2dac70de6ed01f613b408b3970c16cad53af3e4dbb2fbad1f022b59509bbc527bb499fd979868e2fbe3c367466a304143f27927c8d0e2dc3303c90ad833c249476b9bfde31d94b5c273f3821f5d98f5811a797c1071d614f91ed96b9239c834e8634331a8d76460b2cfb798b2bcc5232662e29a6aa805c4829a81c1d7395eccfb796e41d3e94bfee0cb32458cfd82aa20612d1eccbc7de8980e5a1e77dfaef4af6566367066aec21626252049ba43b58a725313f6bfb3daa0a8a21c145a3062bb9cd44e34f43831830c47e561863b9227eb30e751b37b29105cd789fdc795354005b8081e2ca75347fd04eb25234aa0b8a0ac881aef0a3d7cfa1aea6515a2e2065a83bceb600db3208149b38c036ce4997104f0a221f7e4f19554cd4fc08e92b891c65159436a273043a9c7c1e0d52b3e16d4bd50599892dba1237b9890a4de2bca3427b15e771313d8679b4652128a933a3b698e2802ac2566f49163631a9550fb910320b039576e490d0bb9b8252ce80167436302c1bd85a17049d6f1d6774c9f2aeaee3a28f0f502ecd766a1fe505150cd238758e12b8b5a1b5694e3e3363929d035100ac512e10f741d98739e13d574bf0a2a48c1ce99ed6e8058f40e3a179a4a5f6742701d5e888f84aa8a4465276c90752593e511e445573937da442a9d1ba45b2592e75a79f0858f81902ba0847267080052dcec6b0ab394925424111a69fad990d51892e37eb102461eea4987957fe4d65c55510084a7424c923081ed21e9b99e28099ea52f3b7e76326d1ce428a072287327589f708d6c14ebac0e96965b0f09329cbb77a8284cbd6c1e0742387e62f8c655939b4c94e8f0de983e931572f3aaa11c89244e3046a79332bb4bff2b4316887a9c62474d0be7f6155e886c42784a50f22374c79cabb3a7019de868c7b6d9b0139e9e93493b1ffa0589733951708790e8ff6bd59848f8fc39783b59fd6954a260aeea29d6d506021e4c6e2407c9bca04f30cd5727a403f29d287bf23f00a91501a616f958d30d4d3ca14ae43469a07ffc991bb02980fdcc9dfe417e31fddf71c837eac64dd7c63c1990a599c689b86b2c572e5c9d39d0696047c8742e0f1c09f2f1f155e4254996ddf3e08d92a607e3851abfde57064f247fdb0c14d931be4afe50b380885c599b84b5d0b050c8b934d78d53016f7f0717e851f77dabfac0b9bb8a8a07349ce9b5e4029c1d18a2037b495f1c5672676981aa97c74772e206f93886ec7d9dd95648934d95624e1767dc201fcbba05517658922ec37ac31a25cf1d39a1a5361a45690f92b85a9cbfa03ac45331d87d23cb8feee5a4451a0a94557c59e3fb74169abfda4d153245dfbce77a70ebeef77f1f9228212c82976abe45bef1eb3aaea1579c49902c746a1c16604919738de69fd1dcfac0ef5663234e523a0bbea0784bffc6a765a524c781514cbd9e2797f23ae357a55900358ca3f8166c84a7a091a41d55015b59431228a392050df5dc80a840882a70c98cd9e986b54541ce92cf4f807246a464832cdc243fba16f500e533e3794f5e9b9290d553fe8982bf5f3501d63a053072a7050edfa358361cdf011e5ba2fe49215353a4d4fa75fcc631590074e766aa55c6da82d1d6e62089f4491a5a901fc2f25ced4ec9569c5c81f3b88d9814fa617b1f6bb008dca898606bd4abc5b0470a2e0e502092c12b678f11d467aeac8a820b298d7221c73712e4b5d89309caeb25dd0a33f54165603cd0aa17fc5628d3af8b0cdff7f42a2979116d5b06e417f2f216f5b9d6907b1dd8baecaa9c819cb6ce36d021fa05d4ceead416077e9cf23ca0d10d2cbe520e7064f9aa6a776194d7e4edff7fab0bef8761dd7457d59760a313723545435bec5553b11ea81708a1827aada49641fff63d5359b9edf37f7772be2ae45e2bfb8b6825205e3776158f088ded214a0fa760aad16ae7eb0edaa2d2459bc0b5ecdf1b5f779c9c8d623d2142b40dcf320d50b169cf4e0b254ff6a9db12899f4df39235740d6fbfc72fa8e2b812a4ebddc9ce34bb5ff7225d24afec1d59d96d06b4b7558aafde4f496e394e67f07050c8dc367d555c379502e7f78ef4e5f560ac38977b6856c3a6f66812ceaf899df89bfdd595908067a367002f8e1fc0b2eb17a067f8651b0f83e5055591619be810fe9b7fceef300224b994088dc59ebb95f0cb00e1cdf1bbfeef7d9bf62a215c08e2619b95d6363c42390e6b502e4ec294641d69346b5fbee726c6ba4546830c6a1fc2e627dd7cf5579af16a4de790d5cfdf4d04d8b87b956aa1f5dc162681fabc86a88b86cbb2c29459aaacb6e8167a726969ee1e82042313dc80c299e41ba6e97743d044c407d3e24c0f1dfdbbac185cb6ba462d461c05585ecb862e7ed245b8cb6985bfe845ce5c73624284d052c3f4c4d6e109c4e5e6fc309c5e566a7aa3f156ea2be28bc21150d7f256494f972bc09317959c01321eba5a4317b289438e2f93f8825d25282c3ffd205d783af22b847ffb2c588decf5bace6abfd67d8e7875aee0089c314236f4100dd8c858c59fb5a4425d04b0b30abd15fa409e972d6089f2b579350993c022898d4f5e70d40653940348574f4ab393855edfd9677ea023aa071bcc422f7cf81d095647438662acabdb97babf0a3c14f5ff10ba0a157042e4623030c04001e167b1f4bfa29d725ada758ee212bd30b7e2d8f0ec464a8a922939c0595d02777a69027fb73d3eb235ee88b12038bdc31f5d4e2d5b2fd0961af79063c0d68b5cdb6a39ce3137da389ba55911ebf4e4857ed5e7081fc754d06d2ea98243e1df513e179fb118cfae412ebe443c6f3b9ae3261acf6aba8d6f2662ec9df0f38d091b1fa522203a2d2f382ccc3e857ca6455b2a5ddcf80e6ae6ba26450330e93a16c33cae4e34465a1c887121a9416a3d513397dd21c59df3562d400a6c43502cf8b0314dd36a6f54a5c7144992e790b5d5e066f615b43884abfbd30d8c6130fa28b3c96b62df15305b14d9a14df1f0b5131ba628338f486587ae93056abb383e4491da214be3d4d667683cd411f9b39ab266de6bca7ec6d02633056a1f287970f41b1844bf9f7c5641440ca2711e4c37c659e64e2ac42e8de88e6f17f3d5206f5a2aed9e8b99aa3d9fe81971b17d1080b0da5901169381da1b04b4755942bc3f94aaaeca0cbec8ea4b48a454d4945742c70ed6b9a300c3f0049310707d0b8ef3dc6fe92e049e13503503695dcf53698db901ebe9421941d39f6e568caff09eedce2b3e3233229a06547e1838ee31afe05a5a77dc62753094dcd329a825e269324809353a8362608f5101b83c5564cb042cbd835232ee97721203c6ebc3eb23ae2e279b1a42eac31c0ddcbf21ef0a2e1a645b167e3a9ebab98569a25809c17fe7470594d7079018ff143512eae688e065b12ca4a87dafb61cfcbb4b143828e4634abc875aef346f698906cf52ffe0f17694b53acae0ffa2b35ce6c2251088cd6acfa922b84d1b80e034dd8bd0ef85772200c933c5c42321c69985e6b55bd231f4122f874739bb74f500b09e7d2da8375699c22f5a630033170ca129a7a1f62b9a05308ead23c0bc01002649a0bba48b593718a7e4a34045d5ab8a4ceca5c0b1bf5001083cd32c19796de64df391ef848ef80d0c317e732711337f3fffd26ea434550fd5345275b8e3cbb030607c5074ccbb24aebcde938089b1e2b7db5fca64f60390688358c454f02317c6c14b10ce45ef24eb8d3b18b8e601d3df4fd75d3c29144f3414088303ca8cf0d2021b4d6c6ea3dde629783d0793241b3df83923fa3e2fbdd7f9f954bcfbac04896fb8f597b331404f4ee87c8ad5ea3ee3be90448be85d713d50426a3a5f48e68651f86cac80ea496d2bc88ca33176dd646b179c03b0595df7d7e8e635c33283df40aa63ffe1f210bcf14bcda8a1c01ae6049ee13d7b991c4864bd4504defb98261f266b2fd217da043cd07c7540aeff3037682c87a14063677177b4126f8cf35e37514c849e36cf4b10a6f2619bde68be4b398dc6742748f3776f72f2c162eb14b6f3e1bb12c2259c7ca10b6eded650524da177f4501cc2e792063fdde0b83950a1b1e8c46631c0faed6320999b24ac9ef24c35d5b5787175462a1a73ccfa7053aea5576893322cc08343cbc460abec53b8c50dacceee0f4e6622afb355223d40b8a9bb78829d6e67476f688bd6e37148db70f0e52d497a3fe4898d65fefada53f6b98fa29822dae2fe6e8045aab0ee63962ce0005f7ce7322dd8f8ecee93b1e2adbc7a289e3f44204763dce3caaf58b10800de5660e9ad2b7e3e2e97d332e8cc55893757c453e057ee5490b490698809870a7e32065afa6f67b911cd86871e1081ee33abb1cd12f05f36e6209df9cd97d0679d84b8e89d5a34eb4c1c4419016e61dad76a1f845e24fb22c8aa3413381ae7d05a583d9c0333fd62e65d7dff19dc48f510b7025966f5b645d01c411189fdc0ef1a1df5ce6a9991de3ed9858842f60f0d4543a088a3bf1e0e788e72fbca6dda48538e5d8e3885ec005d78e41e9d39010f62ac58dc7872b83dcf15b8659a1da740031239354f9ed815e08c98a0d2b52cbc06c72bc0b9d4f0fd1cd445c5c2e4d4862df14dce4574e3301a375b671801aeff6b3d9161a959025c6eaeebfdc3c196ea175cfa72e68f916309eba4072217aea4df81a25e436a28553fbbb03b951cd13bf0cdb0530cc2ee8037bc5aeaf6aac733577261c10e40ef9d908afe9b1810860235291dffd811b8793476b959e1f0b06b1db96bb5415a6c340a9fb4f4e01e47a3f699517cdc23806a3e20f3fce2cd4ef98b5cef367486240260bf1e0fa1c657d7dbee9bc2d1e859ae00a59645fce1c7c986d198a80db43771fc013132598382bffef867e6cb85dbebb7b63db92078f43dcc413fc55cc21a42f9c1e8ce6a67a44ef7fc2b437990c85dcd01e7b36883822eeec371d68b1d6382d3f1793cc537683f4f2bc245c57eb7b8d63abdfda8ec989c53442f3103184c7cb21f96160170fc588652c5fa7e864097f4d2cf4e5f98843655b7a2633f5563b23234c9756956d984fbacc38aa3056a95b55a4d3c902cd2562f3dd84ec4cfebdcc8d6eaf1ef06f1113ed4fdc97cf3255e9bd8034bc0a6b99751227e5330651fc5740b7c3456635e83d9ba01923459e99c931bdbc88e6df1a9403b7343d034e38515162cc888b08c490cb0fb05b9a426dcb6dfc48d3887abeb980d3bff7bc0db9a37839f29e42438678913a0bcf7ae1cfac5e1bf92341cc547817d066d8c4eeca103a21a1c2c248bfba590b04e3a5705dd71a883882b6aec36c6239e510b4745f2689a431604fdf5bc2080b966b3354587d7e69042f9560ee6d71f035b685a887e8818bfab614f8468f421e04e57ce94ea5d17480516ecd97aacc7bca2d2dfef7f9c64e1551763133684e9895c00e5affebedfde781f9fcc52f040260463b82c265b07eeda4caf81fc4e6b372bc633f7e4e192610de494e0e4054399a005240daf760b2a0a2b7843097c6b692c41a6649748b15c191a56b3a92366dac9fae063582a697418d920b13f86419ec528faa5bf200b58b51eb2c5b7e7afe8c125d1e1103dae5d86e715d7a5689077cfd6f63e2ed0c6d63a40f1e7aee98244d82256da101bba69110e564288bcc6aed26a0076c976f6ef3d2252e6d04a2a1458b176cf4cb007803134a9a34571a2cad698a96309581c19ac4093449746d929298d9df8da27de2b4f0273573328b2d7ccb09f3c8b22f44d23b5f4f38a496852b0cb2100e6f85be3c8dadafaa7e08ce40c66906bcd84e73978d60e9f5ca640a87df4a48a4838e00672b3d410d61268a69752a766d8e1676f42cd0600221f1f2c416568a870725784b2b1ba7bfca0e50378594a15b3eefac96f5c28e97ee7bc1c360ea5a1138b1a9bcb8d459fc175c62eb911456fe58b15dd69837f3df2c6318c542ed45848a291533c1badd6c51dc525d8a77c480b850a246ac2b5aca8c551109f44fb33111bd2d686c8344b1bd118a5d4a289fcfceff229a81df05c5ceb627d08650b00d16c2adba821d536d32ccff402e8a7e5012e0ab74ca7361a55d06ba5d910b8f99c162e0a6666ba29e15af2ab8ec30514e13658951d3b267ac3b9dfc426b6564fa010bd52a932bf9a73da8f165be7f62bfca02ef706b29c493cb2670044ace11a62c3cf4de8dbf8009ce2d6be279f5eda5c6141d3fe74412101c2a8b07c29349ab990ccb4d673e240d86804f0aa3d4df09431ffa735cce44591b586ea7632813dba155278185e815766dc4ffb36dce8c2e87ab21ee8bf1d302c28fca286b15a0b8a648a0a26c8c70fe8c584515d44de1ce43c7de26ccd08cb10b36799d519b13b38527ec14f1ddb334ba5f327c865d0a618538e3843350a44b50003732119af37096540bad638f13e3ebf13aae46c73e59b40a57c84e36dcb5731edd6d0fceb26dc2e8380f1e55ddc94874ba5780c966f8fd97007a0b48d93fd041e281ca2460b241464a4f6de3b39a9d7797282f0ef96abcc370d923e8525bd4277cc71e1142ec49a1ec1df8f43bb3b0d970882f87f3568a7c3fefbd03c59a78195ded4898e6767a098684dc82b1a450eff3a93be361614c6bb3ad0625f5a9b7b01baf057460d56dba5a4c0858eb4c6091dcd04f0bd0582f1ac5638e3d3105467ede889415e3b0871e4d56d6a5acce8dbee5a28ab591b9445261c2f1b8e067170e99ee705a4ca12aab4d94f8b79e2bfbdc8b535cbf9b18c70ddb677e9de750e049fa3411f4a5f11601454c8527f6f92ed60a2f6408f1d54c97e400866baef75e3b2053f829e6c65eaf46e7038bdf8ef65585b111fb0e37e4daadeb62ec2196ba0b36063b17a32ae0bc431442ae39a278b0f32fe6e3462ea97a0413db252afbaf3ec4f1359319b2fd84890925c043f6296ac5c7552691a93f9b6c4c57d6a5b7a30d5ca98cb173c7f11208a4a0ec51d4549385f6793461db3bec071b995f106e2dadc406c903c5a8e0818c2d22a97558174c4458f3f5f430a105726eacf73f2e4a258d41d9d5ac45826c6044507cb457a4bc0ac349b44d553beec3b21fc619e3773aeac11b54c5d3f73bf437e1b6b5a757dfc2dc0697b55794bb83937bed874d6cc621de88261e79eb1d58ff685de21a319a61e2ead9ef9b3023067d14ba64e5a12827e508670d29856fd173fedd58a8961fe5e244db6c02d9d7ed820964f158661924e15950fa15af08c052121182529c59ae4250eee666fa5fee5ef522e40bbfb1993e99b9f6100a4772fe8a41fb4232ac5029b27d20b7b23c655c68f3713d729750fe1768fcf0f429acc0a18d5001f7ee9bd615674cbea5ddb5b64af9684d9655eeb0a7e0f3b5c66c508061b9d1623b1711a4fb45a33bb95270c39ec5932ab560b7ce7134c4c8941b8981b5636995811bddf5d7307c003b6e94805392e47f38b1080b65168f18f4509ccf1c837226bf8d302d4d52434ead7e5f662c074f51383a9d5cbe861a82580b17dd03850f169423a9e1db1a2e5950f058f97e7d60c3c7b05ad58c8674a6a574563dbf4eadafe2d5f7c5e7a828b8d4bcc0a3943c690fa6282bde869ff01a3bf334cb6c7677fcd6a15bc483912c1b2c60a710f8d86baa03210ebfdbab7119f06e7</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-swup-reload-script src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 焦虑症与恐惧症手册</li>
+        <li><strong>作者:</strong> 敖炜</li>
+        <li><strong>创建于
+                :</strong> 2024-02-05 15:15:51</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-02-06 08:51:53
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://ao-wei.github.io/2024/02/05/焦虑症与恐惧症手册/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">#读书笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/02/26/suncaper-day1/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">suncaper-day1</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/01/23/%E3%80%8A%E8%AE%A4%E7%9F%A5%E8%A7%89%E9%86%92%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">《认知觉醒》读书笔记</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="giscus-container"></div>
+    <script data-swup-reload-script defer>
+        async function loadGiscus() {
+            const giscusConfig = {
+                'src': 'https://giscus.app/client.js',
+                'data-repo': 'ao-wei/Gitalk',
+                'data-repo-id': 'R_kgDOK2B7rQ',
+                'data-category': 'Announcements',
+                'data-category-id': 'DIC_kwDOK2B7rc4Cbg_e',
+                'data-mapping': 'pathname',
+                'data-strict': '0',
+                'data-reactions-enabled': '1',
+                'data-emit-metadata': '1',
+                'data-theme': 'preferred_color_scheme',
+                'data-lang': 'zh-CN',
+                'data-input-position': 'bottom',
+                'data-loading': 'lazy',
+                'crossorigin': 'anonymous',
+                'async': true
+            }
+            const giscusScript = document.createElement('script');
+            for (const key in giscusConfig) {
+                giscusScript.setAttribute(key, giscusConfig[key]);
+            }
+            document.getElementById('giscus-container').appendChild(giscusScript);
+        }
+        if ('true') {
+            let loadGiscusTimeout = setTimeout(() => {
+                loadGiscus();
+                clearTimeout(loadGiscusTimeout);
+            }, 1000);
+        } else {
+            document.addEventListener('DOMContentLoaded', loadGiscus);
+        }
+    </script>
+
+
+        
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">焦虑症与恐惧症手册</div>
+        
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2023</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">敖炜</a>
+        </div>
+        
+            <script data-swup-reload-script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.0</a></span>
+        </div>
+        
+            <div class="icp-info my-1"><a target="_blank" rel="nofollow" href="
+                
+                https://beian.miit.gov.cn
+                
+                ">蜀ICP备2023034780号</a></div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/libs/Swup.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/libs/SwupSlideTheme.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/libs/SwupScriptsPlugin.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/libs/SwupProgressPlugin.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/libs/SwupScrollPlugin.min.js"></script><script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/libs/SwupPreloadPlugin.min.js"></script>
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+<script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/tools/imageViewer.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/utils.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/main.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/layouts/navbarShrink.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/tools/scrollTopBottom.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/tools/lightDarkSwitch.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/layouts/categoryList.js"></script>
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/tools/localSearch.js"></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/tools/codeBlock.js"></script>
+
+
+
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/layouts/lazyload.js"></script>
+
+
+
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/tools/runtime.js"></script>
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/libs/odometer.min.js"></script>
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/libs/Typed.min.js"></script>
+  <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/plugins/typed.js"></script>
+
+
+
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/libs/mermaid.min.js"></script>
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/plugins/mermaid.js"></script>
+
+
+
+    <script src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/libs/minimasonry.min.js"></script>
+    <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/plugins/masonry.js"></script>
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        <script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/tools/tocToggle.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/layouts/toc.js"></script><script type="module" src="https://evan.beee.top/projects/hexo-theme-redefine@2.6.0/source/js/plugins/tabs.js"></script>
+    
+</div>
+
+
+</body>
+</html>
