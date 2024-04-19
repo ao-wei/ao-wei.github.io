@@ -17,22 +17,23 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://ao-wei.github.io/2023/09/03/动手学深度学习-23/"/>
+    <link rel="canonical" href="https://ao-wei.github.io/2024/04/19/习得性无助/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="卷积神经网络（LeNet）">
+        <meta name="description" content="习得性无助的讲义">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动手学深度学习-23">
-<meta property="og:url" content="https://ao-wei.github.io/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-23/index.html">
+<meta property="og:title" content="习得性无助">
+<meta property="og:url" content="https://ao-wei.github.io/2024/04/19/%E4%B9%A0%E5%BE%97%E6%80%A7%E6%97%A0%E5%8A%A9/index.html">
 <meta property="og:site_name" content="敖炜">
-<meta property="og:description" content="卷积神经网络（LeNet）">
+<meta property="og:description" content="习得性无助的讲义">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-03T09:05:32.000Z">
-<meta property="article:modified_time" content="2024-04-19T01:28:49.132Z">
+<meta property="article:published_time" content="2024-04-19T02:28:47.000Z">
+<meta property="article:modified_time" content="2024-04-19T07:19:23.354Z">
 <meta property="article:author" content="Ao Wei">
-<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="敖炜">
+<meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
     
     
@@ -45,7 +46,7 @@
     
     <title>
         
-            动手学深度学习-23 -
+            习得性无助 -
         
         敖炜的博客
     </title>
@@ -802,7 +803,7 @@ mjx-container[display="true"] + br {
         <div class="article-title relative w-full">
             
                 <div class="w-full flex items-center pt-6 justify-start">
-                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">动手学深度学习-23</h1>
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">习得性无助</h1>
                 </div>
             
             </div>
@@ -823,15 +824,15 @@ mjx-container[display="true"] + br {
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-09-03 17:05:32</span>
-        <span class="mobile">2023-09-03 17:05:32</span>
+        <span class="desktop">2024-04-19 10:28:47</span>
+        <span class="mobile">2024-04-19 10:28:47</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-04-19 09:28:49</span>
-            <span class="mobile">2024-04-19 09:28:49</span>
+            <span class="desktop">2024-04-19 15:19:23</span>
+            <span class="mobile">2024-04-19 15:19:23</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -845,17 +846,7 @@ mjx-container[display="true"] + br {
                     
                         
                         <li>
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/%E6%8A%80%E6%9C%AF/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>&nbsp;
+                            <a href="/categories/%E8%AE%B2%E4%B9%89/">讲义</a>&nbsp;
                         </li>
                     
                     
@@ -863,28 +854,17 @@ mjx-container[display="true"] + br {
             </ul>
         </span>
     
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa-regular fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
     
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.7k 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.5k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>6 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>4 分钟</span>
         </span>
     
     
@@ -903,47 +883,43 @@ mjx-container[display="true"] + br {
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <p><strong>卷积神经网络（LeNet）</strong> </p>
+            <p>习得性无助的讲义</p>
 <span id="more"></span>
 
-<p>卷积层可以在图像中保留空间结构。同时，用卷积层代替全连接层的另一个好处是：模型更简洁、所需的参数更少</p>
-<p>LeNet是最早发布的卷积神经网络之一，因其在计算机视觉任务中的高效性能而受到广泛关注</p>
-<h2 id="LeNet"><a href="#LeNet" class="headerlink" title="LeNet"></a>LeNet</h2><p>总体来看，<strong>LeNet（LeNet-5）由两个部分组成：</strong></p>
+<h1 id="0-第一认识"><a href="#0-第一认识" class="headerlink" title="0. 第一认识"></a>0. 第一认识</h1><p>习得性无助是一个<strong>心理学概念</strong>，但是我们先不看这个概念的定义，而是看看它是如何被提出来的</p>
+<h1 id="1-习得性无助概念的来源"><a href="#1-习得性无助概念的来源" class="headerlink" title="1. 习得性无助概念的来源"></a>1. 习得性无助概念的来源</h1><p>从前有这样一个实验。</p>
+<p>有三只狗和一套能够通电的鞍具。第一只狗被简单地带上鞍具，而后又将其取下；第二只狗被带上鞍具，接受电击，但狗可以通过触碰杠杆来停止电击；第三只狗也接受电击，统一可以触碰杠杆，但是无法停止电击。</p>
+<p>实验结束后，前两只狗很快的恢复了，但是第三只狗却患上了<strong>忧郁症</strong>。</p>
+<p>为什么第三只狗患上了<strong>忧郁症</strong>呢？以下这个实验能够告诉你答案。</p>
+<p>有一组狗被关在笼子里，只要蜂声器一响，狗就会受到难以忍受的电击，在笼中惊恐哀叫、上蹿下跳地试图逃离。多次重复这个过程之后，蜂声器一响，狗便趴在地上，不再试图逃离。再后来，实验者在电击前打开笼门，狗非但不逃，而是倒地呻吟和颤抖，绝望的等待电击的来临。</p>
+<p>前一个实验的第三只狗和后一个实验的狗从实验中学习到了同样的东西————<strong>无助感</strong>。它们从实验中学习到自己的抵抗是无用的，它们心理上认为自己无法控制电击，进而放弃哪怕是作为生理本能的抵抗，产生绝望感和无助感，同时这种某一个方面的无助感会蔓延到其他方面，因此狗患上了忧郁症。这就是<strong>习得性无助</strong>。</p>
+<h1 id="2-习得性无助的定义"><a href="#2-习得性无助的定义" class="headerlink" title="2. 习得性无助的定义"></a>2. 习得性无助的定义</h1><p>经过上面这两个实验，我们可以较轻松地引入和理解习得性无助的定义：</p>
+<p>习得性无助，是指个体在遭受<strong>不可控</strong>的挫折后，面对问题时产生的无能为力的心理状态和行为，继而导致放弃努力的一种心理状态。</p>
+<p>这些不可控的消极事件使得个体倾向于将失败归因于<strong>内在的</strong>、<strong>稳定的</strong>、<strong>不可控的</strong>因素（例如将学习不好，归因于智商不高，智商便是内在的、稳定的、不可控的因素），个体由此产生无助的、抑郁的心态，丧失自信心，自暴自弃。</p>
+<h1 id="3-习得性无助在人类社会"><a href="#3-习得性无助在人类社会" class="headerlink" title="3. 习得性无助在人类社会"></a>3. 习得性无助在人类社会</h1><p>习得性无助在人类社会也广泛存在。如果一个人总是在一项工作上失败，他就会从中学习到无助感，从而在这项工作上放弃努力，甚至会对生活其他方面也产生无助感，进而对自身产生怀疑，觉得<strong>这也不行，那也不行</strong>，陷入抑郁状态。</p>
+<p>因此广义上来说，习得性无助指有机体经历了某种学习后，在情感、认知和行为上表现出消极的特殊的心理状态。</p>
+<p>其实，没有一个人是“真的不行”，而是陷入了<strong>习得性无助</strong>的心理状态中，这种心理让人们的内心筑起高墙，把失败归结于自身不可改变的因素，进而便放弃了继续尝试的勇气和信心。</p>
+<h1 id="4-习得性无助的成因"><a href="#4-习得性无助的成因" class="headerlink" title="4. 习得性无助的成因"></a>4. 习得性无助的成因</h1><p>人们会透过事物间的因果关系以及行为对周围的影响，从而学会如何操纵及适应环境，切合生存需要。若一旦发现这种因果关系不再存在，行为便会立刻变得没有意义，因为行为反应不能达到预期的效果，从而引发不良的<strong>习得性无助</strong></p>
+<p>前面我们已经提到，习得性无助在于错误的归因方式，其中包括将失败归因于<strong>内在的</strong>、<strong>稳定的（无法改变的）</strong>、<strong>不可控的</strong>因素</p>
+<p>更详细的来说，当一个人获得习得性无助时，会从如下三个角度解释问题</p>
 <ul>
-<li>卷积编码器：由两个卷积层组成;</li>
-<li>全连接层密集块：由三个全连接层组成。</li>
+<li>个人(personal)：通常将自己投射到问题上</li>
+<li>渗透(pervasive)：通常认为问题渗透到了生活中每个层面</li>
+<li>永恒(permanent)：通常认为问题不可能被改变</li>
 </ul>
-<p>每个卷积块中的基本单元是一个卷积层、一个sigmoid激活函数和平均汇聚层。请注意，虽然ReLU和最大汇聚层更有效，但它们在20世纪90年代还没有出现。每个卷积层使用<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="5.028ex" height="1.557ex" role="img" focusable="false" viewBox="0 -666 2222.4 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mn" transform="translate(1722.4,0)"><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></g></g></g></svg></mjx-container>卷积核和一个sigmoid激活函数。这些层将输入映射到多个二维特征输出，通常同时增加通道的数量。第一卷积层有6个输出通道，而第二个卷积层有16个输出通道。每个<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="5.028ex" height="1.507ex" role="img" focusable="false" viewBox="0 -666 2222.4 666"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mn" transform="translate(1722.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></svg></mjx-container>池操作（步幅2）通过空间下采样将维数减少4倍。卷积的输出形状由批量大小、通道数、高度、宽度决定。</p>
-<p>为了将卷积块的输出传递给稠密块，我们必须在小批量中展平每个样本。换言之，我们将这个四维输入转换成全连接层所期望的二维输入。这里的二维表示的第一个维度索引小批量中的样本，第二个维度给出每个样本的平面向量表示。LeNet的稠密块有三个全连接层，分别有120、84和10个输出。因为我们在执行分类任务，所以输出层的10维对应于最后输出结果的数量。</p>
-<p>通过下面的LeNet代码，可以看出用深度学习框架实现此类模型非常简单。我们只需要实例化一个<code>Sequential</code>块并将需要的层连接在一起。</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> d2l <span class="keyword">import</span> torch <span class="keyword">as</span> d2l</span><br><span class="line"></span><br><span class="line">net = nn.Sequential(nn.Conv2d(<span class="number">1</span>, <span class="number">6</span>, kernel_size=<span class="number">5</span>, padding=<span class="number">2</span>),</span><br><span class="line">                    nn.Sigmoid(),</span><br><span class="line">                    nn.AvgPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>),</span><br><span class="line">                    nn.Conv2d(<span class="number">6</span>, <span class="number">16</span>, kernel_size=<span class="number">5</span>),</span><br><span class="line">                    nn.Sigmoid(),</span><br><span class="line">                    nn.AvgPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>),</span><br><span class="line">                    nn.Flatten(),</span><br><span class="line">                    nn.Linear(<span class="number">16</span> * <span class="number">5</span> * <span class="number">5</span>, <span class="number">120</span>),</span><br><span class="line">                    nn.Sigmoid(),</span><br><span class="line">                    nn.Linear(<span class="number">120</span>, <span class="number">84</span>),</span><br><span class="line">                    nn.Sigmoid(),</span><br><span class="line">                    nn.Linear(<span class="number">84</span>, <span class="number">10</span>))</span><br></pre></td></tr></table></figure></div>
-
-<p>我们对原始模型做了一点小改动，去掉了最后一层的高斯激活。除此之外，这个网络与最初的LeNet-5一致。</p>
-<p>下面，我们将一个大小为<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="7.291ex" height="1.557ex" role="img" focusable="false" viewBox="0 -666 3222.4 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(500,0)"></path></g><g data-mml-node="mo" transform="translate(1222.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mn" transform="translate(2222.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(500,0)"></path></g></g></g></svg></mjx-container>的单通道（黑白）图像通过LeNet。通过在每一层打印输出的形状，我们可以<strong>检查模型</strong>，以确保其操作与我们期望的输出形状一致</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X = torch.rand(size=(<span class="number">1</span>, <span class="number">1</span>, <span class="number">28</span>, <span class="number">28</span>), dtype=torch.float32)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> layer <span class="keyword">in</span> net:</span><br><span class="line">    X = layer(X)</span><br><span class="line">    <span class="built_in">print</span>(layer.__class__.__name__, <span class="string">"output shape: \t"</span>, X.shape)</span><br></pre></td></tr></table></figure></div>
-
-<p>请注意，在整个卷积块中，与上一层相比，每一层特征的高度和宽度都减小了。第一个卷积层使用2个像素的填充，来补偿<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="5.028ex" height="1.557ex" role="img" focusable="false" viewBox="0 -666 2222.4 688"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></g><g data-mml-node="mo" transform="translate(722.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mn" transform="translate(1722.4,0)"><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></g></g></g></svg></mjx-container>卷积核导致的特征减少。相反，第二个卷积层没有填充，因此高度和宽度都减少了4个像素。随着层叠的上升，通道的数量从输入时的1个，增加到第一个卷积层之后的6个，再到第二个卷积层之后的16个。同时，每个汇聚层的高度和宽度都减半。最后，每个全连接层减少维数，最终输出一个维数与结果分类数相匹配的输出。</p>
-<h2 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h2><p>LeNet在Fashion-MNIST数据集上的表现</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">batch_size = <span class="number">256</span></span><br><span class="line">train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size=batch_size)</span><br></pre></td></tr></table></figure></div>
-
-<p>虽然卷积神经网络的参数较少，但与深度的多层感知机相比，它们的计算成本仍然很高，因为每个参数都参与更多的乘法。通过使用GPU，可以用它加快训练。</p>
-<p>为了进行评估，我们需要<strong>对之前的<code>evaluate_accuracy</code>函数进行轻微的修改</strong>。由于完整的数据集位于内存中，因此在模型使用GPU计算数据集之前，我们需要将其复制到显存中。</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">evaluate_accuracy_gpu</span>(<span class="params">net, data_iter, device=<span class="literal">None</span></span>): <span class="comment">#@save</span></span><br><span class="line">    <span class="string">"""使用GPU计算模型在数据集上的精度"""</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(net, nn.Module):</span><br><span class="line">        net.<span class="built_in">eval</span>()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> device:</span><br><span class="line">            device = <span class="built_in">next</span>(<span class="built_in">iter</span>(net.parameters())).device</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 正确预测的数量，总预测的数量</span></span><br><span class="line">    metric = d2l.Accumulator(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        <span class="keyword">for</span> X, y <span class="keyword">in</span> data_iter:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">isinstance</span>(X, <span class="built_in">list</span>):</span><br><span class="line">                <span class="comment"># BERT微调所需的（之后将介绍）</span></span><br><span class="line">                X = [x.to(device) <span class="keyword">for</span> x <span class="keyword">in</span> X]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                X = X.to(device)</span><br><span class="line">            y = y.to(device)</span><br><span class="line">            metric.add(d2l.accuracy(net(X), y), y.numel())</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> metric[<span class="number">0</span>] / </span><br></pre></td></tr></table></figure></div>
-
-<p><strong>为了使用GPU，我们还需要一点小改动</strong>。与之前定义的<code>train_epoch_ch3</code>不同，在进行正向和反向传播之前，我们需要将每一小批量数据移动到我们指定的设备（例如GPU）上。</p>
-<p>如下所示，训练函数<code>train_ch6</code>也类似于之前定义的<code>train_ch3</code>。<br>由于我们将实现多层神经网络，因此我们将主要使用高级API。<br>以下训练函数假定从高级API创建的模型作为输入，并进行相应的优化。<br>我们使用之前介绍的Xavier随机初始化模型参数。与全连接层一样，我们使用交叉熵损失函数和小批量随机梯度下降。</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">train_ch6</span>(<span class="params">net, train_iter, test_iter, num_epochs, lr, device</span>):</span><br><span class="line">    <span class="string">"""用GPU训练模型"""</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">init_weights</span>(<span class="params">m</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">type</span>(m) == nn.Linear <span class="keyword">or</span> <span class="built_in">type</span>(m) == nn.Conv2d:</span><br><span class="line">            nn.init.xavier_uniform_(m.weight)</span><br><span class="line"></span><br><span class="line">    net.apply(init_weights)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"training on "</span>, divice)</span><br><span class="line"></span><br><span class="line">    net.to(device)</span><br><span class="line"></span><br><span class="line">    optimizer = torch.optim.SGD(net.parameters(), lr = lr)</span><br><span class="line"></span><br><span class="line">    loss = nn.CrossEntropyLoss()</span><br><span class="line"></span><br><span class="line">    animator = d2l.Animator(xlabel=<span class="string">"epochs"</span>, xlim=[<span class="number">1</span>, num_epochs], legend=[<span class="string">"train loss"</span>, <span class="string">"train acc"</span>, <span class="string">"test acc"</span>])</span><br><span class="line"></span><br><span class="line">    timer, num_batches = d2l.Timer(), <span class="built_in">len</span>(train_iter)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs):</span><br><span class="line">        <span class="comment"># 训练损失之和，训练准确率之和，样本数</span></span><br><span class="line">        metric = d2l.Accumulator(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">        net.train()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i,, (X, y) <span class="keyword">in</span> <span class="built_in">enumerate</span>(train_iter):</span><br><span class="line">            timer.start()</span><br><span class="line">            optimizer.zero_grad()</span><br><span class="line"></span><br><span class="line">            X, y = X.to(device), y.to(device)</span><br><span class="line"></span><br><span class="line">            y_hat = net(X)</span><br><span class="line"></span><br><span class="line">            l = loss(y_hat, y)</span><br><span class="line"></span><br><span class="line">            l.backward()</span><br><span class="line"></span><br><span class="line">            optimizer.step()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">                metric.add(l * X.shape[<span class="number">0</span>], d2l.accuracy(y_hat, y), X.shape[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">            timer.stop()</span><br><span class="line"></span><br><span class="line">            train_l = metric[<span class="number">0</span>] / metric[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">            train_acc = metric[<span class="number">1</span>] / metric[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (i + <span class="number">1</span>) % (num_batches // <span class="number">5</span>) == <span class="number">0</span> <span class="keyword">or</span> i == num_batches - <span class="number">1</span>:</span><br><span class="line">                animator.add(epoch + (i + <span class="number">1</span>) / num_batches, (train_l, train_acc, <span class="literal">None</span>))</span><br><span class="line"></span><br><span class="line">        test_acc = evaluate_accuracy_gpu(net, test_iter)</span><br><span class="line"></span><br><span class="line">        animator.add(epoch + , (<span class="literal">None</span>, <span class="literal">None</span>, test_acc))</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f'loss <span class="subst">{train_l:<span class="number">.3</span>f}</span>, train acc <span class="subst">{train_acc:<span class="number">.3</span>f}</span>, '</span></span><br><span class="line">          <span class="string">f'test acc <span class="subst">{test_acc:<span class="number">.3</span>f}</span>'</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f'<span class="subst">{metric[<span class="number">2</span>] * num_epochs / timer.<span class="built_in">sum</span>():<span class="number">.1</span>f}</span> examples/sec '</span></span><br><span class="line">          <span class="string">f'on <span class="subst">{<span class="built_in">str</span>(device)}</span>'</span>)</span><br></pre></td></tr></table></figure></div>
-
-<p>训练和评估LeNet-5模型</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lr, num_epochs = <span class="number">0.9</span>, <span class="number">10</span></span><br><span class="line"></span><br><span class="line">train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
-<li>卷积神经网络（CNN）是一类使用卷积层的网络。</li>
-<li>在卷积神经网络中，我们组合使用卷积层、非线性激活函数和汇聚层。</li>
-<li>为了构造高性能的卷积神经网络，我们通常对卷积层进行排列，逐渐降低其表示的空间分辨率，同时增加通道数。</li>
-<li>在传统的卷积神经网络中，卷积块编码得到的表征在输出之前需由一个或多个全连接层进行处理。</li>
-<li>LeNet是最早发布的卷积神经网络之一。</li>
+<h1 id="5-无助感产生过程"><a href="#5-无助感产生过程" class="headerlink" title="5. 无助感产生过程"></a>5. 无助感产生过程</h1><ol>
+<li>在努力却没有结果的<strong>不可控状态</strong>中反复体验各种失败与挫折</li>
+<li>在负面体验的基础上建立认识，感到自己的努力与结果没有关系，产生了<strong>自己无法控制行为结果和外部事件</strong>的认知</li>
+<li>渗透：形成<strong>将来结果也不可控</strong>的期待，这种认知使人感到自己对外部事件无能为力或无所适从，自己的努力无效，前景无望，即使努力也不可能取得结果，从而产生无助感</li>
+<li>出现动机、认知和情绪上的损害，影响后续行为</li>
+</ol>
+<h1 id="6-解决习得性无助"><a href="#6-解决习得性无助" class="headerlink" title="6. 解决习得性无助"></a>6. 解决习得性无助</h1><p>既然我们已经知道习得性无助的成因，那么反之，我们就能够解决习得性无助</p>
+<ul>
+<li>把问题归因到内部的、可以改变的因素上（如努力程度、精力管理方式等）或者归因到外部的、偶然的因素上；而非不可变、持续的因素上（如智商、容貌等）。</li>
+<li>就事论事，就时论时，某件事、某个阶段的暂时失败并不能说明任何问题，是一种正常的挫折。</li>
+<li>辩证地看待问题，明白一切事物都是处于运动中的，没有什么问题是不可能被改变的。</li>
 </ul>
+<h1 id="7-展望"><a href="#7-展望" class="headerlink" title="7. 展望"></a>7. 展望</h1><p>后续我会拜读马丁·塞利格曼的《活出最乐观的自己》，在此基础上不断修正和更新讲义。</p>
 
         </div>
 
@@ -951,18 +927,18 @@ mjx-container[display="true"] + br {
             <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> 动手学深度学习-23</li>
+        <li><strong>标题:</strong> 习得性无助</li>
         <li><strong>作者:</strong> 敖炜</li>
         <li><strong>创建于
-                :</strong> 2023-09-03 17:05:32</li>
+                :</strong> 2024-04-19 10:28:47</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-04-19 09:28:49
+                    :</strong> 2024-04-19 15:19:23
             </li>
         
         <li>
-            <strong>链接:</strong> https://ao-wei.github.io/2023/09/03/动手学深度学习-23/
+            <strong>链接:</strong> https://ao-wei.github.io/2024/04/19/习得性无助/
         </li>
         <li>
             <strong>
@@ -981,43 +957,20 @@ mjx-container[display="true"] + br {
         
 
         
-            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
-                
-                    <li class="tag-item mx-0.5">
-                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">#深度学习</a>&nbsp;
-                    </li>
-                
-            </ul>
-        
 
         
 
         
             <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
                 
-                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-                        <a class="prev"
-                        rel="prev"
-                        href="/2023/09/03/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-24/"
-                        >
-                            <span class="left arrow-icon flex justify-center items-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">动手学深度学习-24</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
                         rel="next"
-                        href="/2023/08/19/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-22/"
+                        href="/2024/04/19/%E6%95%99%E6%98%AF%E6%9C%80%E5%A5%BD%E7%9A%84%E5%AD%A6/"
                         >
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">动手学深度学习-22</span>
+                                <span class="post-nav-title-item">教是最好的学</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex justify-center items-center">
@@ -1092,8 +1045,8 @@ mjx-container[display="true"] + br {
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
-        <div class="page-title">动手学深度学习-23</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LeNet"><span class="nav-text">LeNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83"><span class="nav-text">模型训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol>
+        <div class="page-title">习得性无助</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-%E7%AC%AC%E4%B8%80%E8%AE%A4%E8%AF%86"><span class="nav-text">0. 第一认识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%B9%A0%E5%BE%97%E6%80%A7%E6%97%A0%E5%8A%A9%E6%A6%82%E5%BF%B5%E7%9A%84%E6%9D%A5%E6%BA%90"><span class="nav-text">1. 习得性无助概念的来源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%B9%A0%E5%BE%97%E6%80%A7%E6%97%A0%E5%8A%A9%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">2. 习得性无助的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%B9%A0%E5%BE%97%E6%80%A7%E6%97%A0%E5%8A%A9%E5%9C%A8%E4%BA%BA%E7%B1%BB%E7%A4%BE%E4%BC%9A"><span class="nav-text">3. 习得性无助在人类社会</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E4%B9%A0%E5%BE%97%E6%80%A7%E6%97%A0%E5%8A%A9%E7%9A%84%E6%88%90%E5%9B%A0"><span class="nav-text">4. 习得性无助的成因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E6%97%A0%E5%8A%A9%E6%84%9F%E4%BA%A7%E7%94%9F%E8%BF%87%E7%A8%8B"><span class="nav-text">5. 无助感产生过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E8%A7%A3%E5%86%B3%E4%B9%A0%E5%BE%97%E6%80%A7%E6%97%A0%E5%8A%A9"><span class="nav-text">6. 解决习得性无助</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E5%B1%95%E6%9C%9B"><span class="nav-text">7. 展望</span></a></li></ol>
 
     </div>
 </div>
